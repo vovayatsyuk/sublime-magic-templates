@@ -2,6 +2,48 @@ import re
 import os
 import json
 
+class MagentoVersion:
+    def __init__(self, path):
+
+    def isM1(self):
+        return isM2() not True
+
+    def isM2(self):
+        # 1. Check by a composer.json file in module root
+        #   If composer.json is missing - M1
+        #   If found - detect by type
+        #       If type is metapackage - see the require section
+        #       If still not sure - give up
+        # 2. Check by a composer.json file in Magento root
+        #   If can't fine magento root - give up
+        return True
+
+class MagentoModule:
+    def getPath(self):
+        return 'module path'
+
+    def getComposerJson(self, key)
+        return 'parsed composer.json or some value if key is recieved'
+
+class PhpFile:
+    def __init__(self, path):
+
+    def getNamespace(self):
+        return ''
+
+    def getClassName(self):
+        return ''
+
+    def getTemplate(self):
+        return 'path to template file'
+
+    def debug(self, text):
+        print('[MagentoSublime] ' + text)
+
+class Template:
+    def render(self, filePath, variables):
+        return 'content of the file'.format(**variables)
+
 class ClassNameDetector(object):
     def __init__(self, path):
         path = os.path.splitext(path)[0] # remove file extension
