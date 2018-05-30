@@ -1,3 +1,4 @@
+import sublime
 import re
 import os
 import json
@@ -42,9 +43,26 @@ class PhpFile:
     def debug(self, text):
         print('[MagentoSublime] ' + text)
 
+class File:
+    def __init__(self, path):
+        self.path = path;
+
+    def getTemplate(self):
+        return Template('composer')
+
 class Template:
-    def render(self, filePath, variables):
-        return 'content of the file'.format(**variables)
+    def __init__(self, path):
+        path = 'Packages/magento-sublime/templates/m2/' + path + '.txt'
+        self.template = sublime.load_resource(path)
+
+    def render(self):
+        self.variables = {
+            'vendor': "hello",
+            'module': "world",
+            'Vendor': "Hello",
+            'Module': "World"
+        }
+        return self.template.format(**self.variables)
 
 class ClassNameDetector(object):
     def __init__(self, path):

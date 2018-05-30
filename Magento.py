@@ -25,6 +25,13 @@ class InsertIfIpCommand(sublime_plugin.TextCommand):
             else:
                 self.view.run_command('insert_snippet', {'contents': template % (ip)})
 
+class GenerateContentCommand(sublime_plugin.TextCommand):
+    def run(self, edit):
+        template = File(self.view.file_name()).getTemplate()
+        self.view.run_command('insert_snippet', {
+            'contents': template.render()
+        })
+
 class GenerateClassCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         namespaceDetector = NamespaceDetector(self.view.file_name())

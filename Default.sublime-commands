@@ -1,5 +1,9 @@
 [
     {
+        "caption": "Magento: Generate content",
+        "command": "generate_content"
+    },
+    {
         "caption": "Magento: Generate class",
         "command": "generate_class"
     },
