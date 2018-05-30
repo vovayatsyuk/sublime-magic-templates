@@ -4,9 +4,10 @@ import json
 
 class MagentoVersion:
     def __init__(self, path):
+        return
 
     def isM1(self):
-        return isM2() not True
+        return not isM2()
 
     def isM2(self):
         # 1. Check by a composer.json file in module root
@@ -22,11 +23,12 @@ class MagentoModule:
     def getPath(self):
         return 'module path'
 
-    def getComposerJson(self, key)
+    def getComposerJson(self, key):
         return 'parsed composer.json or some value if key is recieved'
 
 class PhpFile:
     def __init__(self, path):
+        return
 
     def getNamespace(self):
         return ''
