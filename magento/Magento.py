@@ -51,18 +51,30 @@ class File:
         return Template('composer')
 
 class Template:
-    def __init__(self, path):
-        path = 'Packages/magento-sublime/templates/m2/' + path + '.txt'
-        self.template = sublime.load_resource(path)
+    def __init__(self, filePath):
+        self.filePath = filePath
+        self.vars = TemplateVariables(filePath)
 
     def render(self):
-        self.variables = {
-            'vendor': "hello",
-            'module': "world",
-            'Vendor': "Hello",
-            'Module': "World"
+        template = sublime.load_resource(
+            'Packages/magento-sublime/' + self.__match(self.filePath)
+        )
+        return template.format(**self.vars.extract(template))
+
+    def __match(self, filePath):
+        return 'templates/m2/composer.txt'
+
+class TemplateVariables:
+    def __init__(self, filePath):
+        self.filePath = filePath
+
+    def extract(self, template):
+        return {
+            'package': 'hello/world',       # name from composer.json or folder names joined with '/'
+            'vendor': 'hello',              # --//--
+            'module': 'world',              # --//--
+            'psr-4': r'Hello\\\\World\\\\'  # psr-4 from composer.json or folder names in CamelCase joined with '\\'
         }
-        return self.template.format(**self.variables)
 
 class ClassNameDetector(object):
     def __init__(self, path):

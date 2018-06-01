@@ -11,7 +11,7 @@
             "registration.php"
         ],
         "psr-4": {{
-            "{Vendor}\\\\{Module}\\\\": ""
+            "{psr-4}": ""
         }}
     }}
 }}

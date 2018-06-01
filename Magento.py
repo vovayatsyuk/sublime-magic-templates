@@ -27,9 +27,8 @@ class InsertIfIpCommand(sublime_plugin.TextCommand):
 
 class GenerateContentCommand(sublime_plugin.TextCommand):
     def run(self, edit):
-        template = File(self.view.file_name()).getTemplate()
         self.view.run_command('insert_snippet', {
-            'contents': template.render()
+            'contents': Template(self.view.file_name()).render()
         })
 
 class GenerateClassCommand(sublime_plugin.TextCommand):
