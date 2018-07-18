@@ -103,8 +103,8 @@ Mage::log(${__METHOD__}, null, 'custom.log', true);
     > plugin.
 
  2. Run “Package Control: Add Repository” command and add
-    `https://github.com/vovayatsyuk/magento-sublime.git` link.
+    `https://github.com/vovayatsyuk/sublime-magento.git` link.
  3. Run “Package Control: Install Package” command, find and install
-    magento-sublime plugin.
+    sublime-magento plugin.
 
 [IpAddress]: (https://github.com/vovayatsyuk/sublime-ip-address)
