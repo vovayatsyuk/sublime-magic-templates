@@ -1,9 +1,10 @@
 import sublime
 import sublime_plugin
 
-from .magento.Magento import *
-from .magento.classname import *
-from .magento.namespace import *
+from .magento.Magento   import *
+from .magento.classname import getClassName
+from .magento.namespace import getNamespace
+from .magento.template  import Template
 from IpAddress.ipaddress.IpAddress import IpAddress as IpAddress
 
 class InsertIfIpCommand(sublime_plugin.TextCommand):
