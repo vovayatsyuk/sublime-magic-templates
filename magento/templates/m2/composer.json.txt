@@ -11,7 +11,7 @@
             "registration.php"
         ],
         "psr-4": {{
-            "{psr-4}": ""
+            "{psr4}": ""
         }}
     }}
 }}

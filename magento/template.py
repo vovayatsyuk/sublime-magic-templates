@@ -2,6 +2,7 @@ import sublime
 import re
 
 from string import Formatter
+from .variables import Variables
 
 class Template:
     def __init__(self, filePath):
@@ -16,8 +17,9 @@ class Template:
             return '';
 
         content = sublime.load_resource(self.__getBasePath() + template)
+        variables = [keys[1] for keys in Formatter().parse(content) if keys[1] is not None]
 
-        return content.format(**self.__extractVariables(content))
+        return content.format(**Variables(self.filePath).extract(variables))
 
     def __match(self):
         template = None
@@ -43,18 +45,3 @@ class Template:
                 break
 
         return template
-
-    def __extractVariables(self, template):
-        # 1. parse template to get all required variables
-        keys = [keys[1] for keys in Formatter().parse(template) if keys[1] is not None]
-
-        for key in keys:
-            print(key);
-
-        # 2. return these variables
-        return {
-            'package': 'hello/world',           # name from composer.json or folder names joined with '/'
-            'vendor' : 'hello',                 # --//--
-            'project': 'world',                 # --//--
-            'psr-4'  : r'Hello\\\\World\\\\'    # psr-4 from composer.json or folder names in CamelCase joined with '\\'
-        }
