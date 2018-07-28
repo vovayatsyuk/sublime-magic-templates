@@ -6,19 +6,19 @@ from .namespace import getNamespace
 from .classname import getClassName
 from .composer import Composer
 
-class Variables:
+class Placeholders:
     def __init__(self, filePath):
         self.filePath = filePath
         self.composer = Composer(filePath)
 
-    def extract(self, variables):
+    def extract(self, names):
         result = {};
-        for var in variables:
-            params = var.split('|')
+        for name in names:
+            params = name.split('|')
             method = params.pop(0)
-            result[var] = getattr(self, 'get_' + method)()
+            result[name] = getattr(self, 'get_' + method)()
             for string_filter in params:
-                result[var] = globals()[string_filter](result[var])
+                result[name] = globals()[string_filter](result[name])
         return result
 
     def get_package(self):

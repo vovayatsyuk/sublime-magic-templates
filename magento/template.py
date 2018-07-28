@@ -2,7 +2,7 @@ import sublime
 import re
 
 from string import Formatter
-from .variables import Variables
+from .placeholders import Placeholders
 
 class Template:
     def __init__(self, filePath):
@@ -17,9 +17,9 @@ class Template:
             return '';
 
         content = sublime.load_resource(self.__getBasePath() + template)
-        variables = [keys[1] for keys in Formatter().parse(content) if keys[1] is not None]
+        placeholders = [keys[1] for keys in Formatter().parse(content) if keys[1] is not None]
 
-        return content.format(**Variables(self.filePath).extract(variables))
+        return content.format(**Placeholders(self.filePath).extract(placeholders))
 
     def __match(self):
         if self.filePath is None:
