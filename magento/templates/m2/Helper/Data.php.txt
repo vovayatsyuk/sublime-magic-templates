@@ -1,0 +1,20 @@
+<?php
+
+namespace {namespace};
+
+use Magento\Framework\App\Helper\Context;
+use Magento\Framework\App\Helper\AbstractHelper;
+
+class {classname} extends AbstractHelper
+{{
+    /**
+     * Constructor
+     *
+     * @param Context \$context
+     */
+    public function __construct(
+        Context \$context
+    ) {{
+        parent::__construct(\$context);
+    }}
+}}

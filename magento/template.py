@@ -34,6 +34,7 @@ class Template:
             # ('Model/ResourceModel/*/Collection.php', 'Model/Source/Options.php'),
             # ('Model/ResourceModel/.*\.php', 'Model/ResourceModel/Entity.php'),
             # ('Model/.*\.php', 'Model/Entity.php'),
+            ('Helper/.*\.php', 'Helper/Data.php.txt'),
             ('.*\.php', 'default.php.txt')
         ]
 
