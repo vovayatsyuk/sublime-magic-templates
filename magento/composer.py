@@ -31,13 +31,13 @@ class Composer:
         else:
             # @todo: build virtual data based on file path
             contents = r"""{
-                "name": "hello/world",
+                "name": "hello/wor-ld",
                 "description": "N/A",
                 "type": "magento2-module",
                 "version": "1.0.0",
                 "autoload": {
                     "psr-4": {
-                        "Hello\\World\\": ""
+                        "Hello\\WorLd\\": ""
                     }
                 }
             }"""
@@ -54,7 +54,6 @@ class Composer:
 
     def get_psr4(self):
         return self.get_data('autoload.psr-4')
-        # return r'Hello\\\\World\\\\' # psr-4 from composer.json or folder names in CamelCase joined with '\\'
 
     def get_data(self, key = ''):
         if self.data is None:

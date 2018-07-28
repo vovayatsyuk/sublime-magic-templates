@@ -30,9 +30,6 @@ class Variables:
     def get_project(self):
         return self.composer.get_project()
 
-    def get_psr4(self):
-        return list(self.composer.get_psr4().keys())[0]
-
     def get_namespace(self):
         return getNamespace(self.filePath)
 
