@@ -35,7 +35,8 @@ class Template:
             # 'Model/ResourceModel/*/Grid/Collection.php': 'Model/Source/Options.php',
             # 'Model/ResourceModel/*/Collection.php': 'Model/Source/Options.php',
             # 'Model/ResourceModel/.*\.php': 'Model/ResourceModel/Entity.php',
-            # 'Model/.*\.php': 'Model/Entity.php'
+            # 'Model/.*\.php': 'Model/Entity.php',
+            '.*\.php': 'default.php.txt'
         }
 
         for pattern in rules:
