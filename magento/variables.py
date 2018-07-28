@@ -1,6 +1,7 @@
 import sublime
 import re
 
+from .filters import *
 from .namespace import getNamespace
 from .classname import getClassName
 from .composer import Composer
@@ -13,7 +14,11 @@ class Variables:
     def extract(self, variables):
         result = {};
         for var in variables:
-            result[var] = getattr(self, 'get_' + var)()
+            params = var.split('|')
+            method = params.pop(0)
+            result[var] = getattr(self, 'get_' + method)()
+            for string_filter in params:
+                result[var] = globals()[string_filter](result[var])
         return result
 
     def get_package(self):
@@ -26,7 +31,7 @@ class Variables:
         return self.composer.get_project()
 
     def get_psr4(self):
-        return list(self.composer.get_psr4().keys())[0].replace('\\', '\\\\')
+        return list(self.composer.get_psr4().keys())[0]
 
     def get_namespace(self):
         return getNamespace(self.filePath)
