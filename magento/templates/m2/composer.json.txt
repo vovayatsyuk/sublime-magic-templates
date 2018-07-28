@@ -1,6 +1,6 @@
 {{
     "name": "{vendor}/{project}",
-    "description": "N/A",
+    "description": "${{1:N/A}}",
     "type": "magento2-module",
     "version": "1.0.0",
     "license": [
