@@ -1,5 +1,4 @@
-import sublime
-import re
+import os
 import json
 
 class Composer:
@@ -8,11 +7,26 @@ class Composer:
         self.data = None
 
     def get_file(self):
+        """
+        Locate composer.json file by the following rules:
+        1. If 'vendor/' in filePath, return filepath/to/vendor/xxx/xxx/composer.json
+        2. If not, search for composer.json file in each of the folders beginning
+            from the deepest path.
+        """
+        vendorDir = '/vendor/'
+        if vendorDir in self.filePath:
+            root, modulePath = self.filePath.split(vendorDir)
+            vendor, module, rest = modulePath.split(os.sep, 2)
+            composer = os.sep.join([root, 'vendor', vendor, module, 'composer.json'])
+            if os.path.isfile(composer):
+                return composer
+
         return None
 
     def load(self):
-        if self.get_file() is not None:
-            with open(self.get_file()) as file:
+        composer = self.get_file()
+        if composer is not None:
+            with open(composer) as file:
                 contents = file.read()
         else:
             # @todo: build virtual data based on file path
@@ -27,7 +41,7 @@ class Composer:
                     }
                 }
             }"""
-        self.data = json.loads(contents.replace("\\", "\\\\"))
+        self.data = json.loads(contents)
 
     def get_name(self):
         return self.get_data('name')

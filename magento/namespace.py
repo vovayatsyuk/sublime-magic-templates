@@ -1,6 +1,8 @@
 import os
 import json
 
+from .composer import Composer
+
 def getNamespace(filePath):
     pathParts = []
     vendorDirectory = 'vendor' + os.sep
@@ -12,14 +14,10 @@ def getNamespace(filePath):
     del pathParts[:2] # remove vendor and module folders
     del pathParts[-1] # remove file name
 
-    # get psr-4 settings
-    modulePath = filePath.split(os.sep.join(pathParts))[0]
-    with open(modulePath + 'composer.json') as composer:
-        data = json.load(composer)
-
     currentPath = os.sep.join(pathParts)
-    for key in data['autoload']['psr-4']:
-        subfolder = data['autoload']['psr-4'][key].strip('/')
+    psr4 = Composer(filePath).get_psr4()
+    for key in psr4:
+        subfolder = psr4[key].strip('/')
 
         if subfolder:
             if currentPath.startswith(subfolder):

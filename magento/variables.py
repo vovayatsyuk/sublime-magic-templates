@@ -26,7 +26,7 @@ class Variables:
         return self.composer.get_project()
 
     def get_psr4(self):
-        return list(self.composer.get_psr4().keys())[0]
+        return list(self.composer.get_psr4().keys())[0].replace('\\', '\\\\')
 
     def get_namespace(self):
         return getNamespace(self.filePath)
