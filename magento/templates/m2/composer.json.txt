@@ -11,7 +11,7 @@
             "registration.php"
         ],
         "psr-4": {{
-            "{psr4|escape_backslash|escape_backslash}": "$2"
+            "{vendor|capitalize}\\\\{project|capitalize}\\\\": "$2"
         }}
     }}
 }}
