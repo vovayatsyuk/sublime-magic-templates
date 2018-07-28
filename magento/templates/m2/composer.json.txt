@@ -11,7 +11,7 @@
             "registration.php"
         ],
         "psr-4": {{
-            "{vendor|capitalize}\\\\{project|capitalize}\\\\": "$2"
+            "{vendor|camelcase}\\\\{project|camelcase}\\\\": "$2"
         }}
     }}
 }}

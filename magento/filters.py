@@ -10,4 +10,5 @@ def upper(string):
 def escape_backslash(string):
     return string.replace('\\', '\\\\')
 
-#todo: add camelcase and use it in composer.json.txt for psr-4
+def camelcase(string):
+    return string.title().replace(' ', '').replace('-', '')
