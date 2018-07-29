@@ -8,18 +8,30 @@ class Composer:
 
     def get_file(self):
         """
-        Locate composer.json file by the following rules:
-        1. If 'vendor/' in filePath, return filepath/to/vendor/xxx/xxx/composer.json
-        2. If not, search for composer.json file in each of the folders beginning
+        Try to locate composer,json file.
+        1. If '/vendor/' in filePath, return filepath/to/vendor/xxx/xxx/composer.json
+        2. Search for composer.json file in each of the folders beginning
             from the deepest path.
         """
+
         vendorDir = '/vendor/'
         if vendorDir in self.filePath:
             root, modulePath = self.filePath.split(vendorDir)
             vendor, module, rest = modulePath.split(os.sep, 2)
             composer = os.sep.join([root, 'vendor', vendor, module, 'composer.json'])
-            if os.path.isfile(composer):
+            if os.path.isfile(composer) and os.path.getsize(composer) > 0:
                 return composer
+        else:
+            folders = self.filePath.split(os.sep)
+            folders.pop() # remove filename
+            folders.append('composer.json')
+            while len(folders) > 1:
+                composer = os.sep.join(folders)
+                print(composer)
+                if os.path.isfile(composer) and os.path.getsize(composer) > 0:
+                    return composer
+                else:
+                    del folders[len(folders) - 2] # remove last folder
 
         return None
 
