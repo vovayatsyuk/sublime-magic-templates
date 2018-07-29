@@ -1,10 +1,14 @@
 import os
 import json
 
+from .filters import *
+
 class Composer:
     def __init__(self, filePath):
         self.filePath = filePath
         self.data = None
+        self.vendor = 'Unknown'
+        self.module = 'Unknown'
 
     def get_file(self):
         """
@@ -17,8 +21,8 @@ class Composer:
         vendorDir = '/vendor/'
         if vendorDir in self.filePath:
             root, modulePath = self.filePath.split(vendorDir)
-            vendor, module, rest = modulePath.split(os.sep, 2)
-            composer = os.sep.join([root, 'vendor', vendor, module, 'composer.json'])
+            self.vendor, self.module, rest = modulePath.split(os.sep, 2)
+            composer = os.sep.join([root, 'vendor', self.vendor, self.module, 'composer.json'])
             if os.path.isfile(composer) and os.path.getsize(composer) > 0:
                 return composer
         else:
@@ -39,21 +43,17 @@ class Composer:
         composer = self.get_file()
         if composer is not None:
             with open(composer) as file:
-                contents = file.read()
+                self.data = json.loads(file.read())
         else:
-            # @todo: build virtual data based on file path
-            contents = r"""{
-                "name": "hello/wor-ld",
-                "description": "N/A",
-                "type": "magento2-module",
-                "version": "1.0.0",
-                "autoload": {
-                    "psr-4": {
-                        "Hello\\WorLd\\": ""
+            self.data = {
+                'name': self.vendor + '/' + self.module,
+                'type': 'magento2-module',
+                'autoload': {
+                    'psr-4': {
+                        camelcase(self.vendor) + '\\' + camelcase(self.module): ''
                     }
                 }
-            }"""
-        self.data = json.loads(contents)
+            }
 
     def get_name(self):
         return self.get_data('name')
