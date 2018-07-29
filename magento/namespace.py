@@ -15,7 +15,11 @@ def getNamespace(filePath):
     del relativePath[-1] # remove file name
     relativePath = os.sep.join(relativePath)
     namespace = relativePath
+
     psr4 = composer.get_psr4()
+    if psr4 is None:
+        return namespace.replace(os.sep, '\\')
+
     for key in psr4:
         subfolder = psr4[key].strip('/')
         if subfolder:

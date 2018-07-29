@@ -64,6 +64,9 @@ class Composer:
     def get_project(self):
         return self.get_name().split('/')[1]
 
+    def get_type(self):
+        return self.get_data('type')
+
     def get_psr4(self):
         return self.get_data('autoload.psr-4')
 
