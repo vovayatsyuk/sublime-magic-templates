@@ -55,3 +55,10 @@ class InsertNamespaceCommand(sublime_plugin.TextCommand):
         self.view.run_command('insert_snippet', {
             'contents': "${1:%s}" % getNamespace(self.view.file_name())
         })
+
+class GenerateContentOnFileCreation(sublime_plugin.EventListener):
+    def on_load(self, view):
+        if view.file_name() is not None and view.size() == 0:
+            view.run_command('insert_snippet', {
+                'contents': Template(view.file_name()).render()
+            })
