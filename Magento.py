@@ -3,10 +3,14 @@ import sublime_plugin
 
 from .magento.phpfile import Phpfile
 from .magento.template import Template
-from IpAddress.ipaddress.IpAddress import IpAddress as IpAddress
 
 class InsertIfIpCommand(sublime_plugin.TextCommand):
     def run(self, edit):
+        try:
+            from IpAddress.ipaddress.IpAddress import IpAddress as IpAddress
+        except ImportError:
+            return sublime.error_message("Please install IpAddress plugin.")
+
         ip = IpAddress.instance().get()
 
         # assume it's a Magento 2 if namespace is found
