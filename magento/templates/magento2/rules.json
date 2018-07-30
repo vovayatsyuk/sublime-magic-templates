@@ -1,0 +1,12 @@
+{
+    "composer\\.json": "composer.json.txt",
+    "Model/.*Repository\\.php": "Model/EntityRepository.php",
+    "Model/.*/Source/.*": "Model/Config/Source.php",
+    "Model/.*/DataProvider\\.php": "Model/Source/Options.php",
+    "Model/ResourceModel/*/Grid/Collection.php": "Model/Source/Options.php",
+    "Model/ResourceModel/*/Collection.php": "Model/Source/Options.php",
+    "Model/ResourceModel/.*\\.php": "Model/ResourceModel/Entity.php",
+    "Model/.*\\.php": "Model/Entity.php",
+    "Helper/.*\\.php": "Helper/Data.php.txt",
+    ".*\\.php": "default.php.txt"
+}
