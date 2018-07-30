@@ -4,8 +4,8 @@ import json
 from .filters import *
 
 class Composer:
-    def __init__(self, filePath):
-        self.filePath = filePath
+    def __init__(self, file_path):
+        self.file_path = file_path
         self.data = None
         self.vendor = 'Unknown'
         self.module = 'Unknown'
@@ -13,20 +13,20 @@ class Composer:
     def get_file(self):
         """
         Try to locate composer,json file.
-        1. If '/vendor/' in filePath, return filepath/to/vendor/xxx/xxx/composer.json
+        1. If '/vendor/' in file_path, return path/to/vendor/xxx/xxx/composer.json
         2. Search for composer.json file in each of the folders beginning
             from the deepest path.
         """
 
-        vendorDir = '/vendor/'
-        if vendorDir in self.filePath:
-            root, modulePath = self.filePath.split(vendorDir)
-            self.vendor, self.module, rest = modulePath.split(os.sep, 2)
+        vendor_dir = '/vendor/'
+        if vendor_dir in self.file_path:
+            root, module_path = self.file_path.split(vendor_dir)
+            self.vendor, self.module, rest = module_path.split(os.sep, 2)
             composer = os.sep.join([root, 'vendor', self.vendor, self.module, 'composer.json'])
             if os.path.isfile(composer) and os.path.getsize(composer) > 0:
                 return composer
         else:
-            folders = self.filePath.split(os.sep)
+            folders = self.file_path.split(os.sep)
             folders.pop() # remove filename
             folders.append('composer.json')
             while len(folders) > 1:

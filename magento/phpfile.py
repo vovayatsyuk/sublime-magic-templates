@@ -16,33 +16,33 @@ class Phpfile:
     def get_classname(self):
         path = os.path.splitext(self.file_path)[0] # remove file extension
 
-        pathParts = []
-        codePoolDirectory = 'app' + os.sep + 'code' + os.sep
-        moduleType = self.get_composer().get_type()
+        path_parts = []
+        appcode_dir = 'app' + os.sep + 'code' + os.sep
+        module_type = self.get_composer().get_type()
 
         # Magento 2
-        if moduleType is not None and 'magento2' in moduleType:
-            pathParts.append(path.split(os.sep)[-1])
-        elif codePoolDirectory in self.file_path:
-            pathParts = path.split(codePoolDirectory)[1].split(os.sep)
-            pathParts.pop(0) # unset namespace part: local|core|community
-            if 'controllers' in pathParts:
-                pathParts.remove('controllers')
+        if module_type is not None and 'magento2' in module_type:
+            path_parts.append(path.split(os.sep)[-1])
+        elif appcode_dir in self.file_path:
+            path_parts = path.split(appcode_dir)[1].split(os.sep)
+            path_parts.pop(0) # unset namespace part: local|core|community
+            if 'controllers' in path_parts:
+                path_parts.remove('controllers')
 
-        return '_'.join(pathParts)
+        return '_'.join(path_parts)
 
     def get_namespace(self):
         composer = self.get_composer()
-        composerPath = composer.get_file()
-        if composerPath is None:
+        composer_path = composer.get_file()
+        if composer_path is None:
             print('composer.json not found')
             return
 
-        modulePath = composerPath.replace('composer.json', '')
-        relativePath = self.file_path.replace(modulePath, '').split(os.sep)
-        del relativePath[-1] # remove file name
-        relativePath = os.sep.join(relativePath)
-        namespace = relativePath
+        module_path = composer_path.replace('composer.json', '')
+        relative_path = self.file_path.replace(module_path, '').split(os.sep)
+        del relative_path[-1] # remove file name
+        relative_path = os.sep.join(relative_path)
+        namespace = relative_path
 
         psr4 = composer.get_psr4()
         if psr4 is None:
@@ -51,8 +51,8 @@ class Phpfile:
         for key in psr4:
             subfolder = psr4[key].strip('/')
             if subfolder:
-                if relativePath.startswith(subfolder):
-                    namespace = relativePath[len(subfolder):].lstrip(os.sep)
+                if relative_path.startswith(subfolder):
+                    namespace = relative_path[len(subfolder):].lstrip(os.sep)
                 else:
                     continue
 

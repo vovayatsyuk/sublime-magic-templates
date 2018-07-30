@@ -5,24 +5,24 @@ from string import Formatter
 from .placeholders import Placeholders
 
 class Template:
-    def __init__(self, filePath):
-        self.filePath = filePath
+    def __init__(self, file_path):
+        self.file_path = file_path
 
-    def __getBasePath(self):
+    def _get_base_path(self):
         return 'Packages/sublime-magento/magento/templates/m2/'
 
     def render(self):
-        template = self.__match()
+        template = self._match()
         if template is None:
             return '';
 
-        content = sublime.load_resource(self.__getBasePath() + template)
+        content = sublime.load_resource(self._get_base_path() + template)
         placeholders = [keys[1] for keys in Formatter().parse(content) if keys[1] is not None]
 
-        return content.format(**Placeholders(self.filePath).extract(placeholders))
+        return content.format(**Placeholders(self.file_path).extract(placeholders))
 
-    def __match(self):
-        if self.filePath is None:
+    def _match(self):
+        if self.file_path is None:
             return None
 
         rules = [
@@ -40,7 +40,7 @@ class Template:
 
         for pattern, path in rules:
             r = re.compile(pattern)
-            if r.search(self.filePath) is not None:
+            if r.search(self.file_path) is not None:
                 return path
 
         return None
