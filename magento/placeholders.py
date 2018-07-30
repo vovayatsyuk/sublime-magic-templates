@@ -2,14 +2,14 @@ import sublime
 import re
 
 from .filters import *
-from .namespace import getNamespace
-from .classname import getClassName
+from .phpfile import Phpfile
 from .composer import Composer
 
 class Placeholders:
-    def __init__(self, filePath):
-        self.filePath = filePath
-        self.composer = Composer(filePath)
+    def __init__(self, file_path):
+        self.file_path = file_path
+        self.composer = Composer(file_path)
+        self.phpfile = Phpfile(file_path)
 
     def extract(self, names):
         result = {};
@@ -31,7 +31,7 @@ class Placeholders:
         return self.composer.get_project()
 
     def get_namespace(self):
-        return getNamespace(self.filePath)
+        return self.phpfile.get_namespace()
 
     def get_classname(self):
-        return getClassName(self.filePath)
+        return self.phpfile.get_classname()
