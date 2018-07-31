@@ -14,4 +14,6 @@ class Env:
         for key in stopwords:
             if key in app:
                 return stopwords[key]
+
+        # @todo: fallback to default value from config
         return None
