@@ -5,13 +5,13 @@ import os
 
 from string import Formatter
 from collections import OrderedDict
-from .app import App
+from .env import Env
 from .placeholders import Placeholders
 
 class Template:
     def __init__(self, file_path):
         self.file_path = file_path
-        self.app = App(file_path)
+        self.env = Env(file_path)
 
     def render(self):
         template = self._match()
@@ -20,7 +20,7 @@ class Template:
 
         content = sublime.load_resource(os.sep.join([
             'Packages/sublime-magento/magento/templates',
-            self.app.get_type(),
+            self.env.get_app(),
             template
         ]))
         placeholders = [keys[1] for keys in Formatter().parse(content) if keys[1] is not None]
@@ -33,7 +33,7 @@ class Template:
 
         content = sublime.load_resource(os.sep.join([
             'Packages/sublime-magento/magento/templates',
-            self.app.get_type(),
+            self.env.get_app(),
             'rules.json'
         ]))
         rules = json.loads(content, object_pairs_hook = OrderedDict)
