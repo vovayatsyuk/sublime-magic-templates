@@ -1,0 +1,3 @@
+if (Mage::helper('core/http')->getRemoteAddr() === '{ipaddress}') {{
+    ${{0:$TM_SELECTED_TEXT}}
+}}

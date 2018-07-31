@@ -1,0 +1,6 @@
+\$ip = \Magento\Framework\App\ObjectManager::getInstance()
+    ->get('\Magento\Framework\HTTP\PhpEnvironment\RemoteAddress')
+    ->getRemoteAddress();
+if (\$ip === '{ipaddress}') {{
+    ${{0:$TM_SELECTED_TEXT}}
+}}

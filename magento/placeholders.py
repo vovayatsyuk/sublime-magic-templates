@@ -35,3 +35,11 @@ class Placeholders:
 
     def get_classname(self):
         return self.phpfile.get_classname()
+
+    def get_ipaddress(self):
+        try:
+            from IpAddress.ipaddress.IpAddress import IpAddress as IpAddress
+        except ImportError:
+            return sublime.error_message("Please install IpAddress plugin.")
+
+        return IpAddress.instance().get()
