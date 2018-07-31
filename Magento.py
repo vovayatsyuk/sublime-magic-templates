@@ -38,25 +38,20 @@ class GenerateContentCommand(sublime_plugin.TextCommand):
 
 class GenerateClassCommand(sublime_plugin.TextCommand):
     def run(self, edit):
-        template = "namespace %s;\n\nclass %s extends $1\n{\n    $2\n}"
-        phpfile = Phpfile(self.view.file_name())
         self.view.run_command('insert_snippet', {
-            'contents': template % (
-                phpfile.get_namespace(),
-                phpfile.get_classname()
-            )
+            'contents': Template(self.view.file_name()).render('php/class')
         })
 
 class InsertClassNameCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         self.view.run_command('insert_snippet', {
-            'contents': "${1:%s}" % Phpfile(self.view.file_name()).get_classname()
+            'contents': Template(self.view.file_name()).render('php/classname')
         })
 
 class InsertNamespaceCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         self.view.run_command('insert_snippet', {
-            'contents': "${1:%s}" % Phpfile(self.view.file_name()).get_namespace()
+            'contents': Template(self.view.file_name()).render('php/namespace')
         })
 
 class GenerateContentOnFileCreation(sublime_plugin.EventListener):

@@ -18,6 +18,9 @@ class Template:
         if template_path is None:
             template_path = self.guess_template_path()
 
+        if '.txt' not in template_path:
+            template_path = template_path + '.txt'
+
         content = sublime.load_resource(os.sep.join([self.base_dir, template_path]))
         placeholders = [keys[1] for keys in Formatter().parse(content) if keys[1] is not None]
 
