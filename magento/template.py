@@ -14,14 +14,17 @@ class Template:
         self.file_path = file_path
         self.env = Env(file_path)
 
-    def render(self, template_path=None):
+    def render(self, template_path=None, base_dir=None):
         if template_path is None:
             template_path = self.guess_template_path()
+            base_dir = self.base_dir
+        elif base_dir is None:
+            base_dir = self.base_dir
 
         if '.txt' not in template_path:
             template_path = template_path + '.txt'
 
-        content = sublime.load_resource(os.sep.join([self.base_dir, template_path]))
+        content = sublime.load_resource(os.sep.join([base_dir, template_path]))
         placeholders = [keys[1] for keys in Formatter().parse(content) if keys[1] is not None]
 
         return content.format(**Placeholders(self.file_path).extract(placeholders))
