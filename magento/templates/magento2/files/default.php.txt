@@ -4,5 +4,5 @@ namespace {namespace};
 
 class {classname}
 {{
-    $1
+    $0
 }}
