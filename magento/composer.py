@@ -1,5 +1,6 @@
 import os
 import json
+import sublime
 
 from .filters import *
 
@@ -26,12 +27,13 @@ class Composer:
             if os.path.isfile(composer) and os.path.getsize(composer) > 0:
                 return composer
         else:
+            root = sublime.active_window().extract_variables().get('folder')
+            min_depth = root.count('/') + 1
             folders = self.file_path.split(os.sep)
             folders.pop() # remove filename
             folders.append('composer.json')
-            while len(folders) > 1:
+            while len(folders) > min_depth:
                 composer = os.sep.join(folders)
-                print(composer)
                 if os.path.isfile(composer) and os.path.getsize(composer) > 0:
                     return composer
                 else:
