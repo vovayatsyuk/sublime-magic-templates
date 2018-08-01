@@ -1,7 +1,7 @@
 import sublime
 import sublime_plugin
 
-from .magento.template import Template
+from .mt.template import Template
 
 class GenerateContentCommand(sublime_plugin.TextCommand):
     def run(self, edit):

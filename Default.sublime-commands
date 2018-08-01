@@ -1,22 +1,22 @@
 [
     {
-        "caption": "Magento: Generate content",
+        "caption": "MagicTemplates: Generate content",
         "command": "generate_content"
     },
     {
-        "caption": "Magento: Generate class",
+        "caption": "MagicTemplates: Generate class",
         "command": "generate_class"
     },
     {
-        "caption": "Magento: Insert class name",
+        "caption": "MagicTemplates: Insert class name",
         "command": "insert_class_name"
     },
     {
-        "caption": "Magento: Insert namespace",
+        "caption": "MagicTemplates: Insert namespace",
         "command": "insert_namespace"
     },
     {
-        "caption": "Magento: Insert if ip",
+        "caption": "MagicTemplates: Insert if ip",
         "command": "insert_if_ip"
     }
 ]

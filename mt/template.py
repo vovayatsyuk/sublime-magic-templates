@@ -10,7 +10,7 @@ from .placeholders import Placeholders
 
 class Template:
     def __init__(self, file_path):
-        self.base_dir = 'Packages/sublime-magento/magento/templates'
+        self.base_dir = 'Packages/sublime-magic-templates/mt/templates'
         self.file_path = file_path
         self.env = Env(file_path)
 
