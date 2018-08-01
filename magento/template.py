@@ -36,7 +36,7 @@ class Template:
 
         path = None
         content = sublime.load_resource(os.sep.join([self.base_dir, app, 'rules.json']))
-        rules = json.loads(content, object_pairs_hook = OrderedDict)
+        rules = json.loads(content, object_pairs_hook=OrderedDict)
 
         for pattern in rules:
             r = re.compile(pattern)
