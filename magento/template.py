@@ -44,7 +44,4 @@ class Template:
                 path = rules[pattern]
                 break
 
-        if path is not None:
-            path = app + os.sep + path
-
         return path

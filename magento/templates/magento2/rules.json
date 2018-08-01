@@ -1,12 +1,12 @@
 {
-    "composer\\.json": "composer.json.txt",
-    "Model/.*Repository\\.php": "Model/EntityRepository.php",
-    "Model/.*/Source/.*": "Model/Config/Source.php",
-    "Model/.*/DataProvider\\.php": "Model/Source/Options.php",
-    "Model/ResourceModel/*/Grid/Collection.php": "Model/Source/Options.php",
-    "Model/ResourceModel/*/Collection.php": "Model/Source/Options.php",
-    "Model/ResourceModel/.*\\.php": "Model/ResourceModel/Entity.php",
-    "Model/.*\\.php": "Model/Entity.php",
-    "Helper/.*\\.php": "Helper/Data.php.txt",
-    ".*\\.php": "default.php.txt"
+    "composer\\.json"                           : "magento2/files/composer.json.txt",
+    "Model/.*Repository\\.php"                  : "magento2/files/Model/EntityRepository.php.txt",
+    "Model/.*/Source/.*"                        : "magento2/files/Model/Config/Source.php.txt",
+    "Model/.*/DataProvider\\.php"               : "magento2/files/Model/Source/Options.php.txt",
+    "Model/ResourceModel/*/Grid/Collection.php" : "magento2/files/Model/Source/Options.php.txt",
+    "Model/ResourceModel/*/Collection.php"      : "magento2/files/Model/Source/Options.php.txt",
+    "Model/ResourceModel/.*\\.php"              : "magento2/files/Model/ResourceModel/Entity.php.txt",
+    "Model/.*\\.php"                            : "magento2/files/Model/Entity.php.txt",
+    "Helper/.*\\.php"                           : "magento2/files/Helper/Data.php.txt",
+    ".*\\.php"                                  : "magento2/files/default.php.txt"
 }

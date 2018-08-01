@@ -9,7 +9,7 @@ class InsertIfIpCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         app = Env(self.view.file_name()).get_app()
         self.view.run_command('insert_snippet', {
-            'contents': Template(self.view.file_name()).render(app + '/misc/ifip')
+            'contents': Template(self.view.file_name()).render(app + '/snippets/ifip')
         })
 
 class GenerateContentCommand(sublime_plugin.TextCommand):
@@ -21,19 +21,19 @@ class GenerateContentCommand(sublime_plugin.TextCommand):
 class GenerateClassCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         self.view.run_command('insert_snippet', {
-            'contents': Template(self.view.file_name()).render('php/class')
+            'contents': Template(self.view.file_name()).render('php/snippets/class')
         })
 
 class InsertClassNameCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         self.view.run_command('insert_snippet', {
-            'contents': Template(self.view.file_name()).render('php/classname')
+            'contents': Template(self.view.file_name()).render('php/snippets/classname')
         })
 
 class InsertNamespaceCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         self.view.run_command('insert_snippet', {
-            'contents': Template(self.view.file_name()).render('php/namespace')
+            'contents': Template(self.view.file_name()).render('php/snippets/namespace')
         })
 
 class GenerateContentOnFileCreation(sublime_plugin.EventListener):
