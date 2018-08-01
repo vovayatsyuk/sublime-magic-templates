@@ -1,12 +1,71 @@
 {
-    "composer\\.json"                           : "magento2/files/composer.json.txt",
-    "Model/.*Repository\\.php"                  : "magento2/files/Model/EntityRepository.php.txt",
-    "Model/.*/Source/.*"                        : "magento2/files/Model/Config/Source.php.txt",
-    "Model/.*/DataProvider\\.php"               : "magento2/files/Model/Source/Options.php.txt",
-    "Model/ResourceModel/*/Grid/Collection.php" : "magento2/files/Model/Source/Options.php.txt",
-    "Model/ResourceModel/*/Collection.php"      : "magento2/files/Model/Source/Options.php.txt",
-    "Model/ResourceModel/.*\\.php"              : "magento2/files/Model/ResourceModel/Entity.php.txt",
-    "Model/.*\\.php"                            : "magento2/files/Model/Entity.php.txt",
-    "Helper/.*\\.php"                           : "magento2/files/Helper/Data.php.txt",
-    ".*\\.php"                                  : "magento2/files/default.php.txt"
+    "composer.json": {
+        "name": "composer.json",
+        "path": "magento2/files/composer.json.txt",
+        "pattern": "composer\\.json"
+    },
+    "EntityRepository.php": {
+        "name": "EntityRepository",
+        "path": "magento2/files/Model/EntityRepository.php.txt",
+        "pattern": "Model/.*Repository\\.php"
+    },
+    "ConfigSource.php": {
+        "name": "ConfigSource",
+        "path": "magento2/files/Model/Config/Source.php.txt",
+        "pattern": "Model/.*/Source/.*"
+    },
+    "DataProvider.php": {
+        "name": "DataProvider",
+        "path": "magento2/files/Model/DataProvider.php.txt",
+        "pattern": "Model/.*/DataProvider\\.php"
+    },
+    "GridCollection.php": {
+        "name": "Grid Collection",
+        "path": "magento2/files/Model/ResourceModel/Grid/Collection.php.txt",
+        "pattern": "Model/ResourceModel/.*/Grid/Collection\\.php"
+    },
+    "Collection.php": {
+        "name": "Collection",
+        "path": "magento2/files/Model/Source/Options.php.txt",
+        "pattern": "Model/ResourceModel/.*/Collection\\.php"
+    },
+    "ResourceModel.php": {
+        "name": "ResourceModel",
+        "path": "magento2/files/Model/ResourceModel/Entity.php.txt",
+        "pattern": "Model/ResourceModel/.*\\.php"
+    },
+    "Model.php": {
+        "name": "Model",
+        "path": "magento2/files/Model/Entity.php.txt",
+        "pattern": "Model/.*\\.php"
+    },
+    "Helper.php": {
+        "name": "Helper",
+        "path": "magento2/files/Helper/Data.php.txt",
+        "pattern": "Helper/.*\\.php"
+    },
+    "BasicFile.php": {
+        "name": "Basic PHP File",
+        "path": "magento2/files/default.php.txt",
+        "pattern": ".*\\.php"
+    },
+    "ifip": {
+        "name": "If (IpAddress) Statement",
+        "path": "magento2/snippets/ifip.txt"
+    },
+    "class": {
+        "name": "Class",
+        "path": "php/snippets/class.txt"
+    },
+    "classname": {
+        "name": "Classname",
+        "path": "php/snippets/classname.txt"
+    },
+    "namespace": {
+        "name": "Namespace",
+        "path": "php/snippets/namespace.txt"
+    },
+    "@todo:@extend": {
+        "php/rules.json": "*"
+    }
 }

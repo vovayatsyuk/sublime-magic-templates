@@ -1,15 +1,12 @@
 import sublime
 import sublime_plugin
 
-from .magento.env import Env
-from .magento.phpfile import Phpfile
 from .magento.template import Template
 
 class InsertIfIpCommand(sublime_plugin.TextCommand):
     def run(self, edit):
-        app = Env(self.view.file_name()).get_app()
         self.view.run_command('insert_snippet', {
-            'contents': Template(self.view.file_name()).render(app + '/snippets/ifip')
+            'contents': Template(self.view.file_name()).render_snippet('ifip')
         })
 
 class GenerateContentCommand(sublime_plugin.TextCommand):
@@ -21,19 +18,19 @@ class GenerateContentCommand(sublime_plugin.TextCommand):
 class GenerateClassCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         self.view.run_command('insert_snippet', {
-            'contents': Template(self.view.file_name()).render('php/snippets/class')
+            'contents': Template(self.view.file_name()).render_snippet('class')
         })
 
 class InsertClassNameCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         self.view.run_command('insert_snippet', {
-            'contents': Template(self.view.file_name()).render('php/snippets/classname')
+            'contents': Template(self.view.file_name()).render_snippet('classname')
         })
 
 class InsertNamespaceCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         self.view.run_command('insert_snippet', {
-            'contents': Template(self.view.file_name()).render('php/snippets/namespace')
+            'contents': Template(self.view.file_name()).render_snippet('namespace')
         })
 
 class GenerateContentOnFileCreation(sublime_plugin.EventListener):
