@@ -50,7 +50,7 @@ class Composer:
         else:
             self.data = {
                 'name': self.vendor + '/' + self.module,
-                'type': 'magento2-module',
+                'type': 'magento2-module', # @todo: remove this hardcoded value
                 'autoload': {
                     'psr-4': {
                         camelcase(self.vendor) + '\\' + camelcase(self.module): ''
