@@ -1,0 +1,21 @@
+{
+    "ifip": {
+        "name": "If (IpAddress) Statement",
+        "path": "magento1/snippets/ifip.txt"
+    },
+    "class": {
+        "name": "Class",
+        "path": "php/snippets/class.txt"
+    },
+    "classname": {
+        "name": "Classname",
+        "path": "php/snippets/classname.txt"
+    },
+    "namespace": {
+        "name": "Namespace",
+        "path": "php/snippets/namespace.txt"
+    },
+    "@todo:@extend": {
+        "php/rules.json": "*"
+    }
+}

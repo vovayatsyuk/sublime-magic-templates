@@ -1,0 +1,14 @@
+{
+    "class": {
+        "name": "Class",
+        "path": "php/snippets/class.txt"
+    },
+    "classname": {
+        "name": "Classname",
+        "path": "php/snippets/classname.txt"
+    },
+    "namespace": {
+        "name": "Namespace",
+        "path": "php/snippets/namespace.txt"
+    }
+}
