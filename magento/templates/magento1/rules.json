@@ -1,11 +1,16 @@
 {
+    "BasicFile.php": {
+        "name": "Basic PHP File",
+        "path": "magento1/files/default.php.txt",
+        "pattern": ".*\\.php"
+    },
     "ifip": {
         "name": "If (IpAddress) Statement",
         "path": "magento1/snippets/ifip.txt"
     },
     "class": {
         "name": "Class",
-        "path": "php/snippets/class.txt"
+        "path": "magento1/snippets/class.txt"
     },
     "classname": {
         "name": "Classname",
