@@ -39,6 +39,7 @@ class Composer:
                 else:
                     del folders[len(folders) - 2] # remove last folder
 
+        print('composer.json not found')
         return None
 
     def load(self):

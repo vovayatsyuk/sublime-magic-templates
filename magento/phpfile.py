@@ -35,7 +35,6 @@ class Phpfile:
         composer = self.get_composer()
         composer_path = composer.get_file()
         if composer_path is None:
-            print('composer.json not found')
             return
 
         module_path = composer_path.replace('composer.json', '')
