@@ -15,14 +15,23 @@ class Template:
         self.env = Env(file_path)
 
     def render_snippet(self, alias=None):
+        if self.file_path is None:
+            return ''
+
         return self.render(self.guess_template_path(alias))
 
     def render(self, template_path=None, base_dir=None):
+        if self.file_path is None:
+            return ''
+
         if template_path is None:
             template_path = self.guess_template_path()
             base_dir = self.base_dir
         elif base_dir is None:
             base_dir = self.base_dir
+
+        if template_path is None:
+            return ''
 
         if '.txt' not in template_path:
             template_path = template_path + '.txt'
