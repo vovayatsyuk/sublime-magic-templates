@@ -1,0 +1,21 @@
+<?php
+
+namespace {namespace};
+
+use Magento\Framework\View\Element\Template;
+
+class {classname} extends Template
+{{
+    protected \$_template = '{vendor|camelcase}_{project|camelcase}::${{1:template.phtml}}';
+
+    /**
+     * @param Template\Context \$context
+     * @param array \$data
+     */
+    public function __construct(
+        Template\Context \$context,$2
+        array \$data = []
+    ) {{
+        parent::__construct(\$context, \$data);$3
+    }}$0
+}}

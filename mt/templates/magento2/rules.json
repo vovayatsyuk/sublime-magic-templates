@@ -4,6 +4,21 @@
         "path": "magento2/files/composer.json.txt",
         "pattern": "composer\\.json"
     },
+    "readme.md": {
+        "name": "README.md",
+        "path": "magento2/files/README.md.txt",
+        "pattern": "README\\.md"
+    },
+    "registration.php": {
+        "name": "registration.php",
+        "path": "magento2/files/registration.php.txt",
+        "pattern": "registration\\.php"
+    },
+    "Block.php": {
+        "name": "Block for the Frontend",
+        "path": "magento2/files/Block/Block.php.txt",
+        "pattern": "Block/.*\\.php"
+    },
     "EntityRepository.php": {
         "name": "EntityRepository",
         "path": "magento2/files/Model/EntityRepository.php.txt",
