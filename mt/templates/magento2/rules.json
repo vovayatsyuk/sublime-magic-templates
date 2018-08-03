@@ -1,88 +1,70 @@
 {
     "composer.json": {
-        "name": "composer.json",
         "path": "magento2/files/composer.json.txt",
         "pattern": "composer\\.json"
     },
     "readme.md": {
-        "name": "README.md",
         "path": "magento2/files/README.md.txt",
         "pattern": "README\\.md"
     },
     "registration.php": {
-        "name": "registration.php",
         "path": "magento2/files/registration.php.txt",
         "pattern": "registration\\.php"
     },
     "Block.php": {
-        "name": "Block for the Frontend",
         "path": "magento2/files/Block/Block.php.txt",
         "pattern": "Block/.*\\.php"
     },
     "module.xml": {
-        "name": "module.xml",
         "path": "magento2/files/etc/module.xml.txt",
         "pattern": "module\\.xml"
     },
     "EntityRepository.php": {
-        "name": "EntityRepository",
         "path": "magento2/files/Model/EntityRepository.php.txt",
         "pattern": "Model/.*Repository\\.php"
     },
     "ConfigSource.php": {
-        "name": "ConfigSource",
         "path": "magento2/files/Model/Config/Source.php.txt",
         "pattern": "Model/.*/Source/.*"
     },
     "DataProvider.php": {
-        "name": "DataProvider",
         "path": "magento2/files/Model/DataProvider.php.txt",
         "pattern": "Model/.*/DataProvider\\.php"
     },
     "GridCollection.php": {
-        "name": "Grid Collection",
         "path": "magento2/files/Model/ResourceModel/Grid/Collection.php.txt",
         "pattern": "Model/ResourceModel/.*/Grid/Collection\\.php"
     },
     "Collection.php": {
-        "name": "Collection",
         "path": "magento2/files/Model/Source/Options.php.txt",
         "pattern": "Model/ResourceModel/.*/Collection\\.php"
     },
     "ResourceModel.php": {
-        "name": "ResourceModel",
         "path": "magento2/files/Model/ResourceModel/Entity.php.txt",
         "pattern": "Model/ResourceModel/.*\\.php"
     },
     "Model.php": {
-        "name": "Model",
         "path": "magento2/files/Model/Entity.php.txt",
         "pattern": "Model/.*\\.php"
     },
     "Helper.php": {
-        "name": "Helper",
         "path": "magento2/files/Helper/Data.php.txt",
         "pattern": "Helper/.*\\.php"
     },
     "BasicFile.php": {
-        "name": "Basic PHP File",
         "path": "magento2/files/default.php.txt",
         "pattern": ".*\\.php"
     },
     "ifip": {
-        "name": "If (IpAddress) Statement",
         "path": "magento2/snippets/ifip.txt"
     },
     "class": {
-        "name": "Class",
         "path": "php/snippets/class.txt"
     },
     "classname": {
-        "name": "Classname",
         "path": "php/snippets/classname.txt"
     },
     "namespace": {
-        "name": "Namespace",
         "path": "php/snippets/namespace.txt"
     },
     "@todo:@extend": {
