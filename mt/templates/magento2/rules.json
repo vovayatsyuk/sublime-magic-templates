@@ -20,7 +20,8 @@
         { "pattern": ".*\\.php",            "path": "Model/Entity.php" }
     ],
     "/view/": [
-        { "pattern": "layout/.*\\.xml",    "path": "view/base/layout/layout.xml" }
+        { "pattern": "layout/.*\\.xml", "path": "view/base/layout/layout.xml" },
+        { "pattern": "requirejs-config\\.js", "path": "view/base/requirejs-config.js" }
     ],
     "/": [
         { "pattern": "composer\\.json",    "path": "composer.json" },

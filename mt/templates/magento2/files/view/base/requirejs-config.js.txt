@@ -1,0 +1,7 @@
+var config = {{
+    map: {{
+        '*': {{
+            '{project}': '{vendor|camelcase}_{project|camelcase}/js/{project}'
+        }}
+    }}
+}};
