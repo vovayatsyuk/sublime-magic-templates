@@ -6,7 +6,7 @@ use Magento\Framework\View\Element\Template;
 
 class {classname} extends Template
 {{
-    protected \$_template = '{vendor|camelcase}_{project|camelcase}::${{1:template.phtml}}';
+    protected \$_template = '{vendor|camelcase}_{project|camelcase}::${{1:{classname|lower}}}.phtml';
 
     /**
      * @param Template\Context \$context

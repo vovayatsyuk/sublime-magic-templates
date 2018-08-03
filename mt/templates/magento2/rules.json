@@ -9,8 +9,8 @@
         { "pattern": ".*\\.php", "path": "Helper/Data.php" }
     ],
     "/Model/ResourceModel/": [
-        { "pattern": "/Grid/Collection\\.php", "path": "Model/ResourceModel/Grid/Collection.php" },
-        { "pattern": "/Collection\\.php",      "path": "Model/Source/Options.php" },
+        { "pattern": "/Grid/Collection\\.php", "path": "Model/ResourceModel/Entity/Grid/Collection.php" },
+        { "pattern": "/Collection\\.php",      "path": "Model/ResourceModel/Entity/Collection.php" },
         { "pattern": ".*\\.php",               "path": "Model/ResourceModel/Entity.php" }
     ],
     "/Model/": [

@@ -1,3 +1,5 @@
+import re
+
 def capitalize(string):
     return string.capitalize()
 
@@ -12,3 +14,12 @@ def escape_backslash(string):
 
 def camelcase(string):
     return string.title().replace(' ', '').replace('-', '')
+
+def snakecase(string):
+    return re.sub('([A-Z])', '_\\1', string).lower().replace('-', '_').lstrip('_')
+
+def remove(string, part):
+    return string.replace(part, '')
+
+def replace(string, old, new):
+    return string.replace(old, new)

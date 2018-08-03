@@ -18,7 +18,12 @@ class Placeholders:
             method = params.pop(0)
             result[name] = getattr(self, 'get_' + method)()
             for string_filter in params:
-                result[name] = globals()[string_filter](result[name])
+                args = [result[name]]
+                if ' ' in string_filter:
+                    string_filter, args = string_filter.split(' ', 2)
+                    args = args.split(' ')
+                    args.insert(0, result[name])
+                result[name] = globals()[string_filter](*args)
         return result
 
     def get_package(self):
