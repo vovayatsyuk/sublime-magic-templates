@@ -19,6 +19,9 @@
         { "pattern": "/DataProvider\\.php", "path": "Model/DataProvider.php" },
         { "pattern": ".*\\.php",            "path": "Model/Entity.php" }
     ],
+    "/view/": [
+        { "pattern": "layout/.*\\.xml",    "path": "view/base/layout/layout.xml" }
+    ],
     "/": [
         { "pattern": "composer\\.json",    "path": "composer.json" },
         { "pattern": "README\\.md",        "path": "README.md" },
