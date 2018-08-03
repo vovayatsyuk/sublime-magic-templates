@@ -36,7 +36,13 @@ class Template:
         if '.txt' not in template_path:
             template_path = template_path + '.txt'
 
-        content = sublime.load_resource(os.sep.join([base_dir, template_path]))
+        try:
+            path = os.sep.join([base_dir, template_path])
+            content = sublime.load_resource(path)
+        except OSError:
+            print('Not Found: ' + path)
+            return ''
+
         placeholders = [keys[1] for keys in Formatter().parse(content) if keys[1] is not None]
 
         return content.format(**Placeholders(self.file_path).extract(placeholders))
@@ -46,7 +52,13 @@ class Template:
         if app is None:
             return None
 
-        content = sublime.load_resource(os.sep.join([self.base_dir, app, 'rules.json']))
+        try:
+            path = os.sep.join([self.base_dir, app, 'rules.json'])
+            content = sublime.load_resource(path)
+        except OSError:
+            print('Not Found: ' + path)
+            return None
+
         rules = json.loads(content, object_pairs_hook=OrderedDict)
 
         if alias is not None:
