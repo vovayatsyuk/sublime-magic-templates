@@ -19,6 +19,11 @@
         "path": "magento2/files/Block/Block.php.txt",
         "pattern": "Block/.*\\.php"
     },
+    "module.xml": {
+        "name": "module.xml",
+        "path": "magento2/files/etc/module.xml.txt",
+        "pattern": "module\\.xml"
+    },
     "EntityRepository.php": {
         "name": "EntityRepository",
         "path": "magento2/files/Model/EntityRepository.php.txt",
