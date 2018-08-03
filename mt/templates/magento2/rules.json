@@ -1,71 +1,34 @@
 {
-    "composer.json": {
-        "path": "magento2/files/composer.json.txt",
-        "pattern": "composer\\.json"
-    },
-    "readme.md": {
-        "path": "magento2/files/README.md.txt",
-        "pattern": "README\\.md"
-    },
-    "registration.php": {
-        "path": "magento2/files/registration.php.txt",
-        "pattern": "registration\\.php"
-    },
-    "Block.php": {
-        "path": "magento2/files/Block/Block.php.txt",
-        "pattern": "Block/.*\\.php"
-    },
-    "module.xml": {
-        "path": "magento2/files/etc/module.xml.txt",
-        "pattern": "module\\.xml"
-    },
-    "EntityRepository.php": {
-        "path": "magento2/files/Model/EntityRepository.php.txt",
-        "pattern": "Model/.*Repository\\.php"
-    },
-    "ConfigSource.php": {
-        "path": "magento2/files/Model/Config/Source.php.txt",
-        "pattern": "Model/.*/Source/.*"
-    },
-    "DataProvider.php": {
-        "path": "magento2/files/Model/DataProvider.php.txt",
-        "pattern": "Model/.*/DataProvider\\.php"
-    },
-    "GridCollection.php": {
-        "path": "magento2/files/Model/ResourceModel/Grid/Collection.php.txt",
-        "pattern": "Model/ResourceModel/.*/Grid/Collection\\.php"
-    },
-    "Collection.php": {
-        "path": "magento2/files/Model/Source/Options.php.txt",
-        "pattern": "Model/ResourceModel/.*/Collection\\.php"
-    },
-    "ResourceModel.php": {
-        "path": "magento2/files/Model/ResourceModel/Entity.php.txt",
-        "pattern": "Model/ResourceModel/.*\\.php"
-    },
-    "Model.php": {
-        "path": "magento2/files/Model/Entity.php.txt",
-        "pattern": "Model/.*\\.php"
-    },
-    "Helper.php": {
-        "path": "magento2/files/Helper/Data.php.txt",
-        "pattern": "Helper/.*\\.php"
-    },
-    "BasicFile.php": {
-        "path": "magento2/files/default.php.txt",
-        "pattern": ".*\\.php"
-    },
-    "ifip": {
-        "path": "magento2/snippets/ifip.txt"
-    },
-    "class": {
-        "path": "php/snippets/class.txt"
-    },
-    "classname": {
-        "path": "php/snippets/classname.txt"
-    },
-    "namespace": {
-        "path": "php/snippets/namespace.txt"
+    "/Block/": [
+        { "pattern": ".*\\.php", "path": "Block/Block.php" }
+    ],
+    "/etc/": [
+        { "pattern": "module\\.xml", "path": "etc/module.xml" }
+    ],
+    "/Helper/": [
+        { "pattern": ".*\\.php", "path": "Helper/Data.php" }
+    ],
+    "/Model/ResourceModel/": [
+        { "pattern": "/Grid/Collection\\.php", "path": "Model/ResourceModel/Grid/Collection.php" },
+        { "pattern": "/Collection\\.php",      "path": "Model/Source/Options.php" },
+        { "pattern": ".*\\.php",               "path": "Model/ResourceModel/Entity.php" }
+    ],
+    "/Model/": [
+        { "pattern": "Repository\\.php",    "path": "Model/EntityRepository.php" },
+        { "pattern": "/Source/.*",          "path": "Model/Config/Source.php" },
+        { "pattern": "/DataProvider\\.php", "path": "Model/DataProvider.php" },
+        { "pattern": ".*\\.php",            "path": "Model/Entity.php" }
+    ],
+    "/": [
+        { "pattern": "composer\\.json",    "path": "composer.json" },
+        { "pattern": "README\\.md",        "path": "README.md" },
+        { "pattern": "registration\\.php", "path": "registration.php" }
+    ],
+    "snippets": {
+        "ifip"     : { "path": "/magento2/snippets/ifip" },
+        "class"    : { "path": "/php/snippets/class" },
+        "classname": { "path": "/php/snippets/classname" },
+        "namespace": { "path": "/php/snippets/namespace" }
     },
     "@todo:@extend": {
         "php/rules.json": "*"

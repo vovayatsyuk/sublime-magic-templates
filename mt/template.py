@@ -50,18 +50,26 @@ class Template:
         rules = json.loads(content, object_pairs_hook=OrderedDict)
 
         if alias is not None:
-            if alias in rules:
-                return rules[alias].get('path')
+            if alias in rules.get('snippets'):
+                return rules.get('snippets').get(alias).get('path')
             return None
 
         path = None
-        for alias in rules:
-            pattern = rules[alias].get('pattern')
-            if pattern is None:
+        for group in rules:
+            if group not in self.file_path:
                 continue
-            r = re.compile(pattern)
-            if r.search(self.file_path) is not None:
-                path = rules[alias].get('path')
+            for rule in rules.get(group):
+                pattern = rule.get('pattern')
+                if pattern is None:
+                    continue
+                r = re.compile(pattern)
+                if r.search(self.file_path) is not None:
+                    path = rule.get('path')
+                    break
+            if path is not None:
                 break
+
+        if not path.startswith('/'):
+            path = os.sep.join([app, 'files', path])
 
         return path

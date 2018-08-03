@@ -1,24 +1,12 @@
 {
-    "BasicFile.php": {
-        "name": "Basic PHP File",
-        "path": "magento1/files/default.php.txt",
-        "pattern": ".*\\.php"
-    },
-    "ifip": {
-        "name": "If (IpAddress) Statement",
-        "path": "magento1/snippets/ifip.txt"
-    },
-    "class": {
-        "name": "Class",
-        "path": "magento1/snippets/class.txt"
-    },
-    "classname": {
-        "name": "Classname",
-        "path": "php/snippets/classname.txt"
-    },
-    "namespace": {
-        "name": "Namespace",
-        "path": "php/snippets/namespace.txt"
+    "/": [
+        { "pattern": ".*\\.php", "path": "default.php.txt" }
+    ],
+    "snippets": {
+        "ifip"     : { "path": "/magento1/snippets/ifip.txt" },
+        "class"    : { "path": "/magento1/snippets/class.txt" },
+        "classname": { "path": "/php/snippets/classname" },
+        "namespace": { "path": "/php/snippets/namespace" }
     },
     "@todo:@extend": {
         "php/rules.json": "*"
