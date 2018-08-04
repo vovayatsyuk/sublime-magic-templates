@@ -67,13 +67,15 @@ class Composer:
         return self.get_name().split('/')[1]
 
     def get_vendor(self):
-        # @todo: read info from psr4. Just like in get_project
-        # @see: https://github.com/magepal/magento2-google-tag-manager/blob/master/composer.json
+        psr4key = self.get_current_psr4key()
+        if psr4key:
+            return kebabcase(psr4key.split('\\')[0])
+
+        # Logic below is used, when composer is not found
         return self.get_name().split('/')[0]
 
     def get_project(self):
         psr4key = self.get_current_psr4key()
-        print(psr4key)
         if psr4key:
             parts = psr4key.split('\\')
             if len(parts) > 1:

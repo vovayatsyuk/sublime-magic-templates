@@ -6,7 +6,7 @@ ${{0:{project|camelcase} - is a Magento2 module that}}
 
 ```bash
 cd <magento_root>
-composer require {vendor}/{project}
-bin/magento module:enable {vendor|camelcase}_{project|camelcase}
+composer require {package}
+bin/magento module:enable {module}
 bin/magento setup:upgrade
 ```
