@@ -97,6 +97,21 @@ class Composer:
     def get_psr4(self):
         return self.get_data('autoload.psr-4')
 
+    def get_current_psr4key(self):
+        module_path = self.get_file().replace('composer.json', '')
+        relative_path = self.file_path.replace(module_path, '')
+        psr4 = self.get_psr4()
+        if psr4 is None:
+            return None
+        for key in psr4:
+            subfolder = psr4[key].strip('/')
+            if subfolder:
+                if relative_path.startswith(subfolder):
+                    return key
+            else:
+                return key
+        return None
+
     def get_data(self, key = ''):
         if self.data is None:
             self.load()

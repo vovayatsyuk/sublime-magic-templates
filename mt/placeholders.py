@@ -41,6 +41,9 @@ class Placeholders:
     def get_project_folder(self):
         return self.composer.get_project_folder()
 
+    def get_module(self):
+        return self.composer.get_current_psr4key().replace('\\', '_').strip('_')
+
     def get_namespace(self):
         return self.phpfile.get_namespace()
 

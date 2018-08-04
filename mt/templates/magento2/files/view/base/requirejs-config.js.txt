@@ -1,7 +1,7 @@
 var config = {{
     map: {{
         '*': {{
-            '{project}': '{vendor|camelcase}_{project|camelcase}/js/{project}'
+            '{project}': '{module}/js/{project}'
         }}
     }}
 }};
