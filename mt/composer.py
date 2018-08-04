@@ -72,12 +72,14 @@ class Composer:
         return self.get_name().split('/')[0]
 
     def get_project(self):
-        # @todo: get project name from psr4 settings because current logic is not accurate.
-        # Something like this: kebabcase(extracted_name_from_psr4_string)
-        # @see: https://github.com/mailchimp/mc-magento2/blob/develop/composer.json
-        #       https://github.com/mageplaza/magento-2-social-login/blob/master/composer.json
-        #       https://github.com/mageplaza/magento-2-blog/blob/master/composer.json
-        #       https://github.com/algolia/algoliasearch-magento-2/blob/master/composer.json
+        psr4key = self.get_current_psr4key()
+        print(psr4key)
+        if psr4key:
+            parts = psr4key.split('\\')
+            if len(parts) > 1:
+                return kebabcase(parts[1])
+
+        # Logic below is used, when composer is not found
         project = self.get_project_folder()
         removes = [
             'magento2-',
