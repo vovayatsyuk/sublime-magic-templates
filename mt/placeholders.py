@@ -35,6 +35,12 @@ class Placeholders:
     def get_project(self):
         return self.composer.get_project()
 
+    def get_vendor_folder(self):
+        return self.composer.get_vendor_folder()
+
+    def get_project_folder(self):
+        return self.composer.get_project_folder()
+
     def get_namespace(self):
         return self.phpfile.get_namespace()
 

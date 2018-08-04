@@ -60,11 +60,36 @@ class Composer:
     def get_name(self):
         return self.get_data('name')
 
+    def get_vendor_folder(self):
+        return self.get_name().split('/')[0]
+
+    def get_project_folder(self):
+        return self.get_name().split('/')[1]
+
     def get_vendor(self):
+        # @todo: read info from psr4. Just like in get_project
+        # @see: https://github.com/magepal/magento2-google-tag-manager/blob/master/composer.json
         return self.get_name().split('/')[0]
 
     def get_project(self):
-        return self.get_name().split('/')[1]
+        # @todo: get project name from psr4 settings because current logic is not accurate.
+        # Something like this: kebabcase(extracted_name_from_psr4_string)
+        # @see: https://github.com/mailchimp/mc-magento2/blob/develop/composer.json
+        #       https://github.com/mageplaza/magento-2-social-login/blob/master/composer.json
+        #       https://github.com/mageplaza/magento-2-blog/blob/master/composer.json
+        #       https://github.com/algolia/algoliasearch-magento-2/blob/master/composer.json
+        project = self.get_project_folder()
+        removes = [
+            'magento2-',
+            'magento-2-',
+            '-extension',
+            '-magento-2',
+            'magento-',
+            'magento1-'
+        ]
+        for string in removes:
+            project = project.replace(string, '')
+        return project
 
     def get_type(self):
         return self.get_data('type')

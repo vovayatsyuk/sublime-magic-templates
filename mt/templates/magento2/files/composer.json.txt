@@ -1,5 +1,5 @@
 {{
-    "name": "{vendor}/{project}",
+    "name": "{vendor_folder}/{project_folder}",
     "description": "${{1:N/A}}",
     "type": "magento2-module",
     "version": "1.0.0",
