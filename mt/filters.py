@@ -18,6 +18,9 @@ def camelcase(string):
 def snakecase(string):
     return re.sub('([A-Z])', '_\\1', string).lower().replace('-', '_').lstrip('_')
 
+def kebabcase(string):
+    return re.sub('([A-Z])', '-\\1', string).lower().replace('_', '-').lstrip('-')
+
 def remove(string, part):
     return string.replace(part, '')
 
