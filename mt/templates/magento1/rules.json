@@ -4,7 +4,6 @@
     ],
     "snippets": {
         "ifip"     : { "path": "/magento1/snippets/ifip.txt" },
-        "class"    : { "path": "/magento1/snippets/class.txt" },
         "classname": { "path": "/php/snippets/classname" },
         "namespace": { "path": "/php/snippets/namespace" }
     },

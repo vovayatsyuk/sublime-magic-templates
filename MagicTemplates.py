@@ -17,12 +17,6 @@ class GenerateContentOnFileCreation(sublime_plugin.EventListener):
                 'contents': Template(view.file_name()).render()
             })
 
-class GenerateClassCommand(sublime_plugin.TextCommand):
-    def run(self, edit):
-        self.view.run_command('insert_snippet', {
-            'contents': Template(self.view.file_name()).render_snippet('class')
-        })
-
 class InsertClassNameCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         self.view.run_command('insert_snippet', {

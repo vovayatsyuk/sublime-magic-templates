@@ -1,5 +1,0 @@
-
-class {classname}${{1: extends $2}}
-{{
-    $3
-}}

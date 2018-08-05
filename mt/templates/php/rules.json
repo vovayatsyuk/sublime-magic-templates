@@ -1,6 +1,5 @@
 {
     "snippets": {
-        "class"    : { "path": "/php/snippets/class" },
         "classname": { "path": "/php/snippets/classname" },
         "namespace": { "path": "/php/snippets/namespace" }
     }
