@@ -21,6 +21,8 @@
     ],
     "/view/adminhtml": [
         { "pattern": "layout/.*_index\\.xml", "path": "view/adminhtml/layout/index.xml" },
+        { "pattern": "layout/.*_edit\\.xml", "path": "view/adminhtml/layout/edit.xml" },
+        { "pattern": "layout/.*_new\\.xml", "path": "view/adminhtml/layout/new.xml" },
         { "pattern": "ui_component/.*list(ing)?\\.xml", "path": "view/adminhtml/ui_component/listing.xml" }
     ],
     "/view/": [
