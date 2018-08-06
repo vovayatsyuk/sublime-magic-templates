@@ -10,14 +10,14 @@
     ],
     "/Model/ResourceModel/": [
         { "pattern": "/Grid/Collection\\.php", "path": "Model/ResourceModel/Entity/Grid/Collection.php" },
-        { "pattern": "/Collection\\.php",      "path": "Model/ResourceModel/Entity/Collection.php" },
-        { "pattern": ".*\\.php",               "path": "Model/ResourceModel/Entity.php" }
+        { "pattern": "/Collection\\.php", "path": "Model/ResourceModel/Entity/Collection.php" },
+        { "pattern": ".*\\.php", "path": "Model/ResourceModel/Entity.php" }
     ],
     "/Model/": [
-        { "pattern": "Repository\\.php",    "path": "Model/EntityRepository.php" },
-        { "pattern": "/Source/.*",          "path": "Model/Config/Source.php" },
+        { "pattern": "Repository\\.php", "path": "Model/EntityRepository.php" },
+        { "pattern": "/Source/.*", "path": "Model/Config/Source.php" },
         { "pattern": "/DataProvider\\.php", "path": "Model/DataProvider.php" },
-        { "pattern": ".*\\.php",            "path": "Model/Entity.php" }
+        { "pattern": ".*\\.php", "path": "Model/Entity.php" }
     ],
     "/view/adminhtml/": [
         { "pattern": "layout/.*_index\\.xml", "path": "view/adminhtml/layout/index.xml" },
@@ -30,12 +30,12 @@
         { "pattern": "requirejs-config\\.js", "path": "view/base/requirejs-config.js" }
     ],
     "/": [
-        { "pattern": "composer\\.json",    "path": "composer.json" },
-        { "pattern": "README\\.md",        "path": "README.md" },
+        { "pattern": "composer\\.json", "path": "composer.json" },
+        { "pattern": "README\\.md", "path": "README.md" },
         { "pattern": "registration\\.php", "path": "registration.php" }
     ],
     "snippets": {
-        "ifip"     : { "path": "/magento2/snippets/ifip" },
+        "ifip": { "path": "/magento2/snippets/ifip" },
         "classname": { "path": "/php/snippets/classname" },
         "namespace": { "path": "/php/snippets/namespace" }
     },
