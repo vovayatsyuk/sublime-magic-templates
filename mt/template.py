@@ -81,7 +81,7 @@ class Template:
             if path is not None:
                 break
 
-        if not path.startswith('/'):
+        if path is not None and not path.startswith('/'):
             path = os.sep.join([app, 'files', path])
 
         return path
