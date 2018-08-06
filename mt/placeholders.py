@@ -22,7 +22,7 @@ class Placeholders:
                 args = [result[name]]
                 if ' ' in string_filter:
                     string_filter, args = string_filter.split(' ', 2)
-                    args = args.split(' ')
+                    args = args.split(',')
                     args.insert(0, result[name])
                 result[name] = globals()[string_filter](*args)
         return result
