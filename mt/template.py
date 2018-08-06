@@ -16,13 +16,13 @@ class Template:
 
     def render_snippet(self, alias=None):
         if self.file_path is None:
-            return ''
+            return None
 
         return self.render(self.guess_template_path(alias))
 
     def render(self, template_path=None, base_dir=None):
         if self.file_path is None:
-            return ''
+            return None
 
         if template_path is None:
             template_path = self.guess_template_path()
@@ -31,7 +31,7 @@ class Template:
             base_dir = self.base_dir
 
         if template_path is None:
-            return ''
+            return None
 
         if '.txt' not in template_path:
             template_path = template_path + '.txt'
@@ -41,7 +41,7 @@ class Template:
             content = sublime.load_resource(path)
         except OSError:
             print('Not Found: ' + path)
-            return ''
+            return None
 
         placeholders = [keys[1] for keys in Formatter().parse(content) if keys[1] is not None]
 
