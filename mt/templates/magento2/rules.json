@@ -19,6 +19,9 @@
         { "pattern": "/DataProvider\\.php", "path": "Model/DataProvider.php" },
         { "pattern": ".*\\.php",            "path": "Model/Entity.php" }
     ],
+    "/view/adminhtml": [
+        { "pattern": "ui_component/.*list(ing)?\\.xml", "path": "view/adminhtml/ui_component/project_entity_listing.xml" }
+    ],
     "/view/": [
         { "pattern": "layout/.*\\.xml", "path": "view/base/layout/layout.xml" },
         { "pattern": "requirejs-config\\.js", "path": "view/base/requirejs-config.js" }

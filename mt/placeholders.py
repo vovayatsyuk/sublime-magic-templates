@@ -1,5 +1,6 @@
 import sublime
 import re
+import os
 
 from .filters import *
 from .phpfile import Phpfile
@@ -41,6 +42,9 @@ class Placeholders:
     def get_project_folder(self):
         return self.composer.get_project_folder()
 
+    def get_psr4key(self):
+        return self.composer.get_current_psr4key()
+
     def get_module(self):
         return self.composer.get_current_psr4key().replace('\\', '_').strip('_')
 
@@ -49,6 +53,9 @@ class Placeholders:
 
     def get_classname(self):
         return self.phpfile.get_classname()
+
+    def get_basename(self):
+        return os.path.splitext(os.path.basename(self.file_path))[0]
 
     def get_ipaddress(self):
         try:
