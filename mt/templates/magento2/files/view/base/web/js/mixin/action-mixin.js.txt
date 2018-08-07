@@ -1,0 +1,12 @@
+define([
+    'jquery',
+    'mage/utils/wrapper'
+], function (\$, wrapper) {{
+    'use strict';
+
+    return function (target) {{
+        return wrapper.wrap(target, function (originalAction$1) {{
+            return originalAction($0);
+        }});
+    }};
+}});

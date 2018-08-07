@@ -1,0 +1,11 @@
+define([
+    '$1'
+], function ($2) {{
+    'use strict';
+
+    return {{
+        ${{3:methodName}}: function ($4) {{
+            $0
+        }}
+    }};
+}});

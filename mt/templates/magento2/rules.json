@@ -28,7 +28,15 @@
     ],
     "/view/": [
         { "pattern": "layout/.*\\.xml", "path": "view/base/layout/layout.xml" },
-        { "pattern": "requirejs-config\\.js", "path": "view/base/requirejs-config.js" }
+        { "pattern": "requirejs\\-config\\.js", "path": "view/base/requirejs-config.js" },
+        { "pattern": "action.*\\-mixin\\.js", "path": "view/base/web/js/mixin/action-mixin.js" },
+        { "pattern": "model.*\\-mixin\\.js", "path": "view/base/web/js/mixin/model-mixin.js" },
+        { "pattern": "view.*\\-mixin\\.js", "path": "view/base/web/js/mixin/view-mixin.js" },
+        { "pattern": "js/mixin/.*\\.js", "path": "view/base/web/js/mixin/model-mixin.js" },
+        { "pattern": "js/action/.*\\.js", "path": "view/base/web/js/action.js" },
+        { "pattern": "js/model/.*\\.js", "path": "view/base/web/js/model.js" },
+        { "pattern": "js/view/.*\\.js", "path": "view/base/web/js/view.js" },
+        { "pattern": "js/.*\\.js", "path": "view/base/web/js/default.js" }
     ],
     "/": [
         { "pattern": "composer\\.json", "path": "composer.json" },

@@ -1,0 +1,13 @@
+define([
+    'jquery'
+], function (\$) {{
+    'use strict';
+
+    return function (target) {{
+        return target.extend({{
+            ${{1:methodName}}: function ($2) {{
+                this._super();$0
+            }}
+        }});
+    }};
+}});

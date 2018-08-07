@@ -1,0 +1,17 @@
+define([
+    'jquery',
+    'ko',
+    'uiComponent'
+], function (\$, ko, Component) {{
+    'use strict';
+
+    return Component.extend({{
+        defaults: {{
+            template: '{module}/{basename}'
+        }},
+
+        initialize: function() {{
+            this._super();$0
+        }}
+    }});
+}});

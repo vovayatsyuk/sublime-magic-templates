@@ -1,0 +1,9 @@
+define([
+    '$1'
+], function ($2) {{
+    'use strict';
+
+    return function ($3) {{
+        $0
+    }};
+}});

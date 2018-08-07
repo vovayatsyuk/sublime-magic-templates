@@ -1,0 +1,17 @@
+define([
+    'jquery',
+    'mage/utils/wrapper'
+], function (\$, wrapper) {{
+    'use strict';
+
+    return function (target) {{
+        target.${{1:methodName}} = wrapper.wrap(
+            target.${{1:methodName}},
+            function (originalMethod$2) {{
+                return originalMethod($0);
+            }}
+        );
+
+        return target;
+    }};
+}});
