@@ -6,6 +6,7 @@ import os
 from string import Formatter
 from collections import OrderedDict
 from .env import Env
+from .composer import Composer
 from .placeholders import Placeholders
 
 class Template:
@@ -13,6 +14,7 @@ class Template:
         self.base_dir = 'Packages/sublime-magic-templates/mt/templates'
         self.file_path = file_path
         self.env = Env(file_path)
+        self.composer = Composer(file_path)
 
     def render_snippet(self, alias=None):
         if self.file_path is None:
@@ -66,16 +68,20 @@ class Template:
                 return rules.get('snippets').get(alias).get('path')
             return None
 
+        module_path = self.composer.get_file().replace('/composer.json', '')
+        relative_path = self.file_path.replace(module_path, '')
+        print(relative_path)
+
         path = None
         for group in rules:
-            if group not in self.file_path:
+            if not relative_path.startswith(group):
                 continue
             for rule in rules.get(group):
                 pattern = rule.get('pattern')
                 if pattern is None:
                     continue
                 r = re.compile(pattern)
-                if r.search(self.file_path) is not None:
+                if r.search(relative_path) is not None:
                     path = rule.get('path')
                     break
             if path is not None:
