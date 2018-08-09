@@ -57,6 +57,9 @@ class Placeholders:
     def get_basename(self):
         return os.path.splitext(os.path.basename(self.file_path))[0]
 
+    def get_folder(self):
+        return os.path.basename(os.path.dirname(self.file_path))
+
     def get_ipaddress(self):
         try:
             from IpAddress.ipaddress.IpAddress import IpAddress as IpAddress
