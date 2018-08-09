@@ -2,6 +2,10 @@
     "/Block/": [
         { "pattern": ".*\\.php", "path": "Block/Block.php" }
     ],
+    "/Controller/Adminhtml/": [
+        { "pattern": "Edit\\.php", "path": "Controller/Adminhtml/Entity/Edit.php" },
+        { "pattern": "Index\\.php", "path": "Controller/Adminhtml/Entity/Index.php" }
+    ],
     "/etc/": [
         { "pattern": "module\\.xml", "path": "etc/module.xml" }
     ],
