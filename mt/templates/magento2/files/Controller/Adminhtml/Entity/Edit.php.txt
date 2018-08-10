@@ -30,7 +30,9 @@ class Edit extends \Magento\Backend\App\Action
 
     /**
      * @param Context \$context
+     * @param {folder}Factory \${folder|lower}Factory
      * @param PageFactory \$resultPageFactory
+     * @param Registry \$registry
      */
     public function __construct(
         Context \$context,
@@ -51,9 +53,10 @@ class Edit extends \Magento\Backend\App\Action
      */
     public function execute()
     {{
+        \$id = \$this->getRequest()->getParam('id');
         \${folder|lower} = \$this->{folder|lower}Factory->create();
 
-        if (\$id = \$this->getRequest()->getParam('id')) {{
+        if (\$id) {{
             \${folder|lower}->load(\$id);
             if (!\${folder|lower}->getId()) {{
                 \$this->messageManager->addError(__('This item no longer exists.'));
