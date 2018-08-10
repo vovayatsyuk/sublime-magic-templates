@@ -10,7 +10,7 @@ define([
             template: '{module}/{basename}'
         }},
 
-        initialize: function() {{
+        initialize: function () {{
             this._super();$0
         }}
     }});
