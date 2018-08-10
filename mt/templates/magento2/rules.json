@@ -4,6 +4,8 @@
     ],
     "/Controller/Adminhtml/": [
         { "pattern": "Edit\\.php", "path": "Controller/Adminhtml/Entity/Edit.php" },
+        { "pattern": "MassDelete\\.php", "path": "Controller/Adminhtml/Entity/MassDelete.php" },
+        { "pattern": "Delete\\.php", "path": "Controller/Adminhtml/Entity/Delete.php" },
         { "pattern": "Index\\.php", "path": "Controller/Adminhtml/Entity/Index.php" }
     ],
     "/etc/": [
