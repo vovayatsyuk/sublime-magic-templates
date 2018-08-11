@@ -3,6 +3,7 @@
         { "pattern": ".*\\.php", "path": "Block/Block.php" }
     ],
     "/Controller/Adminhtml/": [
+        { "pattern": "NewAction\\.php", "path": "Controller/Adminhtml/Entity/NewAction.php" },
         { "pattern": "Edit\\.php", "path": "Controller/Adminhtml/Entity/Edit.php" },
         { "pattern": "MassDelete\\.php", "path": "Controller/Adminhtml/Entity/MassDelete.php" },
         { "pattern": "Delete\\.php", "path": "Controller/Adminhtml/Entity/Delete.php" },
