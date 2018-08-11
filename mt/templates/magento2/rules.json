@@ -5,9 +5,11 @@
     "/Controller/Adminhtml/": [
         { "pattern": "NewAction\\.php", "path": "Controller/Adminhtml/Entity/NewAction.php" },
         { "pattern": "Edit\\.php", "path": "Controller/Adminhtml/Entity/Edit.php" },
+        { "pattern": "Save\\.php", "path": "Controller/Adminhtml/Entity/Save.php" },
         { "pattern": "MassDelete\\.php", "path": "Controller/Adminhtml/Entity/MassDelete.php" },
+        { "pattern": "Mass[A-Z].*\\.php", "path": "Controller/Adminhtml/Entity/MassStatus.php" },
         { "pattern": "Delete\\.php", "path": "Controller/Adminhtml/Entity/Delete.php" },
-        { "pattern": "Index\\.php", "path": "Controller/Adminhtml/Entity/Index.php" }
+        { "pattern": "*\\.php", "path": "Controller/Adminhtml/Entity/Index.php" }
     ],
     "/etc/": [
         { "pattern": "module\\.xml", "path": "etc/module.xml" }

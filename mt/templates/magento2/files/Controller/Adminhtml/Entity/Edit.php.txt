@@ -5,7 +5,6 @@ namespace {namespace};
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\Registry;
-
 use {psr4key}Model\{folder}Factory;
 
 class {classname} extends \Magento\Backend\App\Action
