@@ -86,6 +86,7 @@ class Composer:
         removes = [
             'magento2-',
             'magento-2-',
+            'module-',
             '-extension',
             '-magento-2',
             'magento-',
