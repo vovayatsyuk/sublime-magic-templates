@@ -7,7 +7,7 @@ use Magento\Backend\App\Action\Context;
 use Magento\Ui\Component\MassAction\Filter;
 use {psr4key}Model\ResourceModel\{folder}\CollectionFactory;
 
-class MassDelete extends \Magento\Backend\App\Action
+class {classname} extends \Magento\Backend\App\Action
 {{
     const ADMIN_RESOURCE = '{module}::{folder|lower}_delete';
 

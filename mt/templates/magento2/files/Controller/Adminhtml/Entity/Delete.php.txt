@@ -3,11 +3,9 @@
 namespace {namespace};
 
 use Magento\Backend\App\Action\Context;
-use Magento\Framework\App\Request\DataPersistorInterface;
-use Magento\Framework\Exception\LocalizedException;
 use {psr4key}Model\{folder}Factory;
 
-class Delete extends \Magento\Backend\App\Action
+class {classname} extends \Magento\Backend\App\Action
 {{
     const ADMIN_RESOURCE = '{module}::{folder|lower}_delete';
 
@@ -29,7 +27,7 @@ class Delete extends \Magento\Backend\App\Action
     }}
 
     /**
-     * Delete action
+     * {classname} action
      *
      * @return \Magento\Framework\Controller\ResultInterface
      */

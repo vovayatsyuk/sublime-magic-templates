@@ -5,7 +5,7 @@ namespace {namespace};
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 
-class Index extends \Magento\Backend\App\Action
+class {classname} extends \Magento\Backend\App\Action
 {{
     const ADMIN_RESOURCE = '{module}::{folder|lower}_{basename|lower}';
 
@@ -27,7 +27,7 @@ class Index extends \Magento\Backend\App\Action
     }}
 
     /**
-     * Index action
+     * {classname} action
      *
      * @return \Magento\Backend\Model\View\Result\Page
      */

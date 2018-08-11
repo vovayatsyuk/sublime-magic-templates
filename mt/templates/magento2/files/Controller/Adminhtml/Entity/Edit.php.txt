@@ -5,11 +5,10 @@ namespace {namespace};
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\Registry;
-use Magento\Store\Model\Store;
 
 use {psr4key}Model\{folder}Factory;
 
-class Edit extends \Magento\Backend\App\Action
+class {classname} extends \Magento\Backend\App\Action
 {{
     const ADMIN_RESOURCE = '{module}::{folder|lower}_{basename|lower}';
 
@@ -24,7 +23,7 @@ class Edit extends \Magento\Backend\App\Action
     protected \$resultPageFactory;
 
     /**
-     * @var \Magento\Framework\Registry
+     * @var Registry
      */
     protected \$registry;
 
@@ -47,7 +46,7 @@ class Edit extends \Magento\Backend\App\Action
     }}
 
     /**
-     * Edit action
+     * {classname} action
      *
      * @return \Magento\Backend\Model\View\Result\Page
      */
