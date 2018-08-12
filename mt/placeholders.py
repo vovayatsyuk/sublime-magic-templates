@@ -2,6 +2,7 @@ import sublime
 import re
 import os
 
+from string import Formatter
 from .filters import *
 from .phpfile import Phpfile
 from .composer import Composer
@@ -15,7 +16,14 @@ class Placeholders:
     def extract(self, names):
         result = {};
         for name in names:
-            params = name.split('|')
+            clean_name = name;
+            # placheolder inside placeholder. Eg: {filename|remove {vendor|lower}}
+            # @todo: wrap into loop
+            if '{' in name:
+                placeholders = [keys[1] for keys in Formatter().parse(name) if keys[1] is not None]
+                clean_name = name.format(**Placeholders(self.file_path).extract(placeholders))
+
+            params = clean_name.split('|')
             method = params.pop(0)
             result[name] = getattr(self, 'get_' + method)()
             for string_filter in params:

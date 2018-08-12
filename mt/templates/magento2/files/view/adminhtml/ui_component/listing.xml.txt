@@ -10,7 +10,7 @@
         <item name="buttons" xsi:type="array">
             <item name="add" xsi:type="array">
                 <item name="name" xsi:type="string">add</item>
-                <item name="label" xsi:type="string" translate="true">Add New ${{1:Item}}</item>
+                <item name="label" xsi:type="string" translate="true">Add New {basename|remove _listing|remove _list|remove {project|snakecase}_|capitalize}</item>
                 <item name="class" xsi:type="string">primary</item>
                 <item name="component" xsi:type="string">Magento_Ui/js/form/components/button</item>
                 <item name="url" xsi:type="string">*/*/new</item>
@@ -19,7 +19,7 @@
     </argument>
     <dataSource name="{basename}_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="class" xsi:type="string">{psr4key}Ui\DataProvider\\${{1:Item}}DataProvider</argument>
+            <argument name="class" xsi:type="string">{psr4key}Ui\DataProvider\{basename|remove _listing|remove _list|remove {project|snakecase}_|capitalize}DataProvider</argument>
             <argument name="name" xsi:type="string">{basename}_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">${{2:entity_id}}</argument>
             <argument name="requestFieldName" xsi:type="string">id</argument>
