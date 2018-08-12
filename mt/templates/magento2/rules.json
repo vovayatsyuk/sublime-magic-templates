@@ -28,6 +28,9 @@
         { "pattern": "/DataProvider\\.php", "path": "Model/DataProvider.php" },
         { "pattern": ".*\\.php", "path": "Model/Entity.php" }
     ],
+    "/Ui/": [
+        { "pattern": "DataProvider/.*Provider\\.php", "path": "Ui/DataProvider/EntityProvider.php" }
+    ],
     "/view/adminhtml/": [
         { "pattern": "layout/.*_index\\.xml", "path": "view/adminhtml/layout/index.xml" },
         { "pattern": "layout/.*_edit\\.xml", "path": "view/adminhtml/layout/edit.xml" },
