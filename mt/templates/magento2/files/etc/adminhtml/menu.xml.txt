@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="{module}::${{1:entity}}_index"
+            title="{project|camelcase}"
+            module="{module}"
+            sortOrder="$2"
+            parent="${{3:Magento_Catalog::catalog}}"
+            action="{project}/${{1:entity}}/index"
+            resource="{module}::${{1:entity}}_index"/>
+    </menu>
+</config>

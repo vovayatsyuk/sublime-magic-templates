@@ -12,6 +12,11 @@
         { "pattern": "*\\.php", "path": "Controller/Adminhtml/Entity/Index.php" }
     ],
     "/etc/": [
+        { "pattern": "adminhtml/di\\.xml", "path": "etc/adminhtml/di.xml" },
+        { "pattern": "adminhtml/events\\.xml", "path": "etc/adminhtml/events.xml" },
+        { "pattern": "adminhtml/menu\\.xml", "path": "etc/adminhtml/menu.xml" },
+        { "pattern": "adminhtml/routes\\.xml", "path": "etc/adminhtml/routes.xml" },
+        { "pattern": "adminhtml/system\\.xml", "path": "etc/adminhtml/system.xml" },
         { "pattern": "module\\.xml", "path": "etc/module.xml" }
     ],
     "/Helper/": [
