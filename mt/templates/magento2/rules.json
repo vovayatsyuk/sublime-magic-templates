@@ -27,6 +27,9 @@
         { "pattern": "/Source/.*", "path": "Model/Config/Source/Entity.php" },
         { "pattern": ".*\\.php", "path": "Model/Entity.php" }
     ],
+    "/Observer/": [
+        { "pattern": ".*\\.php", "path": "Observer/Default.php" }
+    ],
     "/Ui/": [
         { "pattern": "DataProvider/.*Provider\\.php", "path": "Ui/DataProvider/EntityProvider.php" }
     ],

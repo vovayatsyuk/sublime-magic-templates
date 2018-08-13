@@ -1,0 +1,15 @@
+<?php
+
+namespace {namespace};
+
+class {classname} implements \Magento\Framework\Event\ObserverInterface
+{{
+    /**
+     * @param  \Magento\Framework\Event\Observer \$observer
+     * @return void
+     */
+    public function execute(\Magento\Framework\Event\Observer \$observer)
+    {{
+        $0
+    }}
+}}
