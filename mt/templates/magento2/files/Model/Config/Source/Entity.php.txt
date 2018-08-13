@@ -1,0 +1,32 @@
+<?php
+
+namespace {namespace};
+
+class {classname} implements \Magento\Framework\Option\ArrayInterface
+{{
+    /**
+     * Options getter
+     *
+     * @return array
+     */
+    public function toOptionArray()
+    {{
+        return [
+            ['value' => '$1', 'label' => __('$2')],$0
+        ];
+    }}
+
+    /**
+     * Get options in "key-value" format
+     *
+     * @return array
+     */
+    public function toArray()
+    {{
+        \$result = [];
+        foreach (\$this->toOptionArray() as \$item) {{
+            \$result[\$item['value']] = \$item['label'];
+        }}
+        return \$result;
+    }}
+}}

@@ -1,0 +1,184 @@
+<?php
+
+namespace {namespace};
+
+use {psr4key}Api\Data;
+use {psr4key}Model\ResourceModel\{basename|remove Repository} as Resource{basename|remove Repository};
+use {psr4key}Model\ResourceModel\{basename|remove Repository}\CollectionFactory as {basename|remove Repository}CollectionFactory;
+use Magento\Framework\Api\DataObjectHelper;
+use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
+use Magento\Framework\Exception\CouldNotDeleteException;
+use Magento\Framework\Exception\CouldNotSaveException;
+use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Framework\Reflection\DataObjectProcessor;
+use Magento\Store\Model\StoreManagerInterface;
+
+class {classname}
+{{
+    /**
+     * @var Resource{basename|remove Repository}
+     */
+    protected \$resource;
+
+    /**
+     * @var {basename|remove Repository}Factory
+     */
+    protected \${basename|remove Repository|lower}Factory;
+
+    /**
+     * @var {basename|remove Repository}CollectionFactory
+     */
+    protected \${basename|remove Repository|lower}CollectionFactory;
+
+    /**
+     * @var Data\{basename|remove Repository}SearchResultsInterfaceFactory
+     */
+    protected \$searchResultsFactory;
+
+    /**
+     * @var DataObjectHelper
+     */
+    protected \$dataObjectHelper;
+
+    /**
+     * @var DataObjectProcessor
+     */
+    protected \$dataObjectProcessor;
+
+    /**
+     * @var \{psr4key}Api\Data\{basename|remove Repository}InterfaceFactory
+     */
+    protected \$data{basename|remove Repository}Factory;
+
+    /**
+     * @var \Magento\Store\Model\StoreManagerInterface
+     */
+    private \$storeManager;
+
+    /**
+     * @var CollectionProcessorInterface
+     */
+    private \$collectionProcessor;
+
+    /**
+     * @param Resource{basename|remove Repository} \$resource
+     * @param {basename|remove Repository}Factory \${basename|remove Repository|lower}Factory
+     * @param Data\{basename|remove Repository}InterfaceFactory \$data{basename|remove Repository}Factory
+     * @param {basename|remove Repository}CollectionFactory \${basename|remove Repository|lower}CollectionFactory
+     * @param Data\{basename|remove Repository}SearchResultsInterfaceFactory \$searchResultsFactory
+     * @param DataObjectHelper \$dataObjectHelper
+     * @param DataObjectProcessor \$dataObjectProcessor
+     * @param StoreManagerInterface \$storeManager
+     * @param CollectionProcessorInterface \$collectionProcessor
+     */
+    public function __construct(
+        Resource{basename|remove Repository} \$resource,
+        {basename|remove Repository}Factory \${basename|remove Repository|lower}Factory,
+        \{psr4key}Api\Data\{basename|remove Repository}InterfaceFactory \$data{basename|remove Repository}Factory,
+        {basename|remove Repository}CollectionFactory \${basename|remove Repository|lower}CollectionFactory,
+        Data\{basename|remove Repository}SearchResultsInterfaceFactory \$searchResultsFactory,
+        DataObjectHelper \$dataObjectHelper,
+        DataObjectProcessor \$dataObjectProcessor,
+        StoreManagerInterface \$storeManager,
+        CollectionProcessorInterface \$collectionProcessor = null
+    ) {{
+        \$this->resource = \$resource;
+        \$this->blockFactory = \${basename|remove Repository|lower}Factory;
+        \$this->blockCollectionFactory = \${basename|remove Repository|lower}CollectionFactory;
+        \$this->searchResultsFactory = \$searchResultsFactory;
+        \$this->dataObjectHelper = \$dataObjectHelper;
+        \$this->data{basename|remove Repository}Factory = \$data{basename|remove Repository}Factory;
+        \$this->dataObjectProcessor = \$dataObjectProcessor;
+        \$this->storeManager = \$storeManager;
+        \$this->collectionProcessor = \$collectionProcessor ?: \$this->getCollectionProcessor();
+    }}
+
+    /**
+     * Save {basename|remove Repository} data
+     *
+     * @param \{psr4key}Api\Data\{basename|remove Repository}Interface \${basename|remove Repository|lower}
+     * @return {basename|remove Repository}
+     * @throws CouldNotSaveException
+     */
+    public function save(Data\{basename|remove Repository}Interface \${basename|remove Repository|lower})
+    {{
+        if (empty(\${basename|remove Repository|lower}->getStoreId())) {{
+            \${basename|remove Repository|lower}->setStoreId(\$this->storeManager->getStore()->getId());
+        }}
+
+        try {{
+            \$this->resource->save(\${basename|remove Repository|lower});
+        }} catch (\Exception \$exception) {{
+            throw new CouldNotSaveException(__(\$exception->getMessage()));
+        }}
+        return \${basename|remove Repository|lower};
+    }}
+
+    /**
+     * Load {basename|remove Repository} data by given {basename|remove Repository} Identity
+     *
+     * @param string \${basename|remove Repository|lower}Id
+     * @return {basename|remove Repository}
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
+    public function getById(\${basename|remove Repository|lower}Id)
+    {{
+        \${basename|remove Repository|lower} = \$this->blockFactory->create();
+        \$this->resource->load(\${basename|remove Repository|lower}, \${basename|remove Repository|lower}Id);
+        if (!\${basename|remove Repository|lower}->getId()) {{
+            throw new NoSuchEntityException(__('{basename|remove Repository} with id "%1" does not exist.', \${basename|remove Repository|lower}Id));
+        }}
+        return \${basename|remove Repository|lower};
+    }}
+
+    /**
+     * Load {basename|remove Repository} data collection by given search criteria
+     *
+     * @param \Magento\Framework\Api\SearchCriteriaInterface \$criteria
+     * @return \{psr4key}Api\Data\{basename|remove Repository}SearchResultsInterface
+     */
+    public function getList(\Magento\Framework\Api\SearchCriteriaInterface \$criteria)
+    {{
+        /** @var \{psr4key}Model\ResourceModel\{basename|remove Repository}\Collection \$collection */
+        \$collection = \$this->blockCollectionFactory->create();
+
+        \$this->collectionProcessor->process(\$criteria, \$collection);
+
+        /** @var Data\{basename|remove Repository}SearchResultsInterface \$searchResults */
+        \$searchResults = \$this->searchResultsFactory->create();
+        \$searchResults->setSearchCriteria(\$criteria);
+        \$searchResults->setItems(\$collection->getItems());
+        \$searchResults->setTotalCount(\$collection->getSize());
+        return \$searchResults;
+    }}
+
+    /**
+     * Delete {basename|remove Repository}
+     *
+     * @param \{psr4key}Api\Data\{basename|remove Repository}Interface \${basename|remove Repository|lower}
+     * @return bool
+     * @throws CouldNotDeleteException
+     */
+    public function delete(Data\{basename|remove Repository}Interface \${basename|remove Repository|lower})
+    {{
+        try {{
+            \$this->resource->delete(\${basename|remove Repository|lower});
+        }} catch (\Exception \$exception) {{
+            throw new CouldNotDeleteException(__(\$exception->getMessage()));
+        }}
+        return true;
+    }}
+
+    /**
+     * Delete {basename|remove Repository} by given {basename|remove Repository} Identity
+     *
+     * @param string \${basename|remove Repository|lower}Id
+     * @return bool
+     * @throws CouldNotDeleteException
+     * @throws NoSuchEntityException
+     */
+    public function deleteById(\${basename|remove Repository|lower}Id)
+    {{
+        return \$this->delete(\$this->getById(\${basename|remove Repository|lower}Id));
+    }}
+}}

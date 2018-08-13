@@ -1,0 +1,30 @@
+<?php
+
+namespace {namespace};
+
+class {classname} extends \Magento\Framework\Model\AbstractModel
+{{
+    const STATUS_ENABLED = 1;
+    const STATUS_DISABLED = 0;
+
+    /**
+     * Initialize resource model
+     *
+     * @return void
+     */
+    protected function _construct()
+    {{
+        \$this->_init(\{psr4key}Model\ResourceModel\{basename}::class);
+    }}
+
+    /**
+     * @return array
+     */
+    public function getAvailableStatuses()
+    {{
+        return [
+            self::STATUS_ENABLED => __('Enabled'),
+            self::STATUS_DISABLED => __('Disabled'),
+        ];
+    }}
+}}
