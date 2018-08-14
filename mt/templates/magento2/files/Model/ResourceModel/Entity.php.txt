@@ -13,6 +13,6 @@ class {classname} extends AbstractDb
      */
     protected function _construct()
     {{
-        \$this->_init('{module|lower}_{classname|snakecase}', 'entity_id');
+        \$this->_init('{module|lower}_{classname|snakecase}', '{basename|lower}_id');
     }}
 }}
