@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="{module}::item" title="Manage Items" sortOrder="10">
+                    <resource id="{module}::item_view" title="View Item" sortOrder="10"/>
+                    <resource id="{module}::item_save" title="Save Item" sortOrder="20"/>
+                    <resource id="{module}::item_delete" title="Delete Item" sortOrder="30"/>
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="{module}::config_{project|snakecase}" title="{project|camelcase}" sortOrder="$1"/>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

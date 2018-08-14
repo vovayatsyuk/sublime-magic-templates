@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="navigationpro_menu" class="{psr4key}Block\Widget\\${{1:Item}}"
+            is_email_compatible="false"
+            placeholder_image="Magento_Widget::placeholder.gif"
+            ttl="86400">
+        <label translate="true">{project|camelcase} Item</label>
+        <description/>
+        <parameters>
+            <parameter name="title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="yes_no" xsi:type="select" required="false" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Yes/No</label>
+            </parameter>
+            <parameter name="dependent" xsi:type="text" required="false" visible="true">
+                <label translate="true">Dependent Option</label>
+                <depends>
+                    <parameter name="yes_no" value="1"/>
+                </depends>
+                <value>Default Value</value>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

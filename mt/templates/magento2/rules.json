@@ -22,7 +22,11 @@
         { "pattern": "frontend/page_types\\.xml", "path": "etc/frontend/page_types.xml" },
         { "pattern": "frontend/routes\\.xml", "path": "etc/frontend/routes.xml" },
         { "pattern": "frontend/sections\\.xml", "path": "etc/frontend/sections.xml" },
-        { "pattern": "module\\.xml", "path": "etc/module.xml" }
+        { "pattern": "acl\\.xml", "path": "etc/acl.xml" },
+        { "pattern": "config\\.xml", "path": "etc/config.xml" },
+        { "pattern": "events\\.xml", "path": "etc/events.xml" },
+        { "pattern": "module\\.xml", "path": "etc/module.xml" },
+        { "pattern": "widget\\.xml", "path": "etc/widget.xml" }
     ],
     "/Helper/": [
         { "pattern": ".*\\.php", "path": "Helper/Data.php" }
