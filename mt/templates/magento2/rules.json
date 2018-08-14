@@ -17,6 +17,11 @@
         { "pattern": "adminhtml/menu\\.xml", "path": "etc/adminhtml/menu.xml" },
         { "pattern": "adminhtml/routes\\.xml", "path": "etc/adminhtml/routes.xml" },
         { "pattern": "adminhtml/system\\.xml", "path": "etc/adminhtml/system.xml" },
+        { "pattern": "frontend/di\\.xml", "path": "etc/frontend/di.xml" },
+        { "pattern": "frontend/events\\.xml", "path": "etc/frontend/events.xml" },
+        { "pattern": "frontend/page_types\\.xml", "path": "etc/frontend/page_types.xml" },
+        { "pattern": "frontend/routes\\.xml", "path": "etc/frontend/routes.xml" },
+        { "pattern": "frontend/sections\\.xml", "path": "etc/frontend/sections.xml" },
         { "pattern": "module\\.xml", "path": "etc/module.xml" }
     ],
     "/Helper/": [
