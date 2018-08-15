@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="$1" type="$2"/>
+    <type name="$3">
+        <plugin name="{module|lower}" type="{psr4key}Plugin\\$4" />
+    </type>
+    <type name="$5">
+        <arguments>
+            <argument name="$6" xsi:type="object" shared="false">$7</argument>
+        </arguments>
+    </type>
+    <virtualType name="{psr4key}\$8" type="{psr4key}\$9">
+        <arguments>
+            <argument name="instanceName" xsi:type="string">{psr4key}\$10</argument>
+        </arguments>
+    </virtualType>
+</config>
