@@ -21,5 +21,4 @@ class Env:
         # @todo: detect by `current_syntax` (php, etc)
 
         # @todo: fallback to default value from config
-
-        return None
+        return 'magento2'

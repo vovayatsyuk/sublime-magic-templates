@@ -70,7 +70,6 @@ class Template:
 
         module_path = self.composer.get_file().replace('/composer.json', '')
         relative_path = self.file_path.replace(module_path, '')
-        print(relative_path)
 
         path = None
         for group in rules:

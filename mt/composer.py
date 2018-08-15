@@ -24,7 +24,7 @@ class Composer:
             root, module_path = self.file_path.split(vendor_dir)
             self.vendor, self.module, rest = module_path.split(os.sep, 2)
             composer = os.sep.join([root, 'vendor', self.vendor, self.module, 'composer.json'])
-            if os.path.isfile(composer) and os.path.getsize(composer) > 0:
+            if os.path.isfile(composer):
                 return composer
         else:
             root = sublime.active_window().extract_variables().get('folder')
@@ -34,7 +34,7 @@ class Composer:
             folders.append('composer.json')
             while len(folders) > min_depth:
                 composer = os.sep.join(folders)
-                if os.path.isfile(composer) and os.path.getsize(composer) > 0:
+                if os.path.isfile(composer):
                     return composer
                 else:
                     del folders[len(folders) - 2] # remove last folder
@@ -44,10 +44,10 @@ class Composer:
 
     def load(self):
         composer = self.get_file()
-        if composer is not None:
+        try:
             with open(composer) as file:
                 self.data = json.loads(file.read())
-        else:
+        except:
             self.data = {
                 'name': self.vendor + '/' + self.module,
                 'autoload': {
