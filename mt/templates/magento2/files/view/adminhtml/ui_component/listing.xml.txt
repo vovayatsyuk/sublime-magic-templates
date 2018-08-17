@@ -21,14 +21,14 @@
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">{psr4key}Ui\DataProvider\{basename|remove _listing|remove _list|remove {project|snakecase}_|capitalize}DataProvider</argument>
             <argument name="name" xsi:type="string">{basename}_data_source</argument>
-            <argument name="primaryFieldName" xsi:type="string">${{2:entity_id}}</argument>
-            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="primaryFieldName" xsi:type="string">{basename|remove _listing|remove _list|remove {project|snakecase}_}_id</argument>
+            <argument name="requestFieldName" xsi:type="string">{basename|remove _listing|remove _list|remove {project|snakecase}_}_id</argument>
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
                     <item name="update_url" xsi:type="url" path="mui/index/render"/>
                     <item name="storageConfig" xsi:type="array">
-                        <item name="indexField" xsi:type="string">${{2:entity_id}}</item>
+                        <item name="indexField" xsi:type="string">{basename|remove _listing|remove _list|remove {project|snakecase}_}_id</item>
                     </item>
                 </item>
             </argument>
@@ -41,7 +41,7 @@
         <paging name="listing_paging"/>
     </listingToolbar>
     <columns name="{basename|remove _listing|remove _list}_columns">
-        <column name="${{2:entity_id}}">
+        <column name="{basename|remove _listing|remove _list|remove {project|snakecase}_}_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">textRange</item>

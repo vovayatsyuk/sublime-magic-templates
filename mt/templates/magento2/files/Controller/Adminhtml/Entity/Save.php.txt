@@ -51,11 +51,11 @@ class {classname} extends \Magento\Backend\App\Action
             if (isset(\$data['is_active']) && \$data['is_active'] === 'true') {{
                 \$data['is_active'] = 1;
             }}
-            if (empty(\$data['menu_id'])) {{
-                \$data['menu_id'] = null;
+            if (empty(\$data['{folder|lower}_id'])) {{
+                \$data['{folder|lower}_id'] = null;
             }}
 
-            \$id = \$this->getRequest()->getParam('id');
+            \$id = \$this->getRequest()->getParam('{folder|lower}_id');
             /** @var \{psr4key}Model\{folder} \$model */
             \${folder|lower} = \$this->{folder|lower}Factory->create()->load(\$id);
             if (!\${folder|lower}->getId() && \$id) {{
@@ -70,7 +70,7 @@ class {classname} extends \Magento\Backend\App\Action
                 \$this->messageManager->addSuccess(__('You saved {folder|lower}.'));
                 \$this->dataPersistor->clear('{project|snakecase}_{folder|lower}');
                 if (\$this->getRequest()->getParam('back')) {{
-                    return \$resultRedirect->setPath('*/*/edit', ['id' => \${folder|lower}->getId()]);
+                    return \$resultRedirect->setPath('*/*/edit', ['{folder|lower}_id' => \${folder|lower}->getId()]);
                 }}
                 return \$resultRedirect->setPath('*/*/');
             }} catch (LocalizedException \$e) {{
@@ -80,7 +80,7 @@ class {classname} extends \Magento\Backend\App\Action
             }}
 
             \$this->dataPersistor->set('{project|snakecase}_{folder|lower}', \$data);
-            return \$resultRedirect->setPath('*/*/edit', ['id' => \$id]);
+            return \$resultRedirect->setPath('*/*/edit', ['{folder|lower}_id' => \$id]);
         }}
         return \$resultRedirect->setPath('*/*/');
     }}

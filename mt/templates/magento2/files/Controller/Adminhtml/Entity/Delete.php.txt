@@ -36,7 +36,7 @@ class {classname} extends \Magento\Backend\App\Action
         /** @var \Magento\Backend\Model\View\Result\Redirect \$resultRedirect */
         \$resultRedirect = \$this->resultRedirectFactory->create();
 
-        \$id = \$this->getRequest()->getParam('id');
+        \$id = \$this->getRequest()->getParam('{folder|lower}_id');
         if (\$id) {{
             try {{
                 \$model = \$this->{folder|lower}Factory->create();
@@ -46,7 +46,7 @@ class {classname} extends \Magento\Backend\App\Action
                 return \$resultRedirect->setPath('*/*/');
             }} catch (\Exception \$e) {{
                 \$this->messageManager->addError(\$e->getMessage());
-                return \$resultRedirect->setPath('*/*/edit', ['id' => \$id]);
+                return \$resultRedirect->setPath('*/*/edit', ['{folder|lower}_id' => \$id]);
             }}
         }}
         \$this->messageManager->addError(__('We can\'t find an item to delete.'));

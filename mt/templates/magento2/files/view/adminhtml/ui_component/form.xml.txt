@@ -29,13 +29,13 @@
     </argument>
     <dataSource name="{basename}_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="class" xsi:type="string">{psr4key}Ui\DataProvider\Form\\${{1:Item}}DataProvider</argument>
+            <argument name="class" xsi:type="string">{psr4key}Ui\DataProvider\Form\{basename|remove {project|snakecase}_|remove _form|capitalize}DataProvider</argument>
             <argument name="name" xsi:type="string">{basename}_data_source</argument>
-            <argument name="primaryFieldName" xsi:type="string">${{2:entity_id}}</argument>
-            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="primaryFieldName" xsi:type="string">{basename|remove {project|snakecase}_|remove _form}_id</argument>
+            <argument name="requestFieldName" xsi:type="string">{basename|remove {project|snakecase}_|remove _form}_id</argument>
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="submit_url" xsi:type="url" path="$3"/>
+                    <item name="submit_url" xsi:type="url" path="*/*/save"/>
                 </item>
             </argument>
         </argument>
@@ -51,7 +51,7 @@
                 <item name="label" xsi:type="string"/>
             </item>
         </argument>
-        <field name="${{2:entity_id}}">
+        <field name="{basename|remove {project|snakecase}_|remove _form}_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="visible" xsi:type="boolean">false</item>
@@ -59,7 +59,7 @@
                     <item name="formElement" xsi:type="string">input</item>
                 </item>
             </argument>
-        </field>
+        </field>$0
         <field name="title">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">

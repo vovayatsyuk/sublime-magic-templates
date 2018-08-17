@@ -51,7 +51,7 @@ class {classname} extends \Magento\Backend\App\Action
      */
     public function execute()
     {{
-        \$id = \$this->getRequest()->getParam('id');
+        \$id = \$this->getRequest()->getParam('{folder|lower}_id');
         \${folder|lower} = \$this->{folder|lower}Factory->create();
 
         if (\$id) {{
