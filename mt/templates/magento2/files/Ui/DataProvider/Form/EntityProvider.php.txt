@@ -1,0 +1,76 @@
+<?php
+
+namespace {namespace};
+
+use {psr4key}Model\ResourceModel\{basename|remove DataProvider|remove Provider}\CollectionFactory;
+use Magento\Framework\App\Request\DataPersistorInterface;
+
+class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
+{{
+    /**
+     * @var \{psr4key}Model\ResourceModel\{basename|remove DataProvider|remove Provider}\Collection
+     */
+    protected \$collection;
+
+    /**
+     * @var DataPersistorInterface
+     */
+    protected \$dataPersistor;
+
+    /**
+     * @var array
+     */
+    protected \$loadedData;
+
+    /**
+     * Constructor
+     *
+     * @param string \$name
+     * @param string \$primaryFieldName
+     * @param string \$requestFieldName
+     * @param CollectionFactory \$collectionFactory
+     * @param DataPersistorInterface \$dataPersistor
+     * @param array \$meta
+     * @param array \$data
+     */
+    public function __construct(
+        \$name,
+        \$primaryFieldName,
+        \$requestFieldName,
+        CollectionFactory \$collectionFactory,
+        DataPersistorInterface \$dataPersistor,
+        array \$meta = [],
+        array \$data = []
+    ) {{
+        \$this->collection = \$collectionFactory->create();
+        \$this->dataPersistor = \$dataPersistor;
+        parent::__construct(\$name, \$primaryFieldName, \$requestFieldName, \$meta, \$data);
+    }}
+
+    /**
+     * Get data
+     *
+     * @return array
+     */
+    public function getData()
+    {{
+        if (isset(\$this->loadedData)) {{
+            return \$this->loadedData;
+        }}
+        \$items = \$this->collection->getItems();
+        /** @var \{psr4key}Model\{basename|remove DataProvider|remove Provider} \$item */
+        foreach (\$items as \$item) {{
+            \$this->loadedData[\$item->getId()] = \$item->getData();
+        }}
+
+        \$data = \$this->dataPersistor->get('{project|snakecase}_{basename|remove DataProvider|remove Provider|lower}');
+        if (!empty(\$data)) {{
+            \$item = \$this->collection->getNewEmptyItem();
+            \$item->setData(\$data);
+            \$this->loadedData[\$item->getId()] = \$item->getData();
+            \$this->dataPersistor->clear('{project|snakecase}_{folder|remove DataProvider|remove Provider|lower}');
+        }}
+
+        return \$this->loadedData;
+    }}
+}}
