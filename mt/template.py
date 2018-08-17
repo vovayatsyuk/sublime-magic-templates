@@ -16,7 +16,7 @@ class Template:
         self.env = Env(file_path)
         self.composer = Composer(file_path)
 
-    def render_snippet(self, alias=None):
+    def render_snippet(self, alias):
         if self.file_path is None:
             return None
 
