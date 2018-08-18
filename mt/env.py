@@ -1,19 +1,17 @@
-from .composer import Composer
-
 class Env:
-    def __init__(self, file_path):
-        self.file_path = file_path
-        self.composer = Composer(file_path)
+    def __init__(self, app):
+        self.file_path = app.filepath
+        self.composer = app.composer
 
     def get_app(self):
-        app = self.composer.get_type()
-        if app is not None:
+        app_type = self.composer.get_type()
+        if app_type is not None:
             knowntypes = {
                 'magento2-': 'magento2',
                 'magento-': 'magento1'
             }
             for key in knowntypes:
-                if key in app:
+                if key in app_type:
                     return knowntypes[key]
 
         # @todo: try to detect by `require` section

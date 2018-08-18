@@ -5,9 +5,11 @@ import sublime
 from .filters import *
 
 class Composer:
-    def __init__(self, file_path):
-        self.file_path = file_path
+    def __init__(self, app):
+        self.file_path = app.filepath
+        self.path = None
         self.data = None
+        self.psr4key = None
         self.vendor = 'Unknown'
         self.module = 'Unknown'
 
@@ -19,12 +21,16 @@ class Composer:
             from the deepest path.
         """
 
+        if self.path is not None:
+            return self.path
+
         vendor_dir = '/vendor/'
         if vendor_dir in self.file_path:
             root, module_path = self.file_path.split(vendor_dir)
             self.vendor, self.module, rest = module_path.split(os.sep, 2)
             composer = os.sep.join([root, 'vendor', self.vendor, self.module, 'composer.json'])
             if os.path.isfile(composer):
+                self.path = composer
                 return composer
         else:
             root = sublime.active_window().extract_variables().get('folder')
@@ -35,6 +41,7 @@ class Composer:
             while len(folders) > min_depth:
                 composer = os.sep.join(folders)
                 if os.path.isfile(composer):
+                    self.path = composer
                     return composer
                 else:
                     del folders[len(folders) - 2] # remove last folder
@@ -103,6 +110,9 @@ class Composer:
         return self.get_data('autoload.psr-4')
 
     def get_current_psr4key(self):
+        if self.psr4key is not None:
+            return self.psr4key
+
         module_path = self.get_file().replace('composer.json', '')
         relative_path = self.file_path.replace(module_path, '')
         psr4 = self.get_psr4()
@@ -112,8 +122,10 @@ class Composer:
             subfolder = psr4[key].strip('/')
             if subfolder:
                 if relative_path.startswith(subfolder):
+                    self.psr4key = key
                     return key
             else:
+                self.psr4key = key
                 return key
         return None
 

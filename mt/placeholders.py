@@ -4,14 +4,13 @@ import os
 
 from string import Formatter
 from .filters import *
-from .phpfile import Phpfile
-from .composer import Composer
 
 class Placeholders:
-    def __init__(self, file_path):
-        self.file_path = file_path
-        self.composer = Composer(file_path)
-        self.phpfile = Phpfile(file_path)
+    def __init__(self, app):
+        self.app = app
+        self.file_path = app.filepath
+        self.composer = app.composer
+        self.phpfile = app.phpfile
 
     def extract(self, names):
         result = {};
@@ -21,7 +20,7 @@ class Placeholders:
             # @todo: wrap into loop
             if '{' in name:
                 placeholders = [keys[1] for keys in Formatter().parse(name) if keys[1] is not None]
-                clean_name = name.format(**Placeholders(self.file_path).extract(placeholders))
+                clean_name = name.format(**Placeholders(self.app).extract(placeholders))
 
             params = clean_name.split('|')
             method = params.pop(0)

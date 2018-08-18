@@ -5,22 +5,21 @@ import os
 
 from string import Formatter
 from collections import OrderedDict
-from .env import Env
-from .composer import Composer
 from .placeholders import Placeholders
 
 class Template:
-    def __init__(self, file_path):
+    def __init__(self, app):
         self.base_dir = 'Packages/sublime-magic-templates/mt/templates'
-        self.file_path = file_path
-        self.env = Env(file_path)
-        self.composer = Composer(file_path)
+        self.app = app
+        self.env = app.env
+        self.composer = app.composer
+        self.file_path = app.filepath
 
-    def render_snippet(self, alias):
+    def render_snippet(self, alias, base_dir=None):
         if self.file_path is None:
             return None
 
-        return self.render(self.guess_template_path(alias))
+        return self.render(self.guess_template_path(alias), base_dir)
 
     def render(self, template_path=None, base_dir=None):
         if self.file_path is None:
@@ -47,7 +46,7 @@ class Template:
 
         placeholders = [keys[1] for keys in Formatter().parse(content) if keys[1] is not None]
 
-        return content.format(**Placeholders(self.file_path).extract(placeholders))
+        return content.format(**Placeholders(self.app).extract(placeholders))
 
     def guess_template_path(self, alias=None):
         app = self.env.get_app()
