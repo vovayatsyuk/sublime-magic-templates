@@ -46,7 +46,7 @@
         { "pattern": ".*\\.php", "path": "Observer/Default.php" }
     ],
     "/Ui/": [
-        { "pattern": "DataProvider/Form/.*Provider\\.php", "path": "Ui/DataProvider/Form/EntityProvider.php" },
+        { "pattern": "DataProvider/(.*/)?Form/.*Provider\\.php", "path": "Ui/DataProvider/Form/EntityProvider.php" },
         { "pattern": "DataProvider/.*Provider\\.php", "path": "Ui/DataProvider/EntityProvider.php" }
     ],
     "/view/adminhtml/": [

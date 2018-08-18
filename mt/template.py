@@ -9,7 +9,7 @@ from .placeholders import Placeholders
 
 class Template:
     def __init__(self, app):
-        self.base_dir = 'Packages/sublime-magic-templates/mt/templates'
+        self.base_dir = 'Packages/sublime-magic-templates/templates'
         self.app = app
         self.env = app.env
         self.composer = app.composer
