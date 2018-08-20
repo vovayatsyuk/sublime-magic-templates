@@ -14,5 +14,5 @@ class App:
     def render_template(self, template_path=None, base_dir=None):
         return self.template.render(template_path, base_dir)
 
-    def render_snippet(self, alias):
-        return self.template.render_snippet(template_path, base_dir)
+    def render_snippet(self, alias, base_dir=None):
+        return self.template.render_snippet(alias, base_dir)
