@@ -68,6 +68,9 @@ class Template:
             return None
 
         module_path = self.composer.get_file().replace('/composer.json', '')
+        subdir = self.composer.get_psr4().get(self.composer.get_current_psr4key())
+        if subdir:
+            module_path += os.sep + subdir
         relative_path = self.file_path.replace(module_path, '')
 
         path = None
