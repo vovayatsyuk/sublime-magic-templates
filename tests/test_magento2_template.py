@@ -51,6 +51,9 @@ class TestMagento2Template(TestCase):
             "vendor/module/Ui/DataProvider/Form/EntityProvider.php": "magento2/files/Ui/DataProvider/Form/EntityProvider.php",
             "vendor/module/Ui/DataProvider/Name/Form/EntityDataProvider.php": "magento2/files/Ui/DataProvider/Form/EntityProvider.php",
             "vendor/module/Ui/DataProvider/Name/DataProvider.php": "magento2/files/Ui/DataProvider/EntityProvider.php",
+            "vendor/module/Ui/Component/Listing/Columns/SomeActions.php": "magento2/files/Ui/Component/Listing/Columns/Actions.php",
+            "vendor/module/Ui/Component/Listing/Columns/FieldRenderer.php": "magento2/files/Ui/Component/Listing/Columns/Default.php",
+            "vendor/module/Ui/Component/Listing/Column/FieldRenderer.php": "magento2/files/Ui/Component/Listing/Columns/Default.php",
 
             "vendor/module/view/adminhtml/layout/vendor_module_index.xml": "magento2/files/view/adminhtml/layout/index.xml",
             "vendor/module/view/adminhtml/layout/vendor_module_edit.xml": "magento2/files/view/adminhtml/layout/edit.xml",

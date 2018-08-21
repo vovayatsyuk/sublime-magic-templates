@@ -47,7 +47,9 @@
     ],
     "/Ui/": [
         { "pattern": "DataProvider/(.*/)?Form/.*Provider\\.php", "path": "Ui/DataProvider/Form/EntityProvider.php" },
-        { "pattern": "DataProvider/.*Provider\\.php", "path": "Ui/DataProvider/EntityProvider.php" }
+        { "pattern": "DataProvider/.*Provider\\.php", "path": "Ui/DataProvider/EntityProvider.php" },
+        { "pattern": "Column(s)?/.*Actions\\.php", "path": "Ui/Component/Listing/Columns/Actions.php" },
+        { "pattern": "Column(s)?/.*\\.php", "path": "Ui/Component/Listing/Columns/Default.php" }
     ],
     "/view/adminhtml/": [
         { "pattern": "layout/.*_index\\.xml", "path": "view/adminhtml/layout/index.xml" },
