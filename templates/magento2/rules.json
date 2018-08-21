@@ -45,6 +45,12 @@
     "/Observer/": [
         { "pattern": ".*\\.php", "path": "Observer/Default.php" }
     ],
+    "/Plugin/": [
+        { "pattern": ".*\\.php", "path": "Plugin/Default.php" }
+    ],
+    "/Setup/": [
+        { "pattern": "UpgradeSchema\\.php", "path": "Setup/UpgradeSchema.php" }
+    ],
     "/Ui/": [
         { "pattern": "DataProvider/(.*/)?Form/.*Provider\\.php", "path": "Ui/DataProvider/Form/EntityProvider.php" },
         { "pattern": "DataProvider/.*Provider\\.php", "path": "Ui/DataProvider/EntityProvider.php" },

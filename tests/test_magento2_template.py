@@ -47,6 +47,10 @@ class TestMagento2Template(TestCase):
             "vendor/module/Observer/ClassName.php": "magento2/files/Observer/Default.php",
             "vendor/module/Observer/Subfolder/ClassName.php": "magento2/files/Observer/Default.php",
 
+            "vendor/module/Plugin/Name.php": "magento2/files/Plugin/Default.php",
+
+            "vendor/module/Setup/UpgradeSchema.php": "magento2/files/Setup/UpgradeSchema.php",
+
             "vendor/module/Ui/DataProvider/EntityProvider.php": "magento2/files/Ui/DataProvider/EntityProvider.php",
             "vendor/module/Ui/DataProvider/Form/EntityProvider.php": "magento2/files/Ui/DataProvider/Form/EntityProvider.php",
             "vendor/module/Ui/DataProvider/Name/Form/EntityDataProvider.php": "magento2/files/Ui/DataProvider/Form/EntityProvider.php",

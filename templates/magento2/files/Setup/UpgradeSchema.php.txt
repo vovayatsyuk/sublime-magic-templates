@@ -1,0 +1,98 @@
+<?php
+
+namespace {namespace};
+
+use Magento\Framework\Setup\UpgradeSchemaInterface;
+use Magento\Framework\Setup\ModuleContextInterface;
+use Magento\Framework\Setup\SchemaSetupInterface;
+use Magento\Framework\DB\Ddl\Table;
+use Magento\Framework\DB\Adapter\AdapterInterface;
+
+class {basename} implements UpgradeSchemaInterface
+{{
+    /**
+     * Installs DB schema for a module
+     *
+     * @param SchemaSetupInterface \$setup
+     * @param ModuleContextInterface \$context
+     * @return void
+     */
+    public function upgrade(SchemaSetupInterface \$setup, ModuleContextInterface \$context)
+    {{
+        \$setup->startSetup();
+
+        if (version_compare(\$context->getVersion(), '1.0.0', '<')) {{
+            \$this->createTable(\$setup);
+        }}
+
+        if (version_compare(\$context->getVersion(), '1.1.0', '<')) {{
+            \$this->addKeywordColumn(\$setup);
+        }}
+
+        if (version_compare(\$context->getVersion(), '1.2.0', '<')) {{
+            \$this->addFullTextSearchIndex(\$setup);
+        }}
+
+        \$setup->endSetup();
+    }}
+
+    protected function createTable(SchemaSetupInterface \$setup)
+    {{
+        \$table = \$setup->getConnection()
+            ->newTable(\$setup->getTable('{module|lower}'))
+            ->addColumn(
+                'entity_id',
+                Table::TYPE_INTEGER,
+                null,
+                [
+                    'nullable' => false,
+                    'primary'  => true,
+                    'unsigned' => true,
+                    'identity' => true,
+                ],
+                'ID'
+            )
+            ->addColumn('title', Table::TYPE_TEXT, 255)
+            ->addColumn('description', Table::TYPE_TEXT)
+            ->addColumn(
+                'is_active',
+                Table::TYPE_SMALLINT,
+                null,
+                [
+                    'nullable' => false,
+                    'default'  => 1
+                ],
+                'Is Item Active'
+            );
+        \$setup->getConnection()->createTable(\$table);
+    }}
+
+    protected function addKeywordColumn(SchemaSetupInterface \$setup)
+    {{
+        \$setup->getConnection()->addColumn(
+            \$setup->getTable('{module|lower}'),
+            'keywords',
+            [
+                'type' => Table::TYPE_TEXT,
+                'length' => 255,
+                'after' => 'description',
+                'comment' => 'Keywords'
+            ]
+        );
+    }}
+
+    protected function addFullTextSearchIndex(SchemaSetupInterface \$setup)
+    {{
+        \$table = \$setup->getTable('{module|lower}');
+        \$setup->getConnection()->addIndex(
+            \$table,
+            \$setup->getConnection()->getIndexName(
+                \$table,
+                ['title', 'description', 'keywords'],
+                AdapterInterface::INDEX_TYPE_FULLTEXT
+            ),
+            ['title', 'description', 'keywords'],
+            AdapterInterface::INDEX_TYPE_FULLTEXT
+        );
+    }}
+}}
