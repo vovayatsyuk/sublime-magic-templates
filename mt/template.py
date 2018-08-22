@@ -13,16 +13,16 @@ class Template:
         self.app = app
         self.env = app.env
         self.composer = app.composer
-        self.file_path = app.filepath
+        self.filepath = app.filepath
 
     def render_snippet(self, alias, base_dir=None):
-        if self.file_path is None:
+        if self.filepath is None:
             return None
 
         return self.render(self.guess_template_path(alias), base_dir)
 
     def render(self, template_path=None, base_dir=None):
-        if self.file_path is None:
+        if self.filepath is None:
             return None
 
         if template_path is None:
@@ -67,11 +67,11 @@ class Template:
                 return rules.get('snippets').get(alias).get('path')
             return None
 
-        module_path = self.composer.get_file().replace('/composer.json', '')
-        subdir = self.composer.get_psr4().get(self.env.psr4key())
+        module_path = self.composer.path().replace('/composer.json', '')
+        subdir = self.composer.psr4().get(self.env.psr4key())
         if subdir:
             module_path += os.sep + subdir
-        relative_path = self.file_path.replace(module_path, '')
+        relative_path = self.filepath.replace(module_path, '')
 
         path = None
         for group in rules:

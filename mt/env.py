@@ -15,9 +15,9 @@ class Env:
         if self._psr4key is not None:
             return self._psr4key
 
-        module_path = self.app.composer.get_file().replace('composer.json', '')
+        module_path = self.app.composer.path().replace('composer.json', '')
         relative_path = self.app.filepath.replace(module_path, '')
-        psr4 = self.app.composer.get_psr4()
+        psr4 = self.app.composer.psr4()
         if psr4 is None:
             return None
         for key in psr4:
@@ -32,7 +32,7 @@ class Env:
         return None
 
     def type(self):
-        app = self.app.composer.get_type()
+        app = self.app.composer.type()
         if app is not None:
             knowntypes = {
                 'magento2-': 'magento2',

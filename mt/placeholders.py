@@ -8,7 +8,6 @@ from .filters import *
 class Placeholders:
     def __init__(self, app):
         self.app = app
-        self.file_path = app.filepath
         self.composer = app.composer
         self.phpfile = app.phpfile
         self.env = app.env
@@ -29,7 +28,7 @@ class Placeholders:
 
                 params = clean_name.split('|')
                 method = params.pop(0)
-                result[name] = getattr(self, 'get_' + method)()
+                result[name] = getattr(self, method)()
                 for string_filter in params:
                     args = [result[name]]
                     if ' ' in string_filter:
@@ -42,40 +41,40 @@ class Placeholders:
 
         return result
 
-    def get_package(self):
-        return self.composer.get_name()
+    def package(self):
+        return self.composer.name()
 
-    def get_vendor(self):
-        return self.composer.get_vendor()
+    def vendor(self):
+        return self.composer.vendor()
 
-    def get_project(self):
-        return self.composer.get_project()
+    def project(self):
+        return self.composer.project()
 
-    def get_vendor_folder(self):
-        return self.composer.get_vendor_folder()
+    def vendor_folder(self):
+        return self.composer.vendor_folder()
 
-    def get_project_folder(self):
-        return self.composer.get_project_folder()
+    def project_folder(self):
+        return self.composer.project_folder()
 
-    def get_psr4key(self):
+    def psr4key(self):
         return self.env.psr4key()
 
-    def get_module(self):
-        return self.get_psr4key().replace('\\', '_').strip('_')
+    def module(self):
+        return self.psr4key().replace('\\', '_').strip('_')
 
-    def get_namespace(self):
-        return self.phpfile.get_namespace()
+    def namespace(self):
+        return self.phpfile.namespace()
 
-    def get_classname(self):
-        return self.phpfile.get_classname()
+    def classname(self):
+        return self.phpfile.classname()
 
-    def get_basename(self):
+    def basename(self):
         return self.env.file()
 
-    def get_folder(self):
+    def folder(self):
         return self.env.folder()
 
-    def get_ipaddress(self):
+    def ipaddress(self):
         try:
             from IpAddress.ipaddress.IpAddress import IpAddress as IpAddress
         except ImportError:
