@@ -1,8 +1,17 @@
+import os
+
 from .filters import *
 
 class Project:
     def __init__(self, app):
         self.app = app
+
+    def path(self):
+        path = self.app.composer.path().replace('/composer.json', '')
+        subdir = self.app.composer.psr4().get(self.app.env.psr4key())
+        if subdir:
+            path += os.sep + subdir
+        return path
 
     def code(self):
         return self.app.env.psr4key().replace('\\', '_').strip('_')

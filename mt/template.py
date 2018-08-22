@@ -65,10 +65,7 @@ class Template:
                 return rules.get('snippets').get(alias).get('path')
             return None
 
-        module_path = self.app.composer.path().replace('/composer.json', '')
-        subdir = self.app.composer.psr4().get(self.app.env.psr4key())
-        if subdir:
-            module_path += os.sep + subdir
+        module_path = self.app.project.path()
         relative_path = self.filepath.replace(module_path, '')
 
         path = None
