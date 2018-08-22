@@ -8,9 +8,6 @@ from .filters import *
 class Placeholders:
     def __init__(self, app):
         self.app = app
-        self.composer = app.composer
-        self.phpfile = app.phpfile
-        self.env = app.env
         self.memo = {}
 
     def extract(self, names):
@@ -42,37 +39,37 @@ class Placeholders:
         return result
 
     def package(self):
-        return self.composer.name()
-
-    def vendor(self):
-        return self.composer.vendor()
-
-    def project(self):
-        return self.composer.project()
+        return self.app.composer.name()
 
     def vendor_folder(self):
-        return self.composer.vendor_folder()
+        return self.app.composer.vendor()
 
     def project_folder(self):
-        return self.composer.project_folder()
+        return self.app.composer.project()
 
-    def psr4key(self):
-        return self.env.psr4key()
+    def vendor(self):
+        return self.app.project.vendor()
+
+    def project(self):
+        return self.app.project.project()
 
     def module(self):
-        return self.psr4key().replace('\\', '_').strip('_')
+        return self.app.project.code()
 
-    def namespace(self):
-        return self.phpfile.namespace()
-
-    def classname(self):
-        return self.phpfile.classname()
+    def psr4key(self):
+        return self.app.env.psr4key()
 
     def basename(self):
-        return self.env.file()
+        return self.app.env.file()
 
     def folder(self):
-        return self.env.folder()
+        return self.app.env.folder()
+
+    def namespace(self):
+        return self.app.phpfile.namespace()
+
+    def classname(self):
+        return self.app.phpfile.classname()
 
     def ipaddress(self):
         try:

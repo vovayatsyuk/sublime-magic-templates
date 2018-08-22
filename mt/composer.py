@@ -67,41 +67,11 @@ class Composer:
     def name(self):
         return self.data('name')
 
-    def vendor_folder(self):
-        return self.name().split('/')[0]
-
-    def project_folder(self):
-        return self.name().split('/')[1]
-
     def vendor(self):
-        psr4key = self.app.env.psr4key()
-        if psr4key:
-            return kebabcase(psr4key.split('\\')[0])
-
-        # Logic below is used, when composer is not found
         return self.name().split('/')[0]
 
     def project(self):
-        psr4key = self.app.env.psr4key()
-        if psr4key:
-            parts = psr4key.split('\\')
-            if len(parts) > 1:
-                return kebabcase(parts[1])
-
-        # Logic below is used, when composer is not found
-        project = self.project_folder()
-        removes = [
-            'magento2-',
-            'magento-2-',
-            'module-',
-            '-extension',
-            '-magento-2',
-            'magento-',
-            'magento1-'
-        ]
-        for string in removes:
-            project = project.replace(string, '')
-        return project
+        return self.name().split('/')[1]
 
     def type(self):
         return self.data('type')

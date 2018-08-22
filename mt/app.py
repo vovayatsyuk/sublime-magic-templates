@@ -1,4 +1,5 @@
 from .env import Env
+from .project import Project
 from .phpfile import Phpfile
 from .composer import Composer
 from .template import Template
@@ -6,6 +7,7 @@ from .template import Template
 class App:
     def __init__(self, filepath):
         self.filepath = filepath
+        self.project = Project(self)
         self.composer = Composer(self)
         self.env = Env(self)
         self.phpfile = Phpfile(self)

@@ -11,8 +11,6 @@ class Template:
     def __init__(self, app):
         self.base_dir = 'Packages/sublime-magic-templates/templates'
         self.app = app
-        self.env = app.env
-        self.composer = app.composer
         self.filepath = app.filepath
 
     def render_snippet(self, alias, base_dir=None):
@@ -49,7 +47,7 @@ class Template:
         return content.format(**Placeholders(self.app).extract(placeholders))
 
     def guess_template_path(self, alias=None):
-        app = self.env.type()
+        app = self.app.project.type()
         if app is None:
             return None
 
@@ -67,8 +65,8 @@ class Template:
                 return rules.get('snippets').get(alias).get('path')
             return None
 
-        module_path = self.composer.path().replace('/composer.json', '')
-        subdir = self.composer.psr4().get(self.env.psr4key())
+        module_path = self.app.composer.path().replace('/composer.json', '')
+        subdir = self.app.composer.psr4().get(self.app.env.psr4key())
         if subdir:
             module_path += os.sep + subdir
         relative_path = self.filepath.replace(module_path, '')

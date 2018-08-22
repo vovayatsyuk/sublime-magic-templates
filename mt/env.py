@@ -30,21 +30,3 @@ class Env:
                 self._psr4key = key
                 return key
         return None
-
-    def type(self):
-        app = self.app.composer.type()
-        if app is not None:
-            knowntypes = {
-                'magento2-': 'magento2',
-                'magento-': 'magento1'
-            }
-            for key in knowntypes:
-                if key in app:
-                    return knowntypes[key]
-
-        # @todo: try to detect by `require` section
-
-        # @todo: detect by `current_syntax` (php, etc)
-
-        # @todo: fallback to default value from config
-        return 'magento2'
