@@ -11,6 +11,7 @@ class Placeholders:
         self.file_path = app.filepath
         self.composer = app.composer
         self.phpfile = app.phpfile
+        self.memo = {}
 
     def extract(self, names):
         result = {};
@@ -22,16 +23,22 @@ class Placeholders:
                 placeholders = [keys[1] for keys in Formatter().parse(name) if keys[1] is not None]
                 clean_name = name.format(**Placeholders(self.app).extract(placeholders))
 
-            params = clean_name.split('|')
-            method = params.pop(0)
-            result[name] = getattr(self, 'get_' + method)()
-            for string_filter in params:
-                args = [result[name]]
-                if ' ' in string_filter:
-                    string_filter, args = string_filter.split(' ', 2)
-                    args = args.split(',')
-                    args.insert(0, result[name])
-                result[name] = globals()[string_filter](*args)
+            if (clean_name in self.memo):
+                result[name] = self.memo[clean_name]
+            else:
+                params = clean_name.split('|')
+                method = params.pop(0)
+                result[name] = getattr(self, 'get_' + method)()
+                for string_filter in params:
+                    args = [result[name]]
+                    if ' ' in string_filter:
+                        string_filter, args = string_filter.split(' ', 2)
+                        args = args.split(',')
+                        args.insert(0, result[name])
+                    result[name] = globals()[string_filter](*args)
+
+                self.memo[clean_name] = result[name]
+
         return result
 
     def get_package(self):
