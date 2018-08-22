@@ -6,6 +6,7 @@ from .filters import *
 
 class Composer:
     def __init__(self, app):
+        self.app = app
         self.file_path = app.filepath
         self.path = None
         self.data = None
@@ -74,7 +75,7 @@ class Composer:
         return self.get_name().split('/')[1]
 
     def get_vendor(self):
-        psr4key = self.get_current_psr4key()
+        psr4key = self.app.env.psr4key()
         if psr4key:
             return kebabcase(psr4key.split('\\')[0])
 
@@ -82,7 +83,7 @@ class Composer:
         return self.get_name().split('/')[0]
 
     def get_project(self):
-        psr4key = self.get_current_psr4key()
+        psr4key = self.app.env.psr4key()
         if psr4key:
             parts = psr4key.split('\\')
             if len(parts) > 1:
@@ -108,26 +109,6 @@ class Composer:
 
     def get_psr4(self):
         return self.get_data('autoload.psr-4')
-
-    def get_current_psr4key(self):
-        if self.psr4key is not None:
-            return self.psr4key
-
-        module_path = self.get_file().replace('composer.json', '')
-        relative_path = self.file_path.replace(module_path, '')
-        psr4 = self.get_psr4()
-        if psr4 is None:
-            return None
-        for key in psr4:
-            subfolder = psr4[key].strip('/')
-            if subfolder:
-                if relative_path.startswith(subfolder):
-                    self.psr4key = key
-                    return key
-            else:
-                self.psr4key = key
-                return key
-        return None
 
     def get_data(self, key = ''):
         if self.data is None:

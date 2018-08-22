@@ -11,6 +11,7 @@ class Placeholders:
         self.file_path = app.filepath
         self.composer = app.composer
         self.phpfile = app.phpfile
+        self.env = app.env
         self.memo = {}
 
     def extract(self, names):
@@ -57,10 +58,10 @@ class Placeholders:
         return self.composer.get_project_folder()
 
     def get_psr4key(self):
-        return self.composer.get_current_psr4key()
+        return self.env.psr4key()
 
     def get_module(self):
-        return self.composer.get_current_psr4key().replace('\\', '_').strip('_')
+        return self.get_psr4key().replace('\\', '_').strip('_')
 
     def get_namespace(self):
         return self.phpfile.get_namespace()
@@ -69,10 +70,10 @@ class Placeholders:
         return self.phpfile.get_classname()
 
     def get_basename(self):
-        return os.path.splitext(os.path.basename(self.file_path))[0]
+        return self.env.file()
 
     def get_folder(self):
-        return os.path.basename(os.path.dirname(self.file_path))
+        return self.env.folder()
 
     def get_ipaddress(self):
         try:
