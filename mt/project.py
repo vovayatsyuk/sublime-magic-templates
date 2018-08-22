@@ -11,9 +11,8 @@ class Project:
         psr4key = self.app.env.psr4key()
         if psr4key:
             return kebabcase(psr4key.split('\\')[0])
-
-        # Logic below is used, when composer is not found
-        return self.app.composer.vendor()
+        else:
+            return self.app.composer.vendor()
 
     def project(self):
         psr4key = self.app.env.psr4key()
@@ -21,21 +20,20 @@ class Project:
             parts = psr4key.split('\\')
             if len(parts) > 1:
                 return kebabcase(parts[1])
-
-        # Logic below is used, when composer is not found
-        project = self.app.composer.project()
-        removes = [
-            'magento2-',
-            'magento-2-',
-            'module-',
-            '-extension',
-            '-magento-2',
-            'magento-',
-            'magento1-'
-        ]
-        for string in removes:
-            project = project.replace(string, '')
-        return project
+        else:
+            project = self.app.composer.project()
+            removes = [
+                'magento2-',
+                'magento-2-',
+                'module-',
+                '-extension',
+                '-magento-2',
+                'magento-',
+                'magento1-'
+            ]
+            for string in removes:
+                project = project.replace(string, '')
+            return project
 
     def type(self):
         app = self.app.composer.type()
