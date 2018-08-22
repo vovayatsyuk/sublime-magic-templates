@@ -16,16 +16,16 @@ class Placeholders:
     def extract(self, names):
         result = {};
         for name in names:
-            clean_name = name;
-            # placheolder inside placeholder. Eg: {filename|remove {vendor|lower}}
-            # @todo: wrap into loop
-            if '{' in name:
-                placeholders = [keys[1] for keys in Formatter().parse(name) if keys[1] is not None]
-                clean_name = name.format(**Placeholders(self.app).extract(placeholders))
-
-            if (clean_name in self.memo):
-                result[name] = self.memo[clean_name]
+            if (name in self.memo):
+                result[name] = self.memo[name]
             else:
+                clean_name = name;
+                # placheolder inside placeholder. Eg: {filename|remove {vendor|lower}}
+                # @todo: wrap into loop
+                if '{' in name:
+                    placeholders = [keys[1] for keys in Formatter().parse(name) if keys[1] is not None]
+                    clean_name = name.format(**Placeholders(self.app).extract(placeholders))
+
                 params = clean_name.split('|')
                 method = params.pop(0)
                 result[name] = getattr(self, 'get_' + method)()
@@ -37,7 +37,7 @@ class Placeholders:
                         args.insert(0, result[name])
                     result[name] = globals()[string_filter](*args)
 
-                self.memo[clean_name] = result[name]
+                self.memo[name] = result[name]
 
         return result
 
