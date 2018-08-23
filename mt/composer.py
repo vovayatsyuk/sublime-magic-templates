@@ -59,7 +59,7 @@ class Composer:
                 'name': self._vendor + '/' + self._module,
                 'autoload': {
                     'psr-4': {
-                        camelcase(self._vendor) + '\\' + camelcase(self._module): ''
+                        camelcase(self._vendor) + '\\' + camelcase(self._module) + '\\': ''
                     }
                 }
             }
