@@ -85,5 +85,5 @@ class TestMagento2Template(TestCase):
 
         for filepath in mapping:
             app = app_module.App(filepath)
-            app.composer.path = "vendor/module/composer.json"
+            app.composer._path = "vendor/module/composer.json"
             self.assertEqual(mapping[filepath], app.template.guess_template_path())
