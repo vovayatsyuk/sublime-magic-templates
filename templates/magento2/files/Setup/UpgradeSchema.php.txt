@@ -8,7 +8,7 @@ use Magento\Framework\Setup\SchemaSetupInterface;
 use Magento\Framework\DB\Ddl\Table;
 use Magento\Framework\DB\Adapter\AdapterInterface;
 
-class {basename} implements UpgradeSchemaInterface
+class {classname} implements UpgradeSchemaInterface
 {{
     /**
      * Installs DB schema for a module

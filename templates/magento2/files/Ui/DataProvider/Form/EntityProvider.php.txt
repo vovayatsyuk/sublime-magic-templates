@@ -5,7 +5,7 @@ namespace {namespace};
 use {psr4key}Model\ResourceModel\{basename|remove DataProvider|remove Provider}\CollectionFactory;
 use Magento\Framework\App\Request\DataPersistorInterface;
 
-class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
+class {classname} extends \Magento\Ui\DataProvider\AbstractDataProvider
 {{
     /**
      * @var \{psr4key}Model\ResourceModel\{basename|remove DataProvider|remove Provider}\Collection

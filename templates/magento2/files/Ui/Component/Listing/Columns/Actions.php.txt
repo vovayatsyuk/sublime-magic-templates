@@ -7,7 +7,7 @@ use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
 
-class {basename} extends Column
+class {classname} extends Column
 {{
     const URL_PATH_EDIT = '{project|snakecase}/{basename|remove Actions|lower}/edit';
     const URL_PATH_DELETE = '{project|snakecase}/{basename|remove Actions|lower}/delete';
