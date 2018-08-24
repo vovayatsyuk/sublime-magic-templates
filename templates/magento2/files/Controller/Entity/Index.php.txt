@@ -1,0 +1,29 @@
+<?php
+
+namespace {namespace};
+
+use Magento\Framework\App\RequestInterface;
+use Magento\Framework\Controller\ResultFactory;
+
+class {classname} extends \Magento\Framework\App\Action\Action
+{{
+    /**
+     * @param \Magento\Framework\App\Action\Context \$context
+     */
+    public function __construct(
+        \Magento\Framework\App\Action\Context \$context
+    ) {{
+        parent::__construct(\$context);
+    }}
+
+    /**
+     * @return \Magento\Framework\View\Result\Page
+     */
+    public function execute()
+    {{
+        /** @var \Magento\Framework\View\Result\Page \$resultPage */
+        \$resultPage = \$this->resultFactory->create(ResultFactory::TYPE_PAGE);
+        \$resultPage->getConfig()->getTitle()->set(__('{project|camelcase}'));
+        return \$resultPage;
+    }}
+}}

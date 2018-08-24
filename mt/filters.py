@@ -6,6 +6,9 @@ def capitalize(string):
 def lower(string):
     return string.lower()
 
+def lcfirst(string):
+    return string[0].lower() + string[1:]
+
 def upper(string):
     return string.upper()
 

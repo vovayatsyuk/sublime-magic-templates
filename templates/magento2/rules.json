@@ -11,6 +11,10 @@
         { "pattern": "Delete\\.php", "path": "Controller/Adminhtml/Entity/Delete.php" },
         { "pattern": ".*\\.php", "path": "Controller/Adminhtml/Entity/Index.php" }
     ],
+    "/Controller/": [
+        { "pattern": "(Save|Post)\\.php", "path": "Controller/Entity/Save.php" },
+        { "pattern": ".*\\.php", "path": "Controller/Entity/Index.php" }
+    ],
     "/etc/": [
         { "pattern": "adminhtml/di\\.xml", "path": "etc/adminhtml/di.xml" },
         { "pattern": "adminhtml/events\\.xml", "path": "etc/adminhtml/events.xml" },

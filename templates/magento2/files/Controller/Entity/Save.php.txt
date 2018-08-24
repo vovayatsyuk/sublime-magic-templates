@@ -1,0 +1,69 @@
+<?php
+
+namespace {namespace};
+
+use Magento\Framework\App\RequestInterface;
+use Magento\Framework\Controller\ResultFactory;
+
+class {classname} extends \Magento\Framework\App\Action\Action
+{{
+    /**
+     * @var \Magento\Framework\Data\Form\FormKey\Validator
+     */
+    private \$formKeyValidator;
+
+    /**
+     * @var \{psr4key}Model\{folder}Factory
+     */
+    private \${folder|lcfirst}Factory;
+
+    /**
+     * @param \Magento\Framework\App\Action\Context \$context
+     * @param \Magento\Framework\Data\Form\FormKey\Validator \$formKeyValidator
+     * @param \{psr4key}Model\{folder}Factory \${folder|lcfirst}Factory
+     */
+    public function __construct(
+        \Magento\Framework\App\Action\Context \$context,
+        \Magento\Framework\Data\Form\FormKey\Validator \$formKeyValidator,
+        \{psr4key}Model\{folder}Factory \${folder|lcfirst}Factory
+    ) {{
+        \$this->formKeyValidator = \$formKeyValidator;
+        \$this->{folder|lcfirst}Factory = \${folder|lcfirst}Factory;
+        parent::__construct(\$context);
+    }}
+
+    /**
+     * @return \Magento\Framework\Controller\Result\Redirect
+     */
+    public function execute()
+    {{
+        /** @var \Magento\Framework\Controller\Result\Redirect \$resultRedirect */
+        \$resultRedirect = \$this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
+
+        if (!\$this->getRequest()->isPost()) {{
+            \$resultRedirect->setUrl(\$this->_redirect->getRefererUrl());
+            return \$resultRedirect;
+        }}
+
+        if (!\$this->formKeyValidator->validate(\$this->getRequest())) {{
+            \$this->messageManager->addError(__('Invalid Form Key. Please refresh the page.'));
+            \$resultRedirect->setUrl(\$this->_redirect->getRefererUrl());
+            return \$resultRedirect;
+        }}
+
+        try {{
+            \$model = \$this->{folder|lcfirst}Factory->create();
+            \$model->setData(\$this->getRequest()->getPostValue());
+            \$model->save();
+
+            \$this->messageManager->addSuccess(__("{folder} has been saved."));
+            \$resultRedirect->setPath('*/*/index');
+            return \$resultRedirect;
+        }} catch (\Exception \$e) {{
+            \$this->messageManager->addError(\$e->getMessage());
+        }}
+
+        \$resultRedirect->setUrl(\$this->_redirect->getRefererUrl());
+        return \$resultRedirect;
+    }}
+}}
