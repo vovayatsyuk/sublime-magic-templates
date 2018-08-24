@@ -4,10 +4,6 @@
         "command": "generate_content"
     },
     {
-        "caption": "MagicTemplates: Generate class",
-        "command": "generate_class"
-    },
-    {
         "caption": "MagicTemplates: Insert class name",
         "command": "insert_class_name"
     },
