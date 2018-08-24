@@ -25,14 +25,6 @@ class {basename} implements UpgradeSchemaInterface
             \$this->createTable(\$setup);
         }}
 
-        if (version_compare(\$context->getVersion(), '1.1.0', '<')) {{
-            \$this->addKeywordColumn(\$setup);
-        }}
-
-        if (version_compare(\$context->getVersion(), '1.2.0', '<')) {{
-            \$this->addFullTextSearchIndex(\$setup);
-        }}
-
         \$setup->endSetup();
     }}
 
@@ -63,36 +55,14 @@ class {basename} implements UpgradeSchemaInterface
                     'default'  => 1
                 ],
                 'Is Item Active'
+            )
+            ->addColumn(
+                'updated_at',
+                Table::TYPE_TIMESTAMP,
+                null,
+                ['nullable' => false, 'default' => Table::TIMESTAMP_INIT],
+                'Update Time'
             );
         \$setup->getConnection()->createTable(\$table);
-    }}
-
-    protected function addKeywordColumn(SchemaSetupInterface \$setup)
-    {{
-        \$setup->getConnection()->addColumn(
-            \$setup->getTable('{module|lower}'),
-            'keywords',
-            [
-                'type' => Table::TYPE_TEXT,
-                'length' => 255,
-                'after' => 'description',
-                'comment' => 'Keywords'
-            ]
-        );
-    }}
-
-    protected function addFullTextSearchIndex(SchemaSetupInterface \$setup)
-    {{
-        \$table = \$setup->getTable('{module|lower}');
-        \$setup->getConnection()->addIndex(
-            \$table,
-            \$setup->getConnection()->getIndexName(
-                \$table,
-                ['title', 'description', 'keywords'],
-                AdapterInterface::INDEX_TYPE_FULLTEXT
-            ),
-            ['title', 'description', 'keywords'],
-            AdapterInterface::INDEX_TYPE_FULLTEXT
-        );
     }}
 }}
