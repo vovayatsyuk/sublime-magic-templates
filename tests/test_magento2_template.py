@@ -17,6 +17,10 @@ class TestMagento2Template(TestCase):
             "vendor/module/Controller/Adminhtml/MassDisable.php": "magento2/files/Controller/Adminhtml/Entity/MassStatus.php",
             "vendor/module/Controller/Adminhtml/Delete.php": "magento2/files/Controller/Adminhtml/Entity/Delete.php",
 
+            "vendor/module/Controller/Name/Index.php": "magento2/files/Controller/Entity/Index.php",
+            "vendor/module/Controller/Name/Save.php": "magento2/files/Controller/Entity/Save.php",
+            "vendor/module/Controller/Name/Post.php": "magento2/files/Controller/Entity/Save.php",
+
             "vendor/module/etc/adminhtml/di.xml": "magento2/files/etc/adminhtml/di.xml",
             "vendor/module/etc/adminhtml/events.xml": "magento2/files/etc/adminhtml/events.xml",
             "vendor/module/etc/adminhtml/menu.xml": "magento2/files/etc/adminhtml/menu.xml",
