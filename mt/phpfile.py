@@ -16,12 +16,14 @@ class Phpfile:
 
         # Magento 2
         if module_type is not None and 'magento2' in module_type:
-            path_parts.append(path.split(os.sep)[-1])
+            path_parts.append(self.app.file.basename())
         elif appcode_dir in self.filepath:
             path_parts = path.split(appcode_dir)[1].split(os.sep)
             path_parts.pop(0) # unset namespace part: local|core|community
             if 'controllers' in path_parts:
                 path_parts.remove('controllers')
+        else:
+            path_parts.append(self.app.file.basename())
 
         return '_'.join(path_parts)
 
