@@ -65,19 +65,18 @@ class Template:
                 return rules.get('snippets').get(alias).get('path')
             return None
 
-        module_path = self.app.project.path()
-        relative_path = self.filepath.replace(module_path, '')
+        autoload_path = "/" + self.app.file.autoload_path();
 
         path = None
         for group in rules:
-            if not relative_path.startswith(group):
+            if not autoload_path.startswith(group):
                 continue
             for rule in rules.get(group):
                 pattern = rule.get('pattern')
                 if pattern is None:
                     continue
                 r = re.compile(pattern)
-                if r.search(relative_path) is not None:
+                if r.search(autoload_path) is not None:
                     path = rule.get('path')
                     break
             if path is not None:

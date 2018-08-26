@@ -1,4 +1,4 @@
-from .env import Env
+from .file import File
 from .project import Project
 from .phpfile import Phpfile
 from .composer import Composer
@@ -9,7 +9,7 @@ class App:
         self.filepath = filepath
         self.project = Project(self)
         self.composer = Composer(self)
-        self.env = Env(self)
+        self.file = File(self)
         self.phpfile = Phpfile(self)
         self.template = Template(self)
 

@@ -57,13 +57,13 @@ class Placeholders:
         return self.app.project.code()
 
     def psr4key(self):
-        return self.app.env.psr4key()
+        return self.app.file.psr4key()
 
     def basename(self):
-        return self.app.env.file()
+        return self.app.file.basename()
 
     def folder(self):
-        return self.app.env.folder()
+        return self.app.file.folder()
 
     def namespace(self):
         return self.app.phpfile.namespace()

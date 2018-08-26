@@ -6,25 +6,21 @@ class Project:
     def __init__(self, app):
         self.app = app
 
-    def path(self):
-        path = self.app.composer.path().replace('/composer.json', '')
-        subdir = self.app.composer.psr4().get(self.app.env.psr4key())
-        if subdir:
-            path += os.sep + subdir
-        return path
+    def root(self):
+        return self.app.composer.path().replace('/composer.json', '')
 
     def code(self):
-        return self.app.env.psr4key().replace('\\', '_').strip('_')
+        return self.app.file.psr4key().replace('\\', '_').strip('_')
 
     def vendor(self):
-        psr4key = self.app.env.psr4key()
+        psr4key = self.app.file.psr4key()
         if psr4key:
             return kebabcase(psr4key.split('\\')[0])
         else:
             return self.app.composer.vendor()
 
     def project(self):
-        psr4key = self.app.env.psr4key()
+        psr4key = self.app.file.psr4key()
         if psr4key:
             parts = psr4key.split('\\')
             if len(parts) > 1:
