@@ -30,7 +30,11 @@ class Phpfile:
         if composer_path is None:
             return
 
-        namespace = self.app.file.autoload_path().split(os.sep)
-        del namespace[-1] # remove file name
+        path_parts = self.app.file.autoload_path().split(os.sep)
+        del path_parts[-1] # remove file name
 
-        return self.app.file.psr4key() + '\\'.join(namespace)
+        namespace = self.app.file.psr4key()
+        if path_parts:
+            namespace += '\\'.join(path_parts)
+
+        return namespace.strip('\\')
