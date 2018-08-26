@@ -3,6 +3,7 @@ import json
 
 class Phpfile:
     def __init__(self, app):
+        self.app = app
         self.filepath = app.filepath
         self.composer = app.composer
 
@@ -29,26 +30,7 @@ class Phpfile:
         if composer_path is None:
             return
 
-        module_path = composer_path.replace('composer.json', '')
-        relative_path = self.filepath.replace(module_path, '').split(os.sep)
-        del relative_path[-1] # remove file name
-        relative_path = os.sep.join(relative_path)
-        namespace = relative_path
+        namespace = self.app.file.autoload_path().split(os.sep)
+        del namespace[-1] # remove file name
 
-        psr4 = self.composer.psr4()
-        if psr4 is None:
-            return namespace.replace(os.sep, '\\')
-
-        for key in psr4:
-            subfolder = psr4[key].strip('/')
-            if subfolder:
-                if relative_path.startswith(subfolder):
-                    namespace = relative_path[len(subfolder):].lstrip(os.sep)
-                else:
-                    continue
-
-            namespace = key.replace('\\', os.sep) + namespace
-            namespace = namespace.strip(os.sep)
-            break
-
-        return namespace.replace(os.sep, '\\')
+        return self.app.file.psr4key() + '\\'.join(namespace)
