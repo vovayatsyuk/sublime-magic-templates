@@ -47,6 +47,8 @@ otherwise, please wait.
 
 ## Known Applications
 
- - ~~Laravel~~
- - ~~Magento1~~
- - Magento2
+ -  ~~Laravel~~
+ -  ~~Magento1~~
+ -  Magento2
+ -  And a [few templates](https://github.com/vovayatsyuk/sublime-magic-templates/blob/master/templates/php/rules.json)
+    for unknown php applications
