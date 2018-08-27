@@ -63,6 +63,16 @@ class Project:
                     if key in extra:
                         return knowntypes[key]
 
+            # 3. Detect by 'vendor'
+            vendor = self.app.composer.vendor()
+            if vendor is not None:
+                knowntypes = {
+                    'magento': 'magento2'
+                }
+                for key in knowntypes:
+                    if key in vendor:
+                        return knowntypes[key]
+
         # @todo: try to detect by `require` section
 
         # @todo: detect by `current_syntax` (php, etc)
