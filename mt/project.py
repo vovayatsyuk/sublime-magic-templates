@@ -73,9 +73,4 @@ class Project:
                     if key in vendor:
                         return knowntypes[key]
 
-        # @todo: try to detect by `require` section
-
-        # @todo: detect by `current_syntax` (php, etc)
-
-        # @todo: fallback to default value from config
         return 'php'
