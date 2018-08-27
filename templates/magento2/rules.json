@@ -83,7 +83,8 @@
     "/": [
         { "pattern": "composer\\.json", "path": "composer.json" },
         { "pattern": "README\\.md", "path": "README.md" },
-        { "pattern": "registration\\.php", "path": "registration.php" }
+        { "pattern": "registration\\.php", "path": "registration.php" },
+        { "pattern": ".*\\.php", "path": "default.php" }
     ],
     "snippets": {
         "ifip": { "path": "/magento2/snippets/ifip" },
