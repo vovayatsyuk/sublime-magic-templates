@@ -12,12 +12,10 @@ class Phpfile:
 
         path_parts = []
         appcode_dir = 'app' + os.sep + 'code' + os.sep
-        module_type = self.composer.type()
+        module_type = self.app.project.type()
 
-        # Magento 2
-        if module_type is not None and 'magento2' in module_type:
-            path_parts.append(self.app.file.basename())
-        elif appcode_dir in self.filepath:
+        # Magento 1
+        if self.app.project.type() != 'magento2' and appcode_dir in self.filepath:
             path_parts = path.split(appcode_dir)[1].split(os.sep)
             path_parts.pop(0) # unset namespace part: local|core|community
             if 'controllers' in path_parts:

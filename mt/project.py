@@ -41,15 +41,27 @@ class Project:
             return project
 
     def type(self):
-        app = self.app.composer.type()
-        if app is not None:
-            knowntypes = {
-                'magento2-': 'magento2',
-                'magento-': 'magento1'
-            }
-            for key in knowntypes:
-                if key in app:
-                    return knowntypes[key]
+        if self.app.composer.path():
+            # 1. Detect by composer's 'type'
+            app = self.app.composer.type()
+            if app is not None:
+                knowntypes = {
+                    'magento2-': 'magento2',
+                    'magento-': 'magento1'
+                }
+                for key in knowntypes:
+                    if key in app:
+                        return knowntypes[key]
+
+            # 2. Detect by 'extra' section
+            extra = self.app.composer.data('extra')
+            if extra is not None:
+                knowntypes = {
+                    'magento-root-dir': 'magento1'
+                }
+                for key in knowntypes:
+                    if key in extra:
+                        return knowntypes[key]
 
         # @todo: try to detect by `require` section
 
