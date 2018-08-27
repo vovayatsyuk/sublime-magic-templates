@@ -1,4 +1,9 @@
 {
+    "/": [
+        { "pattern": "composer\\.json", "path": "composer.json" },
+        { "pattern": "README\\.md", "path": "README.md" },
+        { "pattern": ".*\\.php", "path": "default.php" }
+    ],
     "snippets": {
         "classname": { "path": "/php/snippets/classname" },
         "namespace": { "path": "/php/snippets/namespace" }

@@ -1,0 +1,13 @@
+{{
+    "name": "{vendor_folder}/{project_folder}",
+    "description": "${{1:N/A}}",
+    "keywords": [
+        "${{2:{project}}}"
+    ],
+    "license": "MIT",
+    "autoload": {{
+        "psr-4": {{
+            "{vendor|camelcase}\\\\{project|camelcase}\\\\": "$3"
+        }}
+    }}
+}}

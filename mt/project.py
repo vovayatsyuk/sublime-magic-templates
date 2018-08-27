@@ -68,4 +68,4 @@ class Project:
         # @todo: detect by `current_syntax` (php, etc)
 
         # @todo: fallback to default value from config
-        return 'magento2'
+        return 'php'
