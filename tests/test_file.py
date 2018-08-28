@@ -91,3 +91,28 @@ class TestFile(TestCase):
                 }
             }
             self.assertEqual(mapping[filepath], app.file.psr4key())
+
+    def test_psr4dir(self):
+        mapping = {
+            'path/to/vendor/name/module/src/Model/Entity.php': 'src/',
+            'path/to/vendor/name/module/subfolder/Model/Entity.php': 'subfolder/',
+            'path/to/vendor/name/module/tests/Model/Entity.php': 'tests/'
+        }
+
+        for filepath in mapping:
+            app = app_module.App(filepath)
+            app.composer._path = 'path/to/vendor/name/module/composer.json'
+            app.composer._data = {
+                "autoload": {
+                    "psr-4": {
+                        "Src\\Src\\": "src/",
+                        "Src2\\Src2\\": "subfolder/"
+                    }
+                },
+                "autoload-dev": {
+                    "psr-4": {
+                        "Name\\Module\\": "tests/"
+                    }
+                }
+            }
+            self.assertEqual(mapping[filepath], app.file.psr4dir())
