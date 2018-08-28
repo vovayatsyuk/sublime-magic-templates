@@ -3,7 +3,7 @@ from unittest import TestCase
 
 app_module = sys.modules["sublime-magic-templates.mt.app"]
 
-class TestComposerNotFound(TestCase):
+class TestComposerNotExists(TestCase):
     def test_path(self):
         filepaths = [
             'path/to/vendor/name/module/Block/Subfolder/Block.php',
