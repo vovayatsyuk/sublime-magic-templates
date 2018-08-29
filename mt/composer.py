@@ -3,6 +3,7 @@ import json
 import sublime
 
 from .filters import *
+from collections import OrderedDict
 
 class Composer:
     def __init__(self, app):
@@ -53,7 +54,7 @@ class Composer:
         composer = self.path()
         try:
             with open(composer) as file:
-                self._data = json.loads(file.read())
+                self._data = json.loads(file.read(), object_pairs_hook=OrderedDict)
         except:
             self._data = {
                 'name': self._vendor + '/' + self._module,

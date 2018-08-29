@@ -1,5 +1,7 @@
 import sys
+import json
 from unittest import TestCase
+from collections import OrderedDict
 
 app_module = sys.modules["sublime-magic-templates.mt.app"]
 
@@ -38,15 +40,18 @@ class TestFile(TestCase):
         for filepath in mapping:
             app = app_module.App(filepath)
             app.composer._path = 'path/to/vendor/name/module/composer.json'
-            app.composer._data = {
-                "autoload": {
-                    "psr-4": {
-                        "Src\\Src\\": "src/",
-                        "Src2\\Src2\\": "subfolder/",
-                        "Name\\Module\\": ""
+            app.composer._data = json.loads(
+                """{
+                    "autoload": {
+                        "psr-4": {
+                            "Src\\\\Src\\\\": "src/",
+                            "Src2\\\\Src2\\\\": "subfolder/",
+                            "Name\\\\Module\\\\": ""
+                        }
                     }
-                }
-            }
+                }""",
+                object_pairs_hook=OrderedDict
+            )
             self.assertEqual(mapping[filepath], app.file.autoload_path())
 
     def test_folder(self):
@@ -81,15 +86,18 @@ class TestFile(TestCase):
         for filepath in mapping:
             app = app_module.App(filepath)
             app.composer._path = 'path/to/vendor/name/module/composer.json'
-            app.composer._data = {
-                "autoload": {
-                    "psr-4": {
-                        "Src\\Src\\": "src/",
-                        "Src2\\Src2\\": "subfolder/",
-                        "Name\\Module\\": ""
+            app.composer._data = json.loads(
+                """{
+                    "autoload": {
+                        "psr-4": {
+                            "Src\\\\Src\\\\": "src/",
+                            "Src2\\\\Src2\\\\": "subfolder/",
+                            "Name\\\\Module\\\\": ""
+                        }
                     }
-                }
-            }
+                }""",
+                object_pairs_hook=OrderedDict
+            )
             self.assertEqual(mapping[filepath], app.file.psr4key())
 
     def test_psr4dir(self):
@@ -102,17 +110,20 @@ class TestFile(TestCase):
         for filepath in mapping:
             app = app_module.App(filepath)
             app.composer._path = 'path/to/vendor/name/module/composer.json'
-            app.composer._data = {
-                "autoload": {
-                    "psr-4": {
-                        "Src\\Src\\": "src/",
-                        "Src2\\Src2\\": "subfolder/"
+            app.composer._data = json.loads(
+                """{
+                    "autoload": {
+                        "psr-4": {
+                            "Src\\\\Src\\\\": "src/",
+                            "Src2\\\\Src2\\\\": "subfolder/"
+                        }
+                    },
+                    "autoload-dev": {
+                        "psr-4": {
+                            "Name\\\\Module\\\\": "tests/"
+                        }
                     }
-                },
-                "autoload-dev": {
-                    "psr-4": {
-                        "Name\\Module\\": "tests/"
-                    }
-                }
-            }
+                }""",
+                object_pairs_hook=OrderedDict
+            )
             self.assertEqual(mapping[filepath], app.file.psr4dir())
