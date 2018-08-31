@@ -1,5 +1,5 @@
 {{
-    "name": "{vendor_folder}/{project_folder}",
+    "name": "{parent_folder}/{folder}",
     "description": "${{1:N/A}}",
     "type": "magento2-module",
     "version": "1.0.0",
@@ -11,7 +11,7 @@
             "registration.php"
         ],
         "psr-4": {{
-            "{vendor|camelcase}\\\\{project|camelcase}\\\\": "$2"
+            "{parent_folder|camelcase}\\\\{folder|camelcase}\\\\": "$2"
         }}
     }}
 }}

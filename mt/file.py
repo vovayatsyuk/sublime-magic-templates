@@ -25,6 +25,9 @@ class File:
     def folder(self):
         return os.path.basename(os.path.dirname(self.app.filepath))
 
+    def parent_folder(self):
+        return os.path.basename(os.path.dirname(os.path.dirname(self.app.filepath)))
+
     def psr4key(self):
         if self._psr4key is not None:
             return self._psr4key

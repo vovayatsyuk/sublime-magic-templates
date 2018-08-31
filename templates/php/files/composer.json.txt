@@ -1,5 +1,5 @@
 {{
-    "name": "{vendor_folder}/{project_folder}",
+    "name": "{parent_folder}/{folder}",
     "description": "${{1:N/A}}",
     "keywords": [
         "${{2:{project}}}"
@@ -7,7 +7,7 @@
     "license": "MIT",
     "autoload": {{
         "psr-4": {{
-            "{vendor|camelcase}\\\\{project|camelcase}\\\\": "$3"
+            "{parent_folder|camelcase}\\\\{folder|camelcase}\\\\": "$3"
         }}
     }}
 }}

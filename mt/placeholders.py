@@ -41,12 +41,6 @@ class Placeholders:
     def package(self):
         return self.app.composer.name()
 
-    def vendor_folder(self):
-        return self.app.composer.vendor()
-
-    def project_folder(self):
-        return self.app.composer.project()
-
     def vendor(self):
         return self.app.project.vendor()
 
@@ -64,6 +58,9 @@ class Placeholders:
 
     def folder(self):
         return self.app.file.folder()
+
+    def parent_folder(self):
+        return self.app.file.parent_folder()
 
     def namespace(self):
         return self.app.phpfile.namespace()

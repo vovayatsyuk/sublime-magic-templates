@@ -16,7 +16,7 @@ class Composer:
 
     def path(self):
         """
-        Try to locate composer,json file.
+        Try to locate composer.json file.
         1. If '/vendor/' in file_path, return path/to/vendor/xxx/xxx/composer.json
         2. Search for composer.json file in each of the folders beginning
             from the deepest path.
@@ -30,22 +30,22 @@ class Composer:
             root, module_path = self._filepath.split(vendor_dir)
             self._vendor, self._module, rest = module_path.split(os.sep, 2)
             composer = os.sep.join([root, 'vendor', self._vendor, self._module, 'composer.json'])
-            if os.path.isfile(composer):
+            if os.path.isfile(composer) and os.path.getsize(composer) > 0:
                 self._path = composer
                 return composer
-        else:
-            root = sublime.active_window().extract_variables().get('folder')
-            min_depth = root.count('/') + 1
-            folders = self._filepath.split(os.sep)
-            folders.pop() # remove filename
-            folders.append('composer.json')
-            while len(folders) > min_depth:
-                composer = os.sep.join(folders)
-                if os.path.isfile(composer):
-                    self._path = composer
-                    return composer
-                else:
-                    del folders[len(folders) - 2] # remove last folder
+
+        root = sublime.active_window().extract_variables().get('folder')
+        min_depth = root.count('/') + 1
+        folders = self._filepath.split(os.sep)
+        folders.pop() # remove filename
+        folders.append('composer.json')
+        while len(folders) > min_depth:
+            composer = os.sep.join(folders)
+            if os.path.isfile(composer) and os.path.getsize(composer) > 0:
+                self._path = composer
+                return composer
+            else:
+                del folders[len(folders) - 2] # remove last folder
 
         print('composer.json not found')
         return None
