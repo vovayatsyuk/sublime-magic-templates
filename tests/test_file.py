@@ -54,6 +54,17 @@ class TestFile(TestCase):
             )
             self.assertEqual(mapping[filepath], app.file.autoload_path())
 
+    def test_basename(self):
+        mapping = {
+            'path/to/vendor/name/module/Block/Subfolder/Block.php': 'Block',
+            'path/to/vendor/name/module/src/Model/Entity.php': 'Entity',
+            'path/to/vendor/name/module/subfolder/Model/Entity.php.txt': 'Entity.php'
+        }
+
+        for filepath in mapping:
+            app = app_module.App(filepath)
+            self.assertEqual(mapping[filepath], app.file.basename())
+
     def test_folder(self):
         mapping = {
             'path/to/vendor/name/module/Block/Subfolder/Block.php': 'Subfolder',
@@ -65,16 +76,16 @@ class TestFile(TestCase):
             app = app_module.App(filepath)
             self.assertEqual(mapping[filepath], app.file.folder())
 
-    def test_basename(self):
+    def test_parent_folder(self):
         mapping = {
             'path/to/vendor/name/module/Block/Subfolder/Block.php': 'Block',
-            'path/to/vendor/name/module/src/Model/Entity.php': 'Entity',
-            'path/to/vendor/name/module/subfolder/Model/Entity.php.txt': 'Entity.php'
+            'path/to/vendor/name/module/src/Model/Entity.php': 'src',
+            'path/to/vendor/name/module/subfolder/Model/Entity.php.txt': 'subfolder'
         }
 
         for filepath in mapping:
             app = app_module.App(filepath)
-            self.assertEqual(mapping[filepath], app.file.basename())
+            self.assertEqual(mapping[filepath], app.file.parent_folder())
 
     def test_psr4key(self):
         mapping = {
