@@ -25,7 +25,7 @@ class TestProject(TestCase):
             app.file._psr4key = psr4key
             self.assertEqual(mapping[psr4key], app.project.code())
 
-    def test_vendor(self):
+    def test_vendor_by_psr4key(self):
         mapping = {
             'Name\\Module\\': 'name',
             'VendorName\\ModuleName\\': 'vendor-name'
@@ -36,7 +36,21 @@ class TestProject(TestCase):
             app.file._psr4key = psr4key
             self.assertEqual(mapping[psr4key], app.project.vendor())
 
-    def test_project(self):
+    def test_vendor_by_package_name(self):
+        mapping = {
+            'vendor-name/module-hello-world': 'vendor-name',
+            'swissup/magento2-hello-world': 'swissup',
+        };
+
+        for package in mapping:
+            app = app_module.App('dummy')
+            app.composer._data = {
+                'name': package
+            }
+            self.assertEqual(mapping[package], app.project.vendor())
+
+    def test_project_by_psr4key(self):
+        # with defined psr4keys
         mapping = {
             'Name\\Module\\': 'module',
             'VendorName\\ModuleName\\': 'module-name'
@@ -47,12 +61,30 @@ class TestProject(TestCase):
             app.file._psr4key = psr4key
             self.assertEqual(mapping[psr4key], app.project.project())
 
+    def test_project_by_package_name(self):
+        # without defined psr4keys
+        mapping = {
+            'vendor/module-hello-world': 'hello-world',
+            'swissup/magento2-hello-world': 'hello-world',
+            'swissup/magento-2-hello-world': 'hello-world',
+            'swissup/magento1-hello-world': 'hello-world',
+            'swissup/magento-hello-world': 'hello-world',
+            'swissup/hello-world-extension': 'hello-world',
+            'swissup/hello-world-magento-2': 'hello-world',
+        };
+
+        for package in mapping:
+            app = app_module.App('dummy')
+            app.composer._data = {
+                'name': package
+            }
+            self.assertEqual(mapping[package], app.project.project())
+
     def test_type(self):
         app = app_module.App('dummy')
         self.assertEqual('php', app.project.type())
 
-    def test_guess_type_by_composer(self):
-        # detect by 'type'
+    def test_guess_type_by_composer_by_type(self):
         mapping = {
             'magento2-module': 'magento2',
             'magento-module': 'magento1',
@@ -65,7 +97,7 @@ class TestProject(TestCase):
             }
             self.assertEqual(mapping[project_type], app.project.guess_type_by_composer())
 
-        # detect by 'extra'
+    def test_guess_type_by_composer_by_extra(self):
         app = app_module.App('dummy')
         app.composer._data = {
             'extra': {
@@ -74,7 +106,7 @@ class TestProject(TestCase):
         }
         self.assertEqual('magento1', app.project.guess_type_by_composer())
 
-        # detect by 'vendor'
+    def test_guess_type_by_composer_by_vendor(self):
         app = app_module.App('dummy')
         app.composer._data = {
             'name': 'magento/magento2ce'
