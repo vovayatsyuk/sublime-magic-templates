@@ -42,35 +42,38 @@ class Project:
 
     def type(self):
         if self.app.composer.path():
-            # 1. Detect by composer's 'type'
-            app = self.app.composer.type()
-            if app is not None:
-                knowntypes = {
-                    'magento2-': 'magento2',
-                    'magento-': 'magento1'
-                }
-                for key in knowntypes:
-                    if key in app:
-                        return knowntypes[key]
+            result = self.guess_type_by_composer()
 
-            # 2. Detect by 'extra' section
-            extra = self.app.composer.data('extra')
-            if extra is not None:
-                knowntypes = {
-                    'magento-root-dir': 'magento1'
-                }
-                for key in knowntypes:
-                    if key in extra:
-                        return knowntypes[key]
+        if result is None:
+            result = 'php'
 
-            # 3. Detect by 'vendor'
-            vendor = self.app.composer.vendor()
-            if vendor is not None:
-                knowntypes = {
-                    'magento': 'magento2'
-                }
-                for key in knowntypes:
-                    if key in vendor:
-                        return knowntypes[key]
+        return result
 
-        return 'php'
+    def guess_type_by_composer(self):
+        rules = [(
+            'type', [
+                ('magento2-', 'magento2'),
+                ('magento-', 'magento1'),
+            ]
+        ), (
+            'extra', [
+                ('magento-root-dir', 'magento1'),
+            ]
+        ), (
+            'vendor', [
+                ('magento', 'magento2'),
+            ]
+        )]
+
+        for key, _rules in rules:
+            try:
+                compare = getattr(self.app.composer, key)()
+            except:
+                compare = self.app.composer.data(key)
+
+            if compare is not None:
+                for fingerprint, _type in _rules:
+                    if fingerprint in compare:
+                        return _type
+
+        return None
