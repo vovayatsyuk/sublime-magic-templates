@@ -41,6 +41,8 @@ class Project:
             return project
 
     def type(self):
+        result = None
+
         if self.app.composer.path():
             result = self.guess_type_by_composer()
 
