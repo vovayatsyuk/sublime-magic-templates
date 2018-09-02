@@ -8,11 +8,10 @@ from collections import OrderedDict
 class Composer:
     def __init__(self, app):
         self.app = app
-        self._filepath = app.filepath
         self._path = None
         self._data = None
-        self._vendor = 'Unknown'
-        self._module = 'Unknown'
+        self._vendor_dir = 'Unknown'
+        self._module_dir = 'Unknown'
 
     def path(self):
         """
@@ -26,17 +25,17 @@ class Composer:
             return self._path
 
         vendor_dir = '/vendor/'
-        if vendor_dir in self._filepath:
-            root, module_path = self._filepath.split(vendor_dir)
-            self._vendor, self._module, rest = module_path.split(os.sep, 2)
-            composer = os.sep.join([root, 'vendor', self._vendor, self._module, 'composer.json'])
+        if vendor_dir in self.app.filepath:
+            root, module_path = self.app.filepath.split(vendor_dir)
+            self._vendor_dir, self._module_dir, rest = module_path.split(os.sep, 2)
+            composer = os.sep.join([root, 'vendor', self._vendor_dir, self._module_dir, 'composer.json'])
             if os.path.isfile(composer) and os.path.getsize(composer) > 0:
                 self._path = composer
                 return composer
 
         root = sublime.active_window().extract_variables().get('folder')
         min_depth = root.count('/') + 1
-        folders = self._filepath.split(os.sep)
+        folders = self.app.filepath.split(os.sep)
         folders.pop() # remove filename
         folders.append('composer.json')
         while len(folders) > min_depth:
@@ -57,10 +56,10 @@ class Composer:
                 self._data = json.loads(file.read(), object_pairs_hook=OrderedDict)
         except:
             self._data = {
-                'name': self._vendor + '/' + self._module,
+                'name': self._vendor_dir + '/' + self._module_dir,
                 'autoload': {
                     'psr-4': {
-                        camelcase(self._vendor) + '\\' + camelcase(self._module) + '\\': ''
+                        camelcase(self._vendor_dir) + '\\' + camelcase(self._module_dir) + '\\': ''
                     }
                 }
             }
