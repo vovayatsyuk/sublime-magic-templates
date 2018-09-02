@@ -1,7 +1,33 @@
+import os
 import sys
 from unittest import TestCase
 
 app_module = sys.modules["sublime-magic-templates.mt.app"]
+
+class TestComposer(TestCase):
+    def test_path(self):
+        mapping = {
+            '/fixtures/vendor/v-name/module/Model/Entity.php': '/fixtures/vendor/v-name/module/composer.json',
+            '/fixtures/app/code/Name/Module/Model/Entity.php': '/fixtures/app/code/Name/Module/composer.json',
+            '/fixtures/app/code/Core/Data.php': '/fixtures/composer.json',
+        };
+
+        dirpath = os.path.dirname(os.path.realpath(__file__))
+        for filepath in mapping:
+            app = app_module.App(dirpath + filepath)
+            self.assertEqual(dirpath + mapping[filepath], app.composer.path())
+
+    def test_name(self):
+        mapping = {
+            '/fixtures/vendor/v-name/module/Model/Entity.php': 'v-name/module',
+            '/fixtures/app/code/Name/Module/Model/Entity.php': 'name/module',
+            '/fixtures/app/code/Core/Data.php': 'vendor/project',
+        };
+
+        dirpath = os.path.dirname(os.path.realpath(__file__))
+        for filepath in mapping:
+            app = app_module.App(dirpath + filepath)
+            self.assertEqual(mapping[filepath], app.composer.name())
 
 class TestComposerNotExists(TestCase):
     def test_path(self):

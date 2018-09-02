@@ -1,0 +1,8 @@
+{
+    "name": "v-name/module",
+    "autoload": {
+        "psr-4": {
+            "Hello\\World\\": ""
+        }
+    }
+}
