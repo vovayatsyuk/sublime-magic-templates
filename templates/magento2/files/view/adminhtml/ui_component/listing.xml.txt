@@ -10,7 +10,7 @@
         <item name="buttons" xsi:type="array">
             <item name="add" xsi:type="array">
                 <item name="name" xsi:type="string">add</item>
-                <item name="label" xsi:type="string" translate="true">Add New {basename|remove _listing|remove _list|remove {vendor|lower}_|remove {project|remove -}_|capitalize}</item>
+                <item name="label" xsi:type="string" translate="true">Add New {basename|remove _listing|remove _list|remove {vendor|lower}_|remove {project|remove -}_|replace _, |title}</item>
                 <item name="class" xsi:type="string">primary</item>
                 <item name="component" xsi:type="string">Magento_Ui/js/form/components/button</item>
                 <item name="url" xsi:type="string">*/*/new</item>
@@ -19,7 +19,7 @@
     </argument>
     <dataSource name="{basename}_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="class" xsi:type="string">{psr4key}Ui\DataProvider\{basename|remove _listing|remove _list|remove {vendor|lower}_|remove {project|remove -}_|capitalize}DataProvider</argument>
+            <argument name="class" xsi:type="string">{psr4key}Ui\DataProvider\{basename|remove _listing|remove _list|remove {vendor|lower}_|remove {project|remove -}_|camelcase}DataProvider</argument>
             <argument name="name" xsi:type="string">{basename}_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">{basename|remove _listing|remove _list|remove {vendor|lower}_|remove {project|remove -}_}_id</argument>
             <argument name="requestFieldName" xsi:type="string">{basename|remove _listing|remove _list|remove {vendor|lower}_|remove {project|remove -}_}_id</argument>

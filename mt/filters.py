@@ -3,6 +3,9 @@ import re
 def capitalize(string):
     return string.capitalize()
 
+def title(string):
+    return string.title()
+
 def lower(string):
     return string.lower()
 

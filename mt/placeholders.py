@@ -29,7 +29,7 @@ class Placeholders:
                 for string_filter in params:
                     args = [result[name]]
                     if ' ' in string_filter:
-                        string_filter, args = string_filter.split(' ', 2)
+                        string_filter, args = string_filter.split(' ', 1)
                         args = args.split(',')
                         args.insert(0, result[name])
                     result[name] = globals()[string_filter](*args)
