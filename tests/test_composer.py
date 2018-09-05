@@ -119,3 +119,10 @@ class TestComposer(TestCase):
         for filepath in mapping:
             app = app_module.App(dirpath + filepath)
             self.assertEqual(mapping[filepath], next(iter(app.composer.psr4())))
+
+    def test_data(self):
+        dirpath = os.path.dirname(os.path.realpath(__file__))
+        app = app_module.App(dirpath + '/fixtures/app/code/Core/Data.php')
+        self.assertEqual('Description', app.composer.data('description'))
+        self.assertEqual('composer', app.composer.data('repositories.magento.type'))
+        self.assertEqual('https://repo.magento.com/', app.composer.data('repositories.magento.url'))

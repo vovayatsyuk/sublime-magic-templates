@@ -1,8 +1,15 @@
 {
     "name": "vendor/project",
+    "description": "Description",
     "autoload": {
         "psr-4": {
             "Code\\": "app/code/Core/"
+        }
+    },
+    "repositories": {
+        "magento": {
+            "type": "composer",
+            "url": "https://repo.magento.com/"
         }
     }
 }
