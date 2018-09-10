@@ -9,6 +9,7 @@
         { "pattern": "MassDelete\\.php", "path": "Controller/Adminhtml/Entity/MassDelete.php" },
         { "pattern": "Mass[A-Z].*\\.php", "path": "Controller/Adminhtml/Entity/MassStatus.php" },
         { "pattern": "Delete\\.php", "path": "Controller/Adminhtml/Entity/Delete.php" },
+        { "pattern": "Validate\\.php", "path": "Controller/Adminhtml/Entity/Validate.php" },
         { "pattern": ".*\\.php", "path": "Controller/Adminhtml/Entity/Index.php" }
     ],
     "/Controller/": [
