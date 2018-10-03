@@ -40,10 +40,10 @@ See? And that was a single example, while module supports much much more!
 
 ## Installation
 
-Not available yet.
-
-If you know how to install Sublime plugin directly from repository - go ahead,
-otherwise, please wait.
+ 1. Run “Package Control: Add Repository” command and add
+    `https://github.com/vovayatsyuk/sublime-magic-templates.git` link.
+ 2. Run “Package Control: Install Package” command, find and install
+    `sublime-magic-templates` plugin.
 
 ## Known Applications
 
