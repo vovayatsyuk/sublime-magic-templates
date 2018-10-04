@@ -14,31 +14,6 @@ class {classname} extends Column
     const URL_PATH_DETAILS = '{project|snakecase}/{basename|remove Actions|lower}/details';
 
     /**
-     * @var UrlInterface
-     */
-    protected \$urlBuilder;
-
-    /**
-     * Constructor
-     *
-     * @param ContextInterface \$context
-     * @param UiComponentFactory \$uiComponentFactory
-     * @param UrlInterface \$urlBuilder
-     * @param array \$components
-     * @param array \$data
-     */
-    public function __construct(
-        ContextInterface \$context,
-        UiComponentFactory \$uiComponentFactory,
-        UrlInterface \$urlBuilder,
-        array \$components = [],
-        array \$data = []
-    ) {{
-        \$this->urlBuilder = \$urlBuilder;
-        parent::__construct(\$context, \$uiComponentFactory, \$components, \$data);
-    }}
-
-    /**
      * Prepare Data Source
      *
      * @param array \$dataSource
@@ -57,7 +32,7 @@ class {classname} extends Column
 
             \$item[\$this->getData('name')] = [
                 'edit' => [
-                    'href' => \$this->urlBuilder->getUrl(
+                    'href' => \$this->getContext()->getUrl(
                         static::URL_PATH_EDIT,
                         [
                             '{basename|remove Actions|lower}_id' => \$item['{basename|remove Actions|lower}_id']
@@ -66,7 +41,7 @@ class {classname} extends Column
                     'label' => __('Edit')
                 ],
                 'delete' => [
-                    'href' => \$this->urlBuilder->getUrl(
+                    'href' => \$this->getContext()->getUrl(
                         static::URL_PATH_DELETE,
                         [
                             '{basename|remove Actions|lower}_id' => \$item['{basename|remove Actions|lower}_id']
