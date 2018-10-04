@@ -8,11 +8,6 @@ use Magento\Framework\App\Request\DataPersistorInterface;
 class {classname} extends \Magento\Ui\DataProvider\AbstractDataProvider
 {{
     /**
-     * @var \{psr4key}Model\ResourceModel\{basename|remove DataProvider|remove Provider}\Collection
-     */
-    protected \$collection;
-
-    /**
      * @var DataPersistorInterface
      */
     protected \$dataPersistor;

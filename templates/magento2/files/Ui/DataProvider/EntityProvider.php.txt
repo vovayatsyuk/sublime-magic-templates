@@ -8,13 +8,6 @@ use {psr4key}Model\ResourceModel\{basename|remove DataProvider|remove Provider}\
 class {classname} extends \Magento\Ui\DataProvider\AbstractDataProvider
 {{
     /**
-     * ClientRequest collection
-     *
-     * @var Collection
-     */
-    protected \$collection;
-
-    /**
      * @var AddFieldToCollectionInterface[]
      */
     protected \$addFieldStrategies;
