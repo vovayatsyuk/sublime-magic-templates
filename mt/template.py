@@ -3,6 +3,7 @@ import json
 import re
 import os
 
+from .utils import load_resource
 from string import Formatter
 from collections import OrderedDict
 from .placeholders import Placeholders
@@ -35,11 +36,8 @@ class Template:
         if '.txt' not in template_path:
             template_path = template_path + '.txt'
 
-        try:
-            path = os.sep.join([base_dir, template_path])
-            content = sublime.load_resource(path)
-        except OSError:
-            print('Not Found: ' + path)
+        content = load_resource(os.sep.join([base_dir, template_path]))
+        if content is None:
             return None
 
         placeholders = [keys[1] for keys in Formatter().parse(content) if keys[1] is not None]
@@ -47,42 +45,74 @@ class Template:
         return content.format(**Placeholders(self.app).extract(placeholders))
 
     def guess_template_path(self, alias=None):
-        app = self.app.project.type()
-        if app is None:
+        project_type = self.app.project.type()
+        if project_type is None:
             return None
 
-        try:
-            path = os.sep.join([self.base_dir, app, 'rules.json'])
-            content = sublime.load_resource(path)
-        except OSError:
-            print('Not Found: ' + path)
+        rules = load_resource(os.sep.join([self.base_dir, project_type, 'rules.json']), True)
+        if rules is None:
             return None
-
-        rules = json.loads(content, object_pairs_hook=OrderedDict)
 
         if alias is not None:
             if alias in rules.get('snippets'):
                 return rules.get('snippets').get(alias).get('path')
             return None
 
-        autoload_path = "/" + self.app.file.autoload_path();
+        filepath = "/" + self.app.file.autoload_path()
 
         path = None
         for group in rules:
-            if not autoload_path.startswith(group):
+            if not filepath.startswith(group):
                 continue
             for rule in rules.get(group):
                 pattern = rule.get('pattern')
                 if pattern is None:
                     continue
                 r = re.compile(pattern)
-                if r.search(autoload_path) is not None:
+                if r.search(filepath) is not None:
                     path = rule.get('path')
+                    if not path.startswith('/'):
+                        path = os.sep.join([project_type, 'files', path])
                     break
             if path is not None:
                 break
 
-        if path is not None and not path.startswith('/'):
-            path = os.sep.join([app, 'files', path])
-
         return path
+
+    def suggest_snippets(self, prefix, locations):
+        project_type = self.app.project.type()
+        if project_type is None:
+            return None
+
+        rules = load_resource(os.sep.join([self.base_dir, project_type, 'snippets.json']), True)
+        if rules is None:
+            return None
+
+        filepath = "/" + self.app.file.autoload_path()
+        view = sublime.active_window().active_view()
+
+        snippets = []
+        for group in rules:
+            if not filepath.startswith(group):
+                continue
+
+            for snippet in rules.get(group):
+                trigger = snippet.get('trigger')
+                if not trigger.startswith(prefix):
+                    continue
+
+                for point in locations:
+                    scope = snippet.get('scope')
+                    if scope and not view.match_selector(point, scope):
+                        continue
+
+                    path = snippet.get('path')
+                    if not path.startswith('/'):
+                        path = os.sep.join([project_type, 'snippets', path])
+
+                    snippets.append([
+                        trigger + '\tMagicTemplates',
+                        snippet.get('path')
+                    ])
+
+        return snippets

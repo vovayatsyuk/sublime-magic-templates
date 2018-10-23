@@ -31,3 +31,8 @@ class InsertNamespaceCommand(sublime_plugin.TextCommand):
 class InsertIfIpCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         insert_snippet(self.view, App(self.view.file_name()).render_snippet('ifip'))
+
+class MagicSnippets(sublime_plugin.EventListener):
+    def on_query_completions(self, view, prefix, locations):
+        if view.file_name() is not None:
+            return App(view.file_name()).suggest_snippets(prefix, locations)

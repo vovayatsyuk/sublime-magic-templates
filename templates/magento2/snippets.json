@@ -1,0 +1,8 @@
+{
+    "/view/adminhtml/ui_component": [
+        { "trigger": "dataProvider", "scope": "text.xml -string.quoted.double.xml", "path": "view/adminhtml/ui_component/dataProvider" }
+    ],
+    "/": [
+        { "trigger": "aaaa", "scope": "meta.function.php", "path": "bla/bla/bla" }
+    ]
+}

@@ -18,3 +18,6 @@ class App:
 
     def render_snippet(self, alias, base_dir=None):
         return self.template.render_snippet(alias, base_dir)
+
+    def suggest_snippets(self, prefix, locations):
+        return self.template.suggest_snippets(prefix, locations)
