@@ -101,6 +101,12 @@ class Template:
                 if not trigger.startswith(prefix):
                     continue
 
+                pattern = snippet.get('pattern')
+                if pattern is not None:
+                    r = re.compile(pattern)
+                    if r.search(filepath) is None:
+                        continue
+
                 for point in locations:
                     scope = snippet.get('scope')
                     if scope and not view.match_selector(point, scope):
