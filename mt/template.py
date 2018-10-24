@@ -49,7 +49,7 @@ class Template:
         if project_type is None:
             return None
 
-        rules = load_resource(os.sep.join([self.base_dir, project_type, 'rules.json']), True)
+        rules = load_resource(os.sep.join([self.base_dir, project_type, 'files.json']), True)
         if rules is None:
             return None
 
