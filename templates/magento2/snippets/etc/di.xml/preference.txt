@@ -1,0 +1,1 @@
+<preference for="${{1:{psr4key}}}" type="${{2:{psr4key}}}"/>
