@@ -58,7 +58,7 @@ class Template:
                 return rules.get('snippets').get(alias).get('path')
             return None
 
-        filepath = "/" + self.app.file.autoload_path()
+        filepath = '/' + self.app.file.autoload_path()
 
         path = None
         for group in rules:
@@ -88,7 +88,7 @@ class Template:
         if rules is None:
             return None
 
-        filepath = "/" + self.app.file.autoload_path()
+        filepath = '/' + self.app.file.autoload_path()
         view = sublime.active_window().active_view()
 
         slashesInPlaceholders = re.compile(r'(?<!\\)\\(?![\\|\$])')
