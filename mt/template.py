@@ -91,6 +91,7 @@ class Template:
         filepath = "/" + self.app.file.autoload_path()
         view = sublime.active_window().active_view()
 
+        slashesInPlaceholders = re.compile(r'(?<!\\)\\(?![\\|\$])')
         snippets = []
         for group in rules:
             if not filepath.startswith(group):
@@ -116,10 +117,8 @@ class Template:
                     if not path.startswith('/'):
                         path = os.sep.join([project_type, 'snippets', path])
 
-                    contents = self.render(path).replace('\\', '\\\\')
-                    snippets.append([
-                        trigger + '\tMagicTemplates',
-                        contents
-                    ])
+                    contents = self.render(path)
+                    contents = slashesInPlaceholders.sub(r'\\\\', contents);
+                    snippets.append([trigger, contents])
 
         return snippets
