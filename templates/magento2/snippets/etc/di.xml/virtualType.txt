@@ -1,0 +1,5 @@
+<virtualType name="{psr4key}\$1" type="{psr4key}\$2">
+    <arguments>
+        <argument name="instanceName" xsi:type="string">{psr4key}\$3</argument>
+    </arguments>
+</virtualType>
