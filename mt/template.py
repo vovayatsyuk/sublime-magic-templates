@@ -116,7 +116,7 @@ class Template:
                     if not path.startswith('/'):
                         path = os.sep.join([project_type, 'snippets', path])
 
-                    contents = self.render(path).replace('$', '\\$')
+                    contents = self.render(path).replace('\\', '\\\\')
                     snippets.append([
                         trigger + '\tMagicTemplates',
                         contents
