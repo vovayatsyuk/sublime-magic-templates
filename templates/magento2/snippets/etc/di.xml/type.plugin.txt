@@ -1,0 +1,3 @@
+<type name="Magento\\$1">
+    <plugin name="{module|lower}" type="{psr4key}Plugin\\$2" />
+</type>

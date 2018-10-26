@@ -98,7 +98,8 @@ class Template:
                 continue
 
             for snippet in rules.get(group):
-                trigger = snippet.get('trigger')
+                # @todo: move this prefix to config
+                trigger = 'mt-' + snippet.get('trigger')
                 if not trigger.startswith(prefix):
                     continue
 

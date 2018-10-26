@@ -1,0 +1,5 @@
+{
+    "/": [
+        { "trigger": "ifip", "scope": "source.php", "path": "ifip" }
+    ]
+}
