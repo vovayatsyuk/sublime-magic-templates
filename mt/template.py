@@ -79,7 +79,7 @@ class Template:
 
         return path
 
-    def suggest_snippets(self, prefix, locations):
+    def suggest_snippets(self, user_input, locations):
         project_type = self.app.project.type()
         if project_type is None or self.app.composer.path() is None:
             return None
@@ -99,8 +99,10 @@ class Template:
 
             for snippet in rules.get(group):
                 # @todo: move this prefix to config
-                trigger = 'mt-' + snippet.get('trigger')
-                if not trigger.startswith(prefix):
+                prefix = 'mt-'
+                trigger = snippet.get('trigger')
+                trigger = trigger[1:] if trigger.startswith('.') else prefix + trigger
+                if not trigger.startswith(user_input):
                     continue
 
                 pattern = snippet.get('pattern')

@@ -11,6 +11,8 @@
         { "trigger": "virtualType\tgridFilters", "scope": "text.xml -string.quoted.double.xml", "path": "etc/di.xml/virtualType.gridFilters", "pattern": "di\\.xml" }
     ],
     "/": [
-        { "trigger": "ifip", "scope": "source.php", "path": "ifip" }
+        { "trigger": ".ifip\tMT", "scope": "source.php", "path": "ifip" },
+        { "trigger": ".class\tMT", "scope": "source.php -meta.class.php", "path": "/php/snippets/classname" },
+        { "trigger": ".namespace\tMT", "scope": "source.php -meta.class.php", "path": "/php/snippets/namespace" }
     ]
 }
