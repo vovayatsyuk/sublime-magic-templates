@@ -87,11 +87,6 @@
         { "pattern": "registration\\.php", "path": "registration.php" },
         { "pattern": ".*\\.php", "path": "default.php" }
     ],
-    "snippets": {
-        "ifip": { "path": "/magento2/snippets/ifip" },
-        "classname": { "path": "/php/snippets/classname" },
-        "namespace": { "path": "/php/snippets/namespace" }
-    },
     "@todo:@extend": {
         "php/rules.json": "*"
     }

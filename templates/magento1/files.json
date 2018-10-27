@@ -2,11 +2,6 @@
     "/": [
         { "pattern": ".*\\.php", "path": "default.php.txt" }
     ],
-    "snippets": {
-        "ifip"     : { "path": "/magento1/snippets/ifip.txt" },
-        "classname": { "path": "/php/snippets/classname" },
-        "namespace": { "path": "/php/snippets/namespace" }
-    },
     "@todo:@extend": {
         "php/rules.json": "*"
     }

@@ -14,11 +14,18 @@ class Template:
         self.app = app
         self.filepath = app.filepath
 
-    def render_snippet(self, alias, base_dir=None):
+    def render_snippet(self, path, base_dir=None):
         if self.filepath is None:
             return None
 
-        return self.render(self.guess_template_path(alias), base_dir)
+        project_type = self.app.project.type()
+        if project_type is None or self.app.composer.path() is None:
+            return None
+
+        if not path.startswith('/'):
+            path = os.sep.join([project_type, 'snippets', path])
+
+        return self.render(path, base_dir)
 
     def render(self, template_path=None, base_dir=None):
         if self.filepath is None:
@@ -44,18 +51,13 @@ class Template:
 
         return content.format(**Placeholders(self.app).extract(placeholders))
 
-    def guess_template_path(self, alias=None):
+    def guess_template_path(self):
         project_type = self.app.project.type()
         if project_type is None or self.app.composer.path() is None:
             return None
 
         rules = load_resource(os.sep.join([self.base_dir, project_type, 'files.json']), True)
         if rules is None:
-            return None
-
-        if alias is not None:
-            if alias in rules.get('snippets'):
-                return rules.get('snippets').get(alias).get('path')
             return None
 
         filepath = '/' + self.app.file.autoload_path()

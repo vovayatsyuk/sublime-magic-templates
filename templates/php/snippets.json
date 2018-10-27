@@ -1,7 +1,6 @@
 {
     "/": [
-        { "trigger": ".ifip\tMT", "scope": "source.php", "path": "ifip" },
-        { "trigger": ".class\tMT", "scope": "source.php -meta.class.php", "path": "classname" },
-        { "trigger": ".namespace\tMT", "scope": "source.php -meta.class.php", "path": "namespace" }
+        { "trigger": ".classname\tMT", "scope": "source.php", "path": "classname" },
+        { "trigger": ".namespace\tMT", "scope": "source.php", "path": "namespace" }
     ]
 }
