@@ -1,1 +1,1 @@
-${{1:{classname}}}
+{classname}
