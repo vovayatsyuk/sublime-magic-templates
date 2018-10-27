@@ -20,14 +20,6 @@ class GenerateContentOnFileCreation(sublime_plugin.EventListener):
         if view.file_name() is not None and view.size() == 0:
             insert_snippet(view, App(view.file_name()).render_template())
 
-class InsertClassNameCommand(sublime_plugin.TextCommand):
-    def run(self, edit):
-        insert_snippet(self.view, App(self.view.file_name()).render_snippet('classname'))
-
-class InsertNamespaceCommand(sublime_plugin.TextCommand):
-    def run(self, edit):
-        insert_snippet(self.view, App(self.view.file_name()).render_snippet('namespace'))
-
 class InsertIfIpCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         insert_snippet(self.view, App(self.view.file_name()).render_snippet('ifip'))
