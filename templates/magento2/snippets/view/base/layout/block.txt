@@ -1,0 +1,1 @@
+<block class="${{1:{psr4key}}}" name="$2"/>

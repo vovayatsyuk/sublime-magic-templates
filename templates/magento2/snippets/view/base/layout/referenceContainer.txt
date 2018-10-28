@@ -1,0 +1,3 @@
+<referenceContainer name="${{1:before.body.end}}">
+    $2
+</referenceContainer>

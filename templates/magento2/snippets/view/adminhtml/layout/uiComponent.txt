@@ -1,0 +1,1 @@
+<uiComponent name="{basename|replace _index,_listing|replace _edit,_form}"/>
