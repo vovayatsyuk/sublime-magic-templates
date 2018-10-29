@@ -1,0 +1,3 @@
+<depends>
+    <field id="$1">${{2:1}}</field>
+</depends>

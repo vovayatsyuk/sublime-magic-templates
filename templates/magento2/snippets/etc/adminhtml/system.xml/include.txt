@@ -1,0 +1,1 @@
+<include path="{module}::system/${{1:filename}}.xml"/>

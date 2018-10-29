@@ -17,6 +17,15 @@
         { "trigger": "before", "scope": "meta.tag.xml", "path": "view/base/layout/attributes/before", "pattern": "layout/.*\\.xml" },
         { "trigger": "helper", "scope": "meta.tag.xml", "path": "view/base/layout/attributes/helper", "pattern": "layout/.*\\.xml" }
     ],
+    "/etc/adminhtml/": [
+        { "trigger": "comment", "scope": "text.xml -meta.tag.xml -string.quoted.double.xml", "path": "etc/adminhtml/system.xml/comment", "pattern": "system\\.xml" },
+        { "trigger": "depends", "scope": "text.xml -meta.tag.xml -string.quoted.double.xml", "path": "etc/adminhtml/system.xml/depends", "pattern": "system\\.xml" },
+        { "trigger": "select", "scope": "text.xml -meta.tag.xml -string.quoted.double.xml", "path": "etc/adminhtml/system.xml/fieldSelect", "pattern": "system\\.xml" },
+        { "trigger": "text", "scope": "text.xml -meta.tag.xml -string.quoted.double.xml", "path": "etc/adminhtml/system.xml/fieldText", "pattern": "system\\.xml" },
+        { "trigger": "group", "scope": "text.xml -meta.tag.xml -string.quoted.double.xml", "path": "etc/adminhtml/system.xml/group", "pattern": "system\\.xml" },
+        { "trigger": "include", "scope": "text.xml -meta.tag.xml -string.quoted.double.xml", "path": "etc/adminhtml/system.xml/include", "pattern": "system\\.xml" },
+        { "trigger": "section", "scope": "text.xml -meta.tag.xml -string.quoted.double.xml", "path": "etc/adminhtml/system.xml/section", "pattern": "system\\.xml" }
+    ],
     "/etc/": [
         { "trigger": "preference", "scope": "text.xml -string.quoted.double.xml", "path": "etc/di.xml/preference", "pattern": "di\\.xml" },
         { "trigger": "type\tplugin", "scope": "text.xml -string.quoted.double.xml", "path": "etc/di.xml/type.plugin", "pattern": "di\\.xml" },

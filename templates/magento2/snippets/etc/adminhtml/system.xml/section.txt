@@ -1,0 +1,6 @@
+<section id="{project|snakecase}" type="text" sortOrder="$1" showInDefault="1" showInWebsite="1" showInStore="1">
+    <class>separator-top</class>
+    <label>{project|camelcase}</label>
+    <tab>{vendor|snakecase}</tab>
+    <resource>{module}::config_{project|snakecase}</resource>$0
+</section>
