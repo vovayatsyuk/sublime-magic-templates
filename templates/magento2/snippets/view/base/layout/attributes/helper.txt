@@ -1,1 +1,1 @@
-helper="$1"
+helper="{psr4key}Helper\Data::${{1:methodName}}"
