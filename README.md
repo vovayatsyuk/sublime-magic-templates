@@ -50,5 +50,6 @@ See? And that was a single example, while module supports much much more!
  -  ~~Laravel~~
  -  ~~Magento1~~
  -  Magento2
- -  And a [few templates](https://github.com/vovayatsyuk/sublime-magic-templates/blob/master/templates/php/rules.json)
+ -  And a few [templates](https://github.com/vovayatsyuk/sublime-magic-templates/blob/master/templates/php/files.json)
+    and [snippets](https://github.com/vovayatsyuk/sublime-magic-templates/blob/master/templates/php/snippets.json)
     for unknown php applications
