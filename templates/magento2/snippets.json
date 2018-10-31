@@ -1,6 +1,6 @@
 {
     "/view/adminhtml/ui_component/": [
-        { "trigger": "dataProvider", "scope": "text.xml -string.quoted.double.xml", "path": "view/adminhtml/ui_component/dataProvider" }
+        { "trigger": "select", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/fieldSelect", "pattern": ".*(form|new|edit)\\.xml" }
     ],
     "/view/adminhtml/layout/": [
         { "trigger": "uiComponent", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/layout/uiComponent", "pattern": ".*\\.xml" }
