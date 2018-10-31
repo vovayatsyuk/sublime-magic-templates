@@ -3,36 +3,36 @@
         { "trigger": "dataProvider", "scope": "text.xml -string.quoted.double.xml", "path": "view/adminhtml/ui_component/dataProvider" }
     ],
     "/view/adminhtml/layout/": [
-        { "trigger": "uiComponent", "scope": "text.xml -meta.tag.xml -string.quoted.double.xml", "path": "view/adminhtml/layout/uiComponent", "pattern": ".*\\.xml" }
+        { "trigger": "uiComponent", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/layout/uiComponent", "pattern": ".*\\.xml" }
     ],
     "/view/": [
-        { "trigger": "block", "scope": "text.xml -meta.tag.xml -string.quoted.double.xml", "path": "view/base/layout/block", "pattern": "layout/.*\\.xml" },
-        { "trigger": "css", "scope": "text.xml -meta.tag.xml -string.quoted.double.xml", "path": "view/base/layout/css", "pattern": "layout/.*\\.xml" },
-        { "trigger": "head", "scope": "text.xml -meta.tag.xml -string.quoted.double.xml", "path": "view/base/layout/head", "pattern": "layout/.*\\.xml" },
-        { "trigger": "referenceBlock", "scope": "text.xml -meta.tag.xml -string.quoted.double.xml", "path": "view/base/layout/referenceBlock", "pattern": "layout/.*\\.xml" },
-        { "trigger": "referenceContainer", "scope": "text.xml -meta.tag.xml -string.quoted.double.xml", "path": "view/base/layout/referenceContainer", "pattern": "layout/.*\\.xml" },
-        { "trigger": "update", "scope": "text.xml -meta.tag.xml -string.quoted.double.xml", "path": "view/base/layout/update", "pattern": "layout/.*\\.xml" },
+        { "trigger": "block", "scope": "text.xml -meta.tag.xml", "path": "view/base/layout/block", "pattern": "layout/.*\\.xml" },
+        { "trigger": "css", "scope": "text.xml -meta.tag.xml", "path": "view/base/layout/css", "pattern": "layout/.*\\.xml" },
+        { "trigger": "head", "scope": "text.xml -meta.tag.xml", "path": "view/base/layout/head", "pattern": "layout/.*\\.xml" },
+        { "trigger": "referenceBlock", "scope": "text.xml -meta.tag.xml", "path": "view/base/layout/referenceBlock", "pattern": "layout/.*\\.xml" },
+        { "trigger": "referenceContainer", "scope": "text.xml -meta.tag.xml", "path": "view/base/layout/referenceContainer", "pattern": "layout/.*\\.xml" },
+        { "trigger": "update", "scope": "text.xml -meta.tag.xml", "path": "view/base/layout/update", "pattern": "layout/.*\\.xml" },
 
         { "trigger": "after", "scope": "meta.tag.xml", "path": "view/base/layout/attributes/after", "pattern": "layout/.*\\.xml" },
         { "trigger": "before", "scope": "meta.tag.xml", "path": "view/base/layout/attributes/before", "pattern": "layout/.*\\.xml" },
         { "trigger": "helper", "scope": "meta.tag.xml", "path": "view/base/layout/attributes/helper", "pattern": "layout/.*\\.xml" }
     ],
     "/etc/adminhtml/": [
-        { "trigger": "comment", "scope": "text.xml -meta.tag.xml -string.quoted.double.xml", "path": "etc/adminhtml/system.xml/comment", "pattern": "system\\.xml" },
-        { "trigger": "depends", "scope": "text.xml -meta.tag.xml -string.quoted.double.xml", "path": "etc/adminhtml/system.xml/depends", "pattern": "system\\.xml" },
-        { "trigger": "select", "scope": "text.xml -meta.tag.xml -string.quoted.double.xml", "path": "etc/adminhtml/system.xml/fieldSelect", "pattern": "system\\.xml" },
-        { "trigger": "text", "scope": "text.xml -meta.tag.xml -string.quoted.double.xml", "path": "etc/adminhtml/system.xml/fieldText", "pattern": "system\\.xml" },
-        { "trigger": "group", "scope": "text.xml -meta.tag.xml -string.quoted.double.xml", "path": "etc/adminhtml/system.xml/group", "pattern": "system\\.xml" },
-        { "trigger": "include", "scope": "text.xml -meta.tag.xml -string.quoted.double.xml", "path": "etc/adminhtml/system.xml/include", "pattern": "system\\.xml" },
-        { "trigger": "section", "scope": "text.xml -meta.tag.xml -string.quoted.double.xml", "path": "etc/adminhtml/system.xml/section", "pattern": "system\\.xml" }
+        { "trigger": "comment", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/comment", "pattern": "system\\.xml" },
+        { "trigger": "depends", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/depends", "pattern": "system\\.xml" },
+        { "trigger": "select", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/fieldSelect", "pattern": "system\\.xml" },
+        { "trigger": "text", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/fieldText", "pattern": "system\\.xml" },
+        { "trigger": "group", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/group", "pattern": "system\\.xml" },
+        { "trigger": "include", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/include", "pattern": "system\\.xml" },
+        { "trigger": "section", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/section", "pattern": "system\\.xml" }
     ],
     "/etc/": [
-        { "trigger": "preference", "scope": "text.xml -string.quoted.double.xml", "path": "etc/di.xml/preference", "pattern": "di\\.xml" },
-        { "trigger": "type\tplugin", "scope": "text.xml -string.quoted.double.xml", "path": "etc/di.xml/type.plugin", "pattern": "di\\.xml" },
-        { "trigger": "type\targuments", "scope": "text.xml -string.quoted.double.xml", "path": "etc/di.xml/type.arguments", "pattern": "di\\.xml" },
-        { "trigger": "virtualType", "scope": "text.xml -string.quoted.double.xml", "path": "etc/di.xml/virtualType", "pattern": "di\\.xml" },
-        { "trigger": "virtualType\tdataProvider", "scope": "text.xml -string.quoted.double.xml", "path": "etc/di.xml/virtualType.dataProvider", "pattern": "di\\.xml" },
-        { "trigger": "virtualType\tgridFilters", "scope": "text.xml -string.quoted.double.xml", "path": "etc/di.xml/virtualType.gridFilters", "pattern": "di\\.xml" }
+        { "trigger": "preference", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/preference", "pattern": "di\\.xml" },
+        { "trigger": "type\tplugin", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/type.plugin", "pattern": "di\\.xml" },
+        { "trigger": "type\targuments", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/type.arguments", "pattern": "di\\.xml" },
+        { "trigger": "virtualType", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/virtualType", "pattern": "di\\.xml" },
+        { "trigger": "virtualType\tdataProvider", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/virtualType.dataProvider", "pattern": "di\\.xml" },
+        { "trigger": "virtualType\tgridFilters", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/virtualType.gridFilters", "pattern": "di\\.xml" }
     ],
     "/": [
         { "trigger": ".classname\tMT", "scope": "source.php", "path": "/php/snippets/classname" },
