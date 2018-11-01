@@ -36,7 +36,45 @@ class Menu extends AbstractDb
 }
 ```
 
-See? And that was a single example, while module supports much much more!
+See? And that was a single example, while module supports [much](#templates)
+[much](#snippets-beta) more!
+
+## How it works?
+
+### Templates
+
+When you create a file, plugin do the following things:
+
+ 1. Searches for the closest `composer.json` file (This approach allows to work
+    with multiple projects in the same window)
+ 2. Detects project type, autoload parameters, and other useful information
+    by its content
+ 3. If the project type matches one of the known types, plugin searches for the
+    [template](https://github.com/vovayatsyuk/sublime-magic-templates/blob/master/templates/magento2/files.json)
+    to use. If found - contents is automatically generated and inserted into
+    the file.
+
+    - Here is a pretty simple template for
+      [Magento's Collection](https://github.com/vovayatsyuk/sublime-magic-templates/blob/master/templates/magento2/files/Model/ResourceModel/Entity/Collection.php.txt)
+    - Here is a little bigger template for
+      [Magento's Form](https://github.com/vovayatsyuk/sublime-magic-templates/blob/master/templates/magento2/files/view/adminhtml/ui_component/form.xml.txt)
+
+### Snippets (beta)
+
+Sublime's native snippets mechanism doesn't allow to filter out available
+snippets depending on filename pattern. MagicTemplates plugin
+[allows to create](https://github.com/vovayatsyuk/sublime-magic-templates/blob/master/templates/magento2/snippets.json)
+such kind of dynamic snippets!
+
+This feature allows to reduce the number of shown snippets for various files.
+For example, when working with Magento's `layout.xml` file MagicTemplates will
+never show you autocompletions written for `ui_component.xml` files.
+
+Additionally, these snippets fully supports MagicTemplates variables which
+allows to generate
+[more](https://github.com/vovayatsyuk/sublime-magic-templates/blob/master/templates/magento2/snippets/view/base/layout/css.txt)
+[code](https://github.com/vovayatsyuk/sublime-magic-templates/blob/master/templates/magento2/snippets/etc/di.xml/virtualType.txt)
+that simply works.
 
 ## Installation
 
