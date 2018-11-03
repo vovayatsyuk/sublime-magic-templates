@@ -30,6 +30,7 @@
         { "trigger": "preference", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/preference", "pattern": "di\\.xml" },
         { "trigger": "type\tplugin", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/type.plugin", "pattern": "di\\.xml" },
         { "trigger": "type\targuments", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/type.arguments", "pattern": "di\\.xml" },
+        { "trigger": "type\taddFieldStrategies", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/type.addFieldStrategies", "pattern": "di\\.xml" },
         { "trigger": "virtualType", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/virtualType", "pattern": "di\\.xml" },
         { "trigger": "virtualType\tdataProvider", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/virtualType.dataProvider", "pattern": "di\\.xml" },
         { "trigger": "virtualType\tgridFilters", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/virtualType.gridFilters", "pattern": "di\\.xml" }

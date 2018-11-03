@@ -1,0 +1,7 @@
+<type name="{psr4key}Ui\DataProvider\\$1">
+    <arguments>
+        <argument name="addFieldStrategies" xsi:type="array">
+            <item name="$2" xsi:type="object">{psr4key}Ui\DataProvider\\$3</item>
+        </argument>
+    </arguments>
+</type>
