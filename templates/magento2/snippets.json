@@ -1,6 +1,7 @@
 {
     "/view/adminhtml/ui_component/": [
-        { "trigger": "select", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/fieldSelect", "pattern": ".*(form|new|edit)\\.xml" }
+        { "trigger": "container", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/container", "pattern": "^(?!.*list).*\\.xml" },
+        { "trigger": "select", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/fieldSelect", "pattern": "^(?!.*list).*\\.xml" }
     ],
     "/view/adminhtml/layout/": [
         { "trigger": "uiComponent", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/layout/uiComponent", "pattern": ".*\\.xml" }
