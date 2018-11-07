@@ -1,0 +1,1 @@
+<item name="validate-greater-than-zero" xsi:type="boolean">true</item>

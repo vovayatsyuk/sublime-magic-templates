@@ -1,0 +1,1 @@
+<item name="validate-digits" xsi:type="boolean">true</item>

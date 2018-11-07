@@ -1,0 +1,9 @@
+<fieldset name="$1">
+    <argument name="data" xsi:type="array">
+        <item name="config" xsi:type="array">
+            <item name="label" xsi:type="string">$2</item>
+            <item name="collapsible" xsi:type="boolean">true</item>
+            <item name="opened" xsi:type="boolean">true</item>
+        </item>$0
+    </argument>
+</fieldset>

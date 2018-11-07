@@ -1,7 +1,18 @@
 {
     "/view/adminhtml/ui_component/": [
         { "trigger": "container", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/container", "pattern": "^(?!.*list).*\\.xml" },
-        { "trigger": "select", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/fieldSelect", "pattern": "^(?!.*list).*\\.xml" }
+        { "trigger": "select", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/field-select", "pattern": "^(?!.*list).*\\.xml" },
+        { "trigger": "text", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/field-text", "pattern": "^(?!.*list).*\\.xml" },
+        { "trigger": "toggle", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/field-toggle", "pattern": "^(?!.*list).*\\.xml" },
+        { "trigger": "wysiwyg", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/field-wysiwyg", "pattern": "^(?!.*list).*\\.xml" },
+        { "trigger": "fieldset", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/fieldset", "pattern": "^(?!.*list).*\\.xml" },
+        { "trigger": "modal", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/modal", "pattern": "^(?!.*list).*\\.xml" },
+        { "trigger": "modal\tAjax", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/modal-ajax", "pattern": "^(?!.*list).*\\.xml" },
+        { "trigger": "validateDigits", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/validate-digits", "pattern": "^(?!.*list).*\\.xml" },
+        { "trigger": "validateGreaterThanZero", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/validate-greater-than-zero", "pattern": "^(?!.*list).*\\.xml" },
+        { "trigger": "validateLessThanEqualsTo", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/validate-less-than-equals-to", "pattern": "^(?!.*list).*\\.xml" },
+        { "trigger": "validateNumber", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/validate-number", "pattern": "^(?!.*list).*\\.xml" },
+        { "trigger": "validation", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/validation", "pattern": "^(?!.*list).*\\.xml" }
     ],
     "/view/adminhtml/layout/": [
         { "trigger": "uiComponent", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/layout/uiComponent", "pattern": ".*\\.xml" }
