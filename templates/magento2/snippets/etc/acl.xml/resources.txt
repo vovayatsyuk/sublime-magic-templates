@@ -1,0 +1,3 @@
+<resources>
+    <resource id="${{1:Magento_Backend::admin}}">$2</resource>
+</resources>

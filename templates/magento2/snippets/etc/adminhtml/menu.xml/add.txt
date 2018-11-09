@@ -1,0 +1,7 @@
+<add id="{module}::${{1:entity}}_index"
+    title="{project|camelcase}"
+    module="{module}"
+    sortOrder="$2"
+    parent="${{3:Magento_Catalog::catalog}}"
+    action="{project}/${{1:entity}}/index"
+    resource="{module}::${{1:entity}}_index"/>

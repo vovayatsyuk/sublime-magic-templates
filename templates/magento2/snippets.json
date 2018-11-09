@@ -12,7 +12,9 @@
         { "trigger": "validateGreaterThanZero", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/validate-greater-than-zero", "pattern": "^(?!.*list).*\\.xml" },
         { "trigger": "validateLessThanEqualsTo", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/validate-less-than-equals-to", "pattern": "^(?!.*list).*\\.xml" },
         { "trigger": "validateNumber", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/validate-number", "pattern": "^(?!.*list).*\\.xml" },
-        { "trigger": "validation", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/validation", "pattern": "^(?!.*list).*\\.xml" }
+        { "trigger": "validation", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/validation", "pattern": "^(?!.*list).*\\.xml" },
+        { "trigger": "argument", "scope": "text.xml -meta.tag.xml", "path": "global/xml/argument" },
+        { "trigger": "item", "scope": "text.xml -meta.tag.xml", "path": "global/xml/item" }
     ],
     "/view/adminhtml/layout/": [
         { "trigger": "uiComponent", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/layout/uiComponent", "pattern": ".*\\.xml" }
@@ -24,7 +26,9 @@
         { "trigger": "referenceBlock", "scope": "text.xml -meta.tag.xml", "path": "view/base/layout/referenceBlock", "pattern": "layout/.*\\.xml" },
         { "trigger": "referenceContainer", "scope": "text.xml -meta.tag.xml", "path": "view/base/layout/referenceContainer", "pattern": "layout/.*\\.xml" },
         { "trigger": "update", "scope": "text.xml -meta.tag.xml", "path": "view/base/layout/update", "pattern": "layout/.*\\.xml" },
-
+        { "trigger": "argument", "scope": "text.xml -meta.tag.xml", "path": "global/xml/argument", "pattern": "layout/.*\\.xml" },
+        { "trigger": "arguments", "scope": "text.xml -meta.tag.xml", "path": "global/xml/arguments", "pattern": "layout/.*\\.xml" },
+        { "trigger": "item", "scope": "text.xml -meta.tag.xml", "path": "global/xml/item", "pattern": "layout/.*\\.xml" },
         { "trigger": "after", "scope": "meta.tag.xml", "path": "view/base/layout/attributes/after", "pattern": "layout/.*\\.xml" },
         { "trigger": "before", "scope": "meta.tag.xml", "path": "view/base/layout/attributes/before", "pattern": "layout/.*\\.xml" },
         { "trigger": "helper", "scope": "meta.tag.xml", "path": "view/base/layout/attributes/helper", "pattern": "layout/.*\\.xml" }
@@ -36,7 +40,11 @@
         { "trigger": "text", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/field-text", "pattern": "system\\.xml" },
         { "trigger": "group", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/group", "pattern": "system\\.xml" },
         { "trigger": "include", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/include", "pattern": "system\\.xml" },
-        { "trigger": "section", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/section", "pattern": "system\\.xml" }
+        { "trigger": "section", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/section", "pattern": "system\\.xml" },
+
+        { "trigger": "menu", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/menu.xml/menu", "pattern": "menu\\.xml" },
+        { "trigger": "add", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/menu.xml/add", "pattern": "menu\\.xml" },
+        { "trigger": "menuItem", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/menu.xml/add", "pattern": "menu\\.xml" }
     ],
     "/etc/": [
         { "trigger": "preference", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/preference", "pattern": "di\\.xml" },
@@ -45,7 +53,16 @@
         { "trigger": "type\taddFieldStrategies", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/type.addFieldStrategies", "pattern": "di\\.xml" },
         { "trigger": "virtualType", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/virtualType", "pattern": "di\\.xml" },
         { "trigger": "virtualType\tdataProvider", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/virtualType.dataProvider", "pattern": "di\\.xml" },
-        { "trigger": "virtualType\tgridFilters", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/virtualType.gridFilters", "pattern": "di\\.xml" }
+        { "trigger": "virtualType\tgridFilters", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/virtualType.gridFilters", "pattern": "di\\.xml" },
+        { "trigger": "argument", "scope": "text.xml -meta.tag.xml", "path": "global/xml/argument", "pattern": "di\\.xml" },
+        { "trigger": "arguments", "scope": "text.xml -meta.tag.xml", "path": "global/xml/arguments", "pattern": "di\\.xml" },
+        { "trigger": "item", "scope": "text.xml -meta.tag.xml", "path": "global/xml/item", "pattern": "di\\.xml" },
+
+        { "trigger": "event", "scope": "text.xml -meta.tag.xml", "path": "etc/events.xml/event", "pattern": "events\\.xml" },
+        { "trigger": "observer", "scope": "text.xml -meta.tag.xml", "path": "etc/events.xml/observer", "pattern": "events\\.xml" },
+
+        { "trigger": "resources", "scope": "text.xml -meta.tag.xml", "path": "etc/acl.xml/resources", "pattern": "acl\\.xml" },
+        { "trigger": "resource", "scope": "text.xml -meta.tag.xml", "path": "etc/acl.xml/resource", "pattern": "acl\\.xml" }
     ],
     "/": [
         { "trigger": ".classname\tMT", "scope": "source.php", "path": "/php/snippets/classname" },

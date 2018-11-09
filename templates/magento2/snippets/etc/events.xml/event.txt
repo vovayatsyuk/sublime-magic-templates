@@ -1,0 +1,3 @@
+<event name="$1">
+    <observer name="{module|lower}" instance="{psr4key}Observer\\$2" />
+</event>

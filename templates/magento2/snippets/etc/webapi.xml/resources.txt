@@ -1,0 +1,3 @@
+<resources>
+    <resource ref="Magento_Catalog::products"/>
+</resources>
