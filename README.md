@@ -83,6 +83,17 @@ that simply works.
  2. Run “Package Control: Install Package” command, find and install
     `sublime-magic-templates` plugin.
 
+## Configuration
+
+Open Sublime Preferences and add `mt-` trigger for xml files:
+
+```
+"auto_complete_triggers": [
+    [keep_original_triggers],
+    {"selector": "text.xml", "characters": "mt-"}
+],
+```
+
 ## Known Applications
 
  -  ~~Laravel~~
