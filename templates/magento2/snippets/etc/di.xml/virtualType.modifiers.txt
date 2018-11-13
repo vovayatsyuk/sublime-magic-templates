@@ -1,0 +1,10 @@
+<virtualType name="${{1:Magento\Catalog}}\Ui\DataProvider\\${{2:Product\Form\Modifier}}\Pool">
+    <arguments>
+        <argument name="modifiers" xsi:type="array">
+            <item name="{project}" xsi:type="array">
+                <item name="class" xsi:type="string">{psr4key}Ui\DataProvider\\${{2:Product\Form\Modifier}}\\$3</item>
+                <item name="sortOrder" xsi:type="number">10</item>
+            </item>
+        </argument>
+    </arguments>
+</virtualType>

@@ -1,5 +1,0 @@
-<virtualType name="{psr4key}Ui\DataProvider\\$1" type="{psr4key}Model\ResourceModel\\$2">
-    <arguments>
-        <argument name="instanceName" xsi:type="string">{psr4key}\Ui\DataProvider\\$3</argument>
-    </arguments>
-</virtualType>
