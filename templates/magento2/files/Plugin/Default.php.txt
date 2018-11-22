@@ -16,43 +16,5 @@ class {classname}
         \{psr4key}Helper\Data \$helper
     ) {{
         \$this->helper = \$helper;
-    }}
-
-    /**
-     * @param mixed \$subject
-     * @param mixed \$result
-     * @return mixed
-     */
-    public function before(
-        \$subject,
-        \$param
-    ) {{
-        throw new \Magento\Framework\Exception\CouldNotSaveException(
-            __('Please fill all required fields.')
-        );
-    }}
-
-    /**
-     * @param mixed \$subject
-     * @param \Closure \$proceed
-     * @return mixed
-     */
-    public function around(
-        \$subject,
-        \Closure \$proceed
-    ) {{
-        return \$proceed();
-    }}
-
-    /**
-     * @param mixed \$subject
-     * @param mixed \$result
-     * @return mixed
-     */
-    public function after(
-        \$subject,
-        \$result
-    ) {{
-        return \$result;
-    }}
+    }}$1
 }}

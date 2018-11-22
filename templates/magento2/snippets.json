@@ -1,4 +1,9 @@
 {
+    "/Plugin/": [
+        { "trigger": "after", "scope": "meta.block.php -meta.function.php", "path": "Plugin/after" },
+        { "trigger": "around", "scope": "meta.block.php -meta.function.php", "path": "Plugin/around" },
+        { "trigger": "before", "scope": "meta.block.php -meta.function.php", "path": "Plugin/before" }
+    ],
     "/view/adminhtml/ui_component/": [
         { "trigger": "container", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/container", "pattern": "^(?!.*list).*\\.xml" },
         { "trigger": "select", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/field-select", "pattern": "^(?!.*list).*\\.xml" },

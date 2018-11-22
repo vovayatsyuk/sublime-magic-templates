@@ -1,0 +1,11 @@
+/**
+ * @param mixed \$subject
+ * @param \Closure \$proceed
+ * @return mixed
+ */
+public function around${{1:MethodName}}(
+    \$subject,
+    \Closure \$proceed
+) {{
+    ${{2:return \$proceed();}}
+}}

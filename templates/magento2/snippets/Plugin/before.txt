@@ -1,0 +1,11 @@
+/**
+ * @param mixed \$subject
+ * @param mixed \$result
+ * @return mixed
+ */
+public function before${{1:MethodName}}(
+    \$subject,
+    \$param
+) {{
+    $2
+}}
