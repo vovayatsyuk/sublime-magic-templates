@@ -39,6 +39,22 @@ class Menu extends AbstractDb
 See? And that was a single example, while module supports [much](#templates)
 [much](#snippets-beta) more!
 
+## Installation
+
+ 1. Run “Package Control: Install Package” command
+ 2. Type `MagicTemplates` and press <kbd>Enter</kbd>
+
+## Configuration
+
+Open Sublime Preferences and add `mt-` trigger for xml files:
+
+```
+"auto_complete_triggers": [
+    [keep_original_triggers],
+    {"selector": "text.xml", "characters": "mt-"}
+],
+```
+
 ## How it works?
 
 ### Templates
@@ -75,24 +91,6 @@ allows to generate
 [more](https://github.com/vovayatsyuk/sublime-magic-templates/blob/master/templates/magento2/snippets/view/base/layout/css.txt)
 [code](https://github.com/vovayatsyuk/sublime-magic-templates/blob/master/templates/magento2/snippets/etc/di.xml/virtualType.txt)
 that simply works.
-
-## Installation
-
- 1. Run “Package Control: Add Repository” command and add
-    `https://github.com/vovayatsyuk/sublime-magic-templates.git` link.
- 2. Run “Package Control: Install Package” command, find and install
-    `sublime-magic-templates` plugin.
-
-## Configuration
-
-Open Sublime Preferences and add `mt-` trigger for xml files:
-
-```
-"auto_complete_triggers": [
-    [keep_original_triggers],
-    {"selector": "text.xml", "characters": "mt-"}
-],
-```
 
 ## Known Applications
 
