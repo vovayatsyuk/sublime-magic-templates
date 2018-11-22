@@ -55,6 +55,20 @@ Open Sublime Preferences and add `mt-` trigger for xml files:
 ],
 ```
 
+## Examples
+
+### PHP Template
+
+![Template for Magento2 resource model](docs/assets/images/php-template.gif)
+
+### PHP Snippets
+
+![Template and snippets for Magento2 plugin](docs/assets/images/php-snippets.gif)
+
+### XML Template and Snippets
+
+![Template and snippets for Magento2 form ui_component](docs/assets/images/xml-template-and-snippets.gif)
+
 ## How it works?
 
 ### Templates
