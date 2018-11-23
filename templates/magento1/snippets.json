@@ -1,5 +1,7 @@
 {
     "/": [
-        { "trigger": "classname", "scope": "source.php", "path": "/php/snippets/classname" }
+        { "trigger": "classname", "scope": "source.php", "path": "/php/snippets/classname" },
+        { "trigger": ".dd", "scope": "source.php", "path": "dd" },
+        { "trigger": ".dump", "scope": "source.php", "path": "dump" }
     ]
 }

@@ -71,6 +71,8 @@
     ],
     "/": [
         { "trigger": "classname", "scope": "source.php", "path": "/php/snippets/classname" },
-        { "trigger": "namespace", "scope": "source.php", "path": "/php/snippets/namespace" }
+        { "trigger": "namespace", "scope": "source.php", "path": "/php/snippets/namespace" },
+        { "trigger": ".dd", "scope": "source.php", "path": "dd" },
+        { "trigger": ".dump", "scope": "source.php", "path": "dump" }
     ]
 }

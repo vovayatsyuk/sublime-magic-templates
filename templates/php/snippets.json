@@ -1,6 +1,8 @@
 {
     "/": [
         { "trigger": "classname", "scope": "source.php", "path": "classname" },
-        { "trigger": "namespace", "scope": "source.php", "path": "namespace" }
+        { "trigger": "namespace", "scope": "source.php", "path": "namespace" },
+        { "trigger": ".dd", "scope": "source.php", "path": "dd" },
+        { "trigger": ".dump", "scope": "source.php", "path": "dump" }
     ]
 }
