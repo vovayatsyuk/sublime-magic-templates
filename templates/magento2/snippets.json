@@ -70,7 +70,7 @@
         { "trigger": "resource", "scope": "text.xml -meta.tag.xml", "path": "etc/acl.xml/resource", "pattern": "acl\\.xml" }
     ],
     "/": [
-        { "trigger": ".classname\tMT", "scope": "source.php", "path": "/php/snippets/classname" },
-        { "trigger": ".namespace\tMT", "scope": "source.php", "path": "/php/snippets/namespace" }
+        { "trigger": "classname", "scope": "source.php", "path": "/php/snippets/classname" },
+        { "trigger": "namespace", "scope": "source.php", "path": "/php/snippets/namespace" }
     ]
 }
