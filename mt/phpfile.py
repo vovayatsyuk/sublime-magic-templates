@@ -33,7 +33,7 @@ class Phpfile:
         path_parts = self.app.file.autoload_path().split(os.sep)
         del path_parts[-1] # remove file name
 
-        namespace = self.app.file.psr4key()
+        namespace = self.app.file.psr4key() or '';
         if path_parts:
             namespace += '\\'.join(path_parts)
 

@@ -1,6 +1,5 @@
 {
     "/": [
-        { "trigger": ".classname\tMT", "scope": "source.php", "path": "/php/snippets/classname" },
-        { "trigger": ".namespace\tMT", "scope": "source.php", "path": "/php/snippets/namespace" }
+        { "trigger": "classname", "scope": "source.php", "path": "/php/snippets/classname" }
     ]
 }
