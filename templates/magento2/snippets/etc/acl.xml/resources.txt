@@ -1,3 +1,11 @@
 <resources>
-    <resource id="${{1:Magento_Backend::admin}}">$2</resource>
+    <resource id="Magento_Backend::admin">
+        <resource id="Magento_Backend::stores">
+            <resource id="Magento_Backend::stores_settings">
+                <resource id="Magento_Config::config">
+                    $1
+                </resource>
+            </resource>
+        </resource>
+    </resource>
 </resources>

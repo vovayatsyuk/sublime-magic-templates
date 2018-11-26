@@ -1,0 +1,3 @@
+<extension_attributes for="${{1:Magento\Checkout\Api\Data\ShippingInformationInterface}}">
+    <attribute code="${{2:{project|snakecase}}}" type="string"/>
+</extension_attributes>

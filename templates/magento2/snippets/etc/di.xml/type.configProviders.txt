@@ -1,0 +1,7 @@
+<type name="Magento\\$1">
+    <arguments>
+        <argument name="configProviders" xsi:type="array">
+            <item name="{module|lower}_config_provider" xsi:type="object">{psr4key}Model\\${{2:ConfigProvider}}</item>
+        </argument>
+    </arguments>
+</type>

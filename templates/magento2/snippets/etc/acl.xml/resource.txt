@@ -1,1 +1,1 @@
-<resource id="{module}::config_{project|snakecase}" title="{project|camelcase}" sortOrder="$1"/>
+<resource id="{module}::config" title="{project|camelcase}" sortOrder="$1"/>

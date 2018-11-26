@@ -42,6 +42,7 @@
         { "trigger": "comment", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/comment", "pattern": "system\\.xml" },
         { "trigger": "depends", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/depends", "pattern": "system\\.xml" },
         { "trigger": "select", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/field-select", "pattern": "system\\.xml" },
+        { "trigger": "multiselect", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/field-multiselect", "pattern": "system\\.xml" },
         { "trigger": "text", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/field-text", "pattern": "system\\.xml" },
         { "trigger": "group", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/group", "pattern": "system\\.xml" },
         { "trigger": "include", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/include", "pattern": "system\\.xml" },
@@ -56,6 +57,7 @@
         { "trigger": "type:plugin", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/type.plugin", "pattern": "di\\.xml" },
         { "trigger": "type:arguments", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/type.arguments", "pattern": "di\\.xml" },
         { "trigger": "type:addFieldStrategies", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/type.addFieldStrategies", "pattern": "di\\.xml" },
+        { "trigger": "type:configProviders", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/type.configProviders", "pattern": "di\\.xml" },
         { "trigger": "virtualType:simple", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/virtualType.simple", "pattern": "di\\.xml" },
         { "trigger": "virtualType:gridFilters", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/virtualType.gridFilters", "pattern": "di\\.xml" },
         { "trigger": "virtualType:modifiers", "scope": "text.xml -meta.tag.xml", "path": "etc/di.xml/virtualType.modifiers", "pattern": "di\\.xml" },
@@ -66,7 +68,11 @@
         { "trigger": "event", "scope": "text.xml -meta.tag.xml", "path": "etc/events.xml/event", "pattern": "events\\.xml" },
         { "trigger": "observer", "scope": "text.xml -meta.tag.xml", "path": "etc/events.xml/observer", "pattern": "events\\.xml" },
 
+        { "trigger": "extension_attributes", "scope": "text.xml -meta.tag.xml", "path": "etc/extension_attributes.xml/extension_attributes", "pattern": "extension_attributes\\.xml" },
+        { "trigger": "attribute", "scope": "text.xml -meta.tag.xml", "path": "etc/extension_attributes.xml/attribute", "pattern": "extension_attributes\\.xml" },
+
         { "trigger": "resources", "scope": "text.xml -meta.tag.xml", "path": "etc/acl.xml/resources", "pattern": "acl\\.xml" },
+        { "trigger": "resource:reference", "scope": "text.xml -meta.tag.xml", "path": "etc/acl.xml/resource.reference", "pattern": "acl\\.xml" },
         { "trigger": "resource", "scope": "text.xml -meta.tag.xml", "path": "etc/acl.xml/resource", "pattern": "acl\\.xml" }
     ],
     "/": [

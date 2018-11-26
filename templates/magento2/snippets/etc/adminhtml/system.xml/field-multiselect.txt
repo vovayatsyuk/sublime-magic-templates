@@ -1,0 +1,5 @@
+<field id="$1" translate="label" type="multiselect" sortOrder="${{2:10}}" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+    <label>$3</label>
+    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+    <can_be_empty>1</can_be_empty>
+</field>
