@@ -14,7 +14,7 @@ class {classname} extends \Magento\Framework\Model\AbstractModel
      */
     protected function _construct()
     {{
-        \$this->_init(\{psr4key}Model\ResourceModel\{basename}::class);
+        \$this->_init(\{namespace|replace Model,Model\ResourceModel}\{basename}::class);
     }}
 
     /**
