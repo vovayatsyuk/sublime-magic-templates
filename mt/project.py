@@ -1,4 +1,5 @@
 import os
+import sublime
 
 from .filters import *
 
@@ -7,7 +8,10 @@ class Project:
         self.app = app
 
     def root(self):
-        return self.app.composer.path().replace('/composer.json', '')
+        if self.app.composer.path():
+            return self.app.composer.path().replace('/composer.json', '')
+        else:
+            return os.path.dirname(self.app.filepath)
 
     def code(self):
         return self.app.file.psr4key().replace('\\', '_').strip('_')
@@ -47,9 +51,26 @@ class Project:
             result = self.guess_type_by_composer()
 
         if result is None:
+            result = self.guess_type_by_contents()
+
+        if result is None:
             result = 'php'
 
         return result
+
+    def guess_type_by_contents(self):
+        rules = [
+            ('Magento', 'magento2'),
+            ('Mage[_:]', 'magento1')
+        ]
+
+        view = sublime.active_window().active_view()
+
+        for pattern, _type in rules:
+            if view.find(pattern, sublime.IGNORECASE) is not None:
+                return _type
+
+        return None
 
     def guess_type_by_composer(self):
         rules = [(

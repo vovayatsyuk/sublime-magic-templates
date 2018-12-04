@@ -19,7 +19,7 @@ class Template:
             return None
 
         project_type = self.app.project.type()
-        if project_type is None or self.app.composer.path() is None:
+        if project_type is None:
             return None
 
         if not path.startswith('/'):
@@ -53,7 +53,7 @@ class Template:
 
     def guess_template_path(self):
         project_type = self.app.project.type()
-        if project_type is None or self.app.composer.path() is None:
+        if project_type is None:
             return None
 
         rules = load_resource(os.sep.join([self.base_dir, project_type, 'files.json']), True)
@@ -83,7 +83,7 @@ class Template:
 
     def suggest_snippets(self, user_input, locations):
         project_type = self.app.project.type()
-        if project_type is None or self.app.composer.path() is None:
+        if project_type is None:
             return None
 
         rules = load_resource(os.sep.join([self.base_dir, project_type, 'snippets.json']), True)
