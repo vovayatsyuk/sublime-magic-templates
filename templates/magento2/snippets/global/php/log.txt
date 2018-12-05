@@ -1,0 +1,3 @@
+(new \Zend\Log\Logger())
+    ->addWriter(new \Zend\Log\Writer\Stream(BP . '/var/log/custom.log'))
+    ->debug(${{1:__METHOD__}});

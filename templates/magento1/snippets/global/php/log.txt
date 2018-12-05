@@ -1,0 +1,1 @@
+Mage::log(${{1:__METHOD__}}, null, 'custom.log', true);
