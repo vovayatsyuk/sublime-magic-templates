@@ -67,7 +67,8 @@ class Project:
         view = sublime.active_window().active_view()
 
         for pattern, _type in rules:
-            if view.find(pattern, sublime.IGNORECASE) is not None:
+            region = view.find(pattern, sublime.IGNORECASE)
+            if region is not None and region.a != region.b:
                 return _type
 
         return None
