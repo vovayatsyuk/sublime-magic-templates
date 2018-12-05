@@ -1,36 +1,10 @@
-\$trace = debug_backtrace();
-\$output = "\n";
-foreach (\$trace as \$call) {{
-    \$output .= \$call['file'] . ':' . \$call['line'];
-    \$output .= "\n";
-    \$args = array();
-    foreach (\$call['args'] as \$arg) {{
-        if (is_object(\$arg) && get_class(\$arg)) {{
-            \$arg = get_class(\$arg);
-        }} else {{
-            switch (gettype(\$arg)) {{
-                case 'NULL':
-                    \$arg = 'null';
-                    break;
-                case 'array':
-                    \$arg = 'array';
-                    break;
-                case 'boolean':
-                    \$arg = \$arg ? 'true' : 'false';
-                    break;
-                case 'string':
-                    \$arg = '"' . \$arg . '"';
-                    break;
-                default:
-                    // do nothing
-            }}
-        }}
-        \$args[] = \$arg;
-    }}
-    \$call['class']    = isset(\$call['class'])    ? \$call['class']    : '';
-    \$call['type']     = isset(\$call['type'])     ? \$call['type']     : '';
-    \$call['function'] = isset(\$call['function']) ? \$call['function'] : '';
-    \$output .= \$call['class'] . \$call['type'] . \$call['function'] . '(' . implode(', ', \$args) . ')' . "\n\n";
+\$d = debug_backtrace();
+\$i = count(\$d);
+\$out = '';
+foreach (\$d as \$r) {{
+    \$i--;
+    @\$out .= "[\$i] {{\$r['file']}}:{{\$r['line']}}\n";
+    @\$out .= "     {{\$r['class']}}{{\$r['type']}}{{\$r['function']}}\n\n";
 }}
-echo '<pre>' . \$output . '</pre>';
+echo '<pre>' . \$out . '</pre>';
 ${{1:die;}}
