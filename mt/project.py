@@ -60,8 +60,8 @@ class Project:
 
     def guess_type_by_contents(self):
         rules = [
-            ('Magento', 'magento2'),
-            ('Mage[_:]', 'magento1')
+            ('Mage[_:]', 'magento1'),
+            ('Magento', 'magento2')
         ]
 
         view = sublime.active_window().active_view()
