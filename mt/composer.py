@@ -34,7 +34,11 @@ class Composer:
                 return composer
 
         root = sublime.active_window().extract_variables().get('folder')
-        min_depth = root.count('/') + 1
+        if root is None:
+            min_depth = 5
+        else:
+            min_depth = root.count('/') + 1
+
         folders = self.app.filepath.split(os.sep)
         folders.pop() # remove filename
         folders.append('composer.json')
