@@ -13,11 +13,11 @@ class App:
         self.phpfile = Phpfile(self)
         self.template = Template(self)
 
-    def render_template(self, template_path=None, base_dir=None):
-        return self.template.render(template_path, base_dir)
+    def render_template(self, template_path=None):
+        return self.template.render(template_path)
 
-    def render_snippet(self, snippet_path, base_dir=None):
-        return self.template.render_snippet(snippet_path, base_dir)
+    def render_snippet(self, snippet_path):
+        return self.template.render_snippet(snippet_path)
 
     def suggest_snippets(self, prefix, locations):
         return self.template.suggest_snippets(prefix, locations)

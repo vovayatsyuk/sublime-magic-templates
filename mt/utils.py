@@ -1,11 +1,20 @@
 import sublime
 import json
+import os
 
 from collections import OrderedDict
 
+PACKAGE_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if os.path.isfile(PACKAGE_PATH):
+    PACKAGE, _ = os.path.splitext(os.path.basename(PACKAGE_PATH))
+elif os.path.isdir(PACKAGE_PATH):
+    PACKAGE = os.path.basename(PACKAGE_PATH)
+else:
+    raise ValueError('Package is no file and no directory!')
+
 def load_resource(path, convert_to_json=False):
     try:
-        content = sublime.load_resource(path)
+        content = sublime.load_resource('Packages/%s/templates/%s' % (PACKAGE, path))
     except OSError:
         print('Not Found: ' + path)
         return None

@@ -10,11 +10,10 @@ from .placeholders import Placeholders
 
 class Template:
     def __init__(self, app):
-        self.base_dir = 'Packages/sublime-magic-templates/templates'
         self.app = app
         self.filepath = app.filepath
 
-    def render_snippet(self, path, base_dir=None):
+    def render_snippet(self, path):
         if self.filepath is None:
             return None
 
@@ -25,17 +24,14 @@ class Template:
         if not path.startswith('/'):
             path = os.sep.join([project_type, 'snippets', path])
 
-        return self.render(path, base_dir)
+        return self.render(path)
 
-    def render(self, template_path=None, base_dir=None):
+    def render(self, template_path=None):
         if self.filepath is None:
             return None
 
         if template_path is None:
             template_path = self.guess_template_path()
-            base_dir = self.base_dir
-        elif base_dir is None:
-            base_dir = self.base_dir
 
         if template_path is None:
             return None
@@ -43,7 +39,7 @@ class Template:
         if '.txt' not in template_path:
             template_path = template_path + '.txt'
 
-        content = load_resource(os.sep.join([base_dir, template_path]))
+        content = load_resource(template_path)
         if content is None:
             return None
 
@@ -56,7 +52,7 @@ class Template:
         if project_type is None:
             return None
 
-        rules = load_resource(os.sep.join([self.base_dir, project_type, 'files.json']), True)
+        rules = load_resource(project_type + '/files.json', True)
         if rules is None:
             return None
 
@@ -86,7 +82,7 @@ class Template:
         if project_type is None:
             return None
 
-        rules = load_resource(os.sep.join([self.base_dir, project_type, 'snippets.json']), True)
+        rules = load_resource(project_type + '/snippets.json', True)
         if rules is None:
             return None
 
