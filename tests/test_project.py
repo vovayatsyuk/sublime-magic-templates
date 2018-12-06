@@ -1,8 +1,10 @@
+import os
 import sys
 import sublime
 from unittest import TestCase
 
-app_module = sys.modules["sublime-magic-templates.mt.app"]
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+from mt.app import App
 
 class TestProject(TestCase):
     def test_root(self):
@@ -11,7 +13,7 @@ class TestProject(TestCase):
         };
 
         for filepath in mapping:
-            app = app_module.App(filepath)
+            app = App(filepath)
             app.composer._path = filepath
             self.assertEqual(mapping[filepath], app.project.root())
 
@@ -22,7 +24,7 @@ class TestProject(TestCase):
         };
 
         for psr4key in mapping:
-            app = app_module.App('dummy')
+            app = App('dummy')
             app.file._psr4key = psr4key
             self.assertEqual(mapping[psr4key], app.project.code())
 
@@ -33,7 +35,7 @@ class TestProject(TestCase):
         };
 
         for psr4key in mapping:
-            app = app_module.App('dummy')
+            app = App('dummy')
             app.file._psr4key = psr4key
             self.assertEqual(mapping[psr4key], app.project.vendor())
 
@@ -44,7 +46,7 @@ class TestProject(TestCase):
         };
 
         for package in mapping:
-            app = app_module.App('dummy')
+            app = App('dummy')
             app.composer._data = {
                 'name': package
             }
@@ -58,7 +60,7 @@ class TestProject(TestCase):
         };
 
         for psr4key in mapping:
-            app = app_module.App('dummy')
+            app = App('dummy')
             app.file._psr4key = psr4key
             self.assertEqual(mapping[psr4key], app.project.project())
 
@@ -75,7 +77,7 @@ class TestProject(TestCase):
         };
 
         for package in mapping:
-            app = app_module.App('dummy')
+            app = App('dummy')
             app.composer._data = {
                 'name': package
             }
@@ -88,7 +90,7 @@ class TestProject(TestCase):
             '$a = Mage::': 'magento1'
         };
         for contents in mapping:
-            app = app_module.App('dummy')
+            app = App('dummy')
 
             self.view = sublime.active_window().new_file()
 
@@ -109,14 +111,14 @@ class TestProject(TestCase):
             None: None
         };
         for project_type in mapping:
-            app = app_module.App('dummy')
+            app = App('dummy')
             app.composer._data = {
                 'type': project_type
             }
             self.assertEqual(mapping[project_type], app.project.guess_type_by_composer())
 
     def test_guess_type_by_composer_by_extra(self):
-        app = app_module.App('dummy')
+        app = App('dummy')
         app.composer._data = {
             'extra': {
                 'magento-root-dir': '.'
@@ -125,7 +127,7 @@ class TestProject(TestCase):
         self.assertEqual('magento1', app.project.guess_type_by_composer())
 
     def test_guess_type_by_composer_by_vendor(self):
-        app = app_module.App('dummy')
+        app = App('dummy')
         app.composer._data = {
             'name': 'magento/magento2ce'
         }

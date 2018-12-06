@@ -1,9 +1,11 @@
+import os
 import sys
 import json
 from unittest import TestCase
 from collections import OrderedDict
 
-app_module = sys.modules["sublime-magic-templates.mt.app"]
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+from mt.app import App
 
 class TestFile(TestCase):
     def test_path(self):
@@ -14,7 +16,7 @@ class TestFile(TestCase):
         }
 
         for filepath in files:
-            app = app_module.App(filepath)
+            app = App(filepath)
             self.assertEqual(filepath, app.file.path())
 
     def test_relative_path(self):
@@ -25,7 +27,7 @@ class TestFile(TestCase):
         }
 
         for filepath in mapping:
-            app = app_module.App(filepath)
+            app = App(filepath)
             app.composer._path = 'path/to/vendor/name/module/composer.json'
             self.assertEqual(mapping[filepath], app.file.relative_path())
 
@@ -38,7 +40,7 @@ class TestFile(TestCase):
         }
 
         for filepath in mapping:
-            app = app_module.App(filepath)
+            app = App(filepath)
             app.composer._path = 'path/to/vendor/name/module/composer.json'
             app.composer._data = json.loads(
                 """{
@@ -62,7 +64,7 @@ class TestFile(TestCase):
         }
 
         for filepath in mapping:
-            app = app_module.App(filepath)
+            app = App(filepath)
             self.assertEqual(mapping[filepath], app.file.basename())
 
     def test_folder(self):
@@ -73,7 +75,7 @@ class TestFile(TestCase):
         }
 
         for filepath in mapping:
-            app = app_module.App(filepath)
+            app = App(filepath)
             self.assertEqual(mapping[filepath], app.file.folder())
 
     def test_parent_folder(self):
@@ -84,7 +86,7 @@ class TestFile(TestCase):
         }
 
         for filepath in mapping:
-            app = app_module.App(filepath)
+            app = App(filepath)
             self.assertEqual(mapping[filepath], app.file.parent_folder())
 
     def test_psr4key(self):
@@ -95,7 +97,7 @@ class TestFile(TestCase):
         }
 
         for filepath in mapping:
-            app = app_module.App(filepath)
+            app = App(filepath)
             app.composer._path = 'path/to/vendor/name/module/composer.json'
             app.composer._data = json.loads(
                 """{
@@ -119,7 +121,7 @@ class TestFile(TestCase):
         }
 
         for filepath in mapping:
-            app = app_module.App(filepath)
+            app = App(filepath)
             app.composer._path = 'path/to/vendor/name/module/composer.json'
             app.composer._data = json.loads(
                 """{

@@ -2,7 +2,8 @@ import os
 import sys
 from unittest import TestCase
 
-app_module = sys.modules["sublime-magic-templates.mt.app"]
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+from mt.app import App
 
 class TestComposer(TestCase):
     def test_path(self):
@@ -13,7 +14,7 @@ class TestComposer(TestCase):
         ];
 
         for filepath in filepaths:
-            app = app_module.App(filepath)
+            app = App(filepath)
             self.assertEqual(None, app.composer.path())
 
         # 2. composer.json exists
@@ -25,7 +26,7 @@ class TestComposer(TestCase):
 
         dirpath = os.path.dirname(os.path.realpath(__file__))
         for filepath in mapping:
-            app = app_module.App(dirpath + filepath)
+            app = App(dirpath + filepath)
             self.assertEqual(dirpath + mapping[filepath], app.composer.path())
 
     def test_name(self):
@@ -36,7 +37,7 @@ class TestComposer(TestCase):
         };
 
         for filepath in mapping:
-            app = app_module.App(filepath)
+            app = App(filepath)
             self.assertEqual(mapping[filepath], app.composer.name())
 
         # 2. composer.json exists
@@ -48,7 +49,7 @@ class TestComposer(TestCase):
 
         dirpath = os.path.dirname(os.path.realpath(__file__))
         for filepath in mapping:
-            app = app_module.App(dirpath + filepath)
+            app = App(dirpath + filepath)
             self.assertEqual(mapping[filepath], app.composer.name())
 
     def test_vendor(self):
@@ -59,7 +60,7 @@ class TestComposer(TestCase):
         };
 
         for filepath in mapping:
-            app = app_module.App(filepath)
+            app = App(filepath)
             self.assertEqual(mapping[filepath], app.composer.vendor())
 
         # 2. composer.json exists
@@ -71,7 +72,7 @@ class TestComposer(TestCase):
 
         dirpath = os.path.dirname(os.path.realpath(__file__))
         for filepath in mapping:
-            app = app_module.App(dirpath + filepath)
+            app = App(dirpath + filepath)
             self.assertEqual(mapping[filepath], app.composer.vendor())
 
     def test_project(self):
@@ -82,7 +83,7 @@ class TestComposer(TestCase):
         };
 
         for filepath in mapping:
-            app = app_module.App(filepath)
+            app = App(filepath)
             self.assertEqual(mapping[filepath], app.composer.project())
 
         # 2. composer.json exists
@@ -94,7 +95,7 @@ class TestComposer(TestCase):
 
         dirpath = os.path.dirname(os.path.realpath(__file__))
         for filepath in mapping:
-            app = app_module.App(dirpath + filepath)
+            app = App(dirpath + filepath)
             self.assertEqual(mapping[filepath], app.composer.project())
 
     def test_psr4(self):
@@ -105,7 +106,7 @@ class TestComposer(TestCase):
         };
 
         for filepath in mapping:
-            app = app_module.App(filepath)
+            app = App(filepath)
             self.assertEqual(mapping[filepath], next(iter(app.composer.psr4())))
 
         # 2. composer.json exists
@@ -117,12 +118,12 @@ class TestComposer(TestCase):
 
         dirpath = os.path.dirname(os.path.realpath(__file__))
         for filepath in mapping:
-            app = app_module.App(dirpath + filepath)
+            app = App(dirpath + filepath)
             self.assertEqual(mapping[filepath], next(iter(app.composer.psr4())))
 
     def test_data(self):
         dirpath = os.path.dirname(os.path.realpath(__file__))
-        app = app_module.App(dirpath + '/fixtures/app/code/Core/Data.php')
+        app = App(dirpath + '/fixtures/app/code/Core/Data.php')
         self.assertEqual('Description', app.composer.data('description'))
         self.assertEqual('composer', app.composer.data('repositories.magento.type'))
         self.assertEqual('https://repo.magento.com/', app.composer.data('repositories.magento.url'))

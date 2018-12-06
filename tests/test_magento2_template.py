@@ -1,7 +1,9 @@
+import os
 import sys
 from unittest import TestCase
 
-app_module = sys.modules["sublime-magic-templates.mt.app"]
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+from mt.app import App
 
 class TestMagento2Template(TestCase):
     def test_guess_template_path(self):
@@ -89,7 +91,7 @@ class TestMagento2Template(TestCase):
         }
 
         for filepath in mapping:
-            app = app_module.App(filepath)
+            app = App(filepath)
             app.composer._path = "vendor/module/composer.json"
             app.composer._data = {
                 "type": "magento2-module"
