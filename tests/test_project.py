@@ -1,4 +1,5 @@
 import sys
+import sublime
 from unittest import TestCase
 
 app_module = sys.modules["sublime-magic-templates.mt.app"]
@@ -79,6 +80,27 @@ class TestProject(TestCase):
                 'name': package
             }
             self.assertEqual(mapping[package], app.project.project())
+
+    def test_guess_type_by_contents(self):
+        mapping = {
+            'extends Magento': 'magento2',
+            'extends Mage_': 'magento1',
+            '$a = Mage::': 'magento1'
+        };
+        for contents in mapping:
+            app = app_module.App('dummy')
+
+            self.view = sublime.active_window().new_file()
+
+            self.view.run_command('insert', {'characters': contents})
+
+            _type = app.project.guess_type_by_contents()
+
+            self.view.window().focus_view(self.view)
+            self.view.set_scratch(True)
+            self.view.window().run_command('close_file')
+
+            self.assertEqual(mapping[contents], _type)
 
     def test_guess_type_by_composer_by_type(self):
         mapping = {
