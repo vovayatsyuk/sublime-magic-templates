@@ -80,10 +80,6 @@ class TestProject(TestCase):
             }
             self.assertEqual(mapping[package], app.project.project())
 
-    def test_type(self):
-        app = app_module.App('dummy')
-        self.assertEqual('php', app.project.type())
-
     def test_guess_type_by_composer_by_type(self):
         mapping = {
             'magento2-module': 'magento2',
