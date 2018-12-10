@@ -14,7 +14,8 @@ else:
 
 def load_resource(path, convert_to_json=False):
     try:
-        content = sublime.load_resource('Packages/%s/templates/%s' % (PACKAGE, path))
+        path = 'Packages/%s/templates/%s' % (PACKAGE, path.lstrip('/'))
+        content = sublime.load_resource(path)
     except OSError:
         print('Not Found: ' + path)
         return None
