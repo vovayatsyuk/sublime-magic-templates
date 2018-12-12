@@ -1,0 +1,8 @@
+<?php
+
+namespace {namespace};
+
+class {classname} extends \Magento\Framework\App\Config\Value
+{{
+    $1
+}}

@@ -46,6 +46,7 @@
     "/Model/": [
         { "pattern": ".*Repository\\.php", "path": "Model/EntityRepository.php" },
         { "pattern": "/Source/.*", "path": "Model/Config/Source/Entity.php" },
+        { "pattern": "/Backend/.*", "path": "Model/Config/Backend/Entity.php" },
         { "pattern": ".*\\.php", "path": "Model/Entity.php" }
     ],
     "/Observer/": [

@@ -1,0 +1,7 @@
+/**
+ * @return void
+ */
+public function beforeSave()
+{{
+    return parent::beforeSave();
+}}

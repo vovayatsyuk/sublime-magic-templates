@@ -4,6 +4,10 @@
         { "trigger": "around", "scope": "meta.block.php -meta.function.php", "path": "Plugin/around" },
         { "trigger": "before", "scope": "meta.block.php -meta.function.php", "path": "Plugin/before" }
     ],
+    "/Model/Config/Backend/": [
+        { "trigger": "afterSave", "scope": "meta.block.php -meta.function.php", "path": "Model/Config/Backend/afterSave" },
+        { "trigger": "beforeSave", "scope": "meta.block.php -meta.function.php", "path": "Model/Config/Backend/beforeSave" }
+    ],
     "/view/adminhtml/ui_component/": [
         { "trigger": "container", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/container", "pattern": "^(?!.*list).*\\.xml" },
         { "trigger": "select", "scope": "text.xml -meta.tag.xml", "path": "view/adminhtml/ui_component/form.xml/field-select", "pattern": "^(?!.*list).*\\.xml" },
