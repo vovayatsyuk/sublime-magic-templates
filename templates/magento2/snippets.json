@@ -45,6 +45,7 @@
     "/etc/adminhtml/": [
         { "trigger": "comment", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/comment", "pattern": "system\\.xml" },
         { "trigger": "depends", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/depends", "pattern": "system\\.xml" },
+        { "trigger": "tooltip", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/tooltip", "pattern": "system\\.xml" },
         { "trigger": "select", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/field-select", "pattern": "system\\.xml" },
         { "trigger": "multiselect", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/field-multiselect", "pattern": "system\\.xml" },
         { "trigger": "text", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/field-text", "pattern": "system\\.xml" },
