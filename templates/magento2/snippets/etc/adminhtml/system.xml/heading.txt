@@ -1,0 +1,5 @@
+<field id="$1_heading" translate="label" sortOrder="${{2:10}}" showInDefault="1" showInWebsite="1" showInStore="1">
+    <label>$3</label>
+    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+    <attribute type="shared">1</attribute>
+</field>

@@ -51,6 +51,7 @@
         { "trigger": "group", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/group", "pattern": "system\\.xml" },
         { "trigger": "include", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/include", "pattern": "system\\.xml" },
         { "trigger": "section", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/section", "pattern": "system\\.xml" },
+        { "trigger": "heading", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/system.xml/heading", "pattern": "system\\.xml" },
 
         { "trigger": "menu", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/menu.xml/menu", "pattern": "menu\\.xml" },
         { "trigger": "add", "scope": "text.xml -meta.tag.xml", "path": "etc/adminhtml/menu.xml/add", "pattern": "menu\\.xml" },
