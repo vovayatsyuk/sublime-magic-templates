@@ -11,7 +11,7 @@
             "registration.php"
         ],
         "psr-4": {{
-            "{parent_folder|camelcase}\\\\{folder|camelcase}\\\\": "$2"
+            "{parent_folder|camelcase}\\\\{folder|camelcase|remove Module}\\\\": "$2"
         }}
     }}
 }}
