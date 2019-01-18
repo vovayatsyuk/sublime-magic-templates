@@ -34,6 +34,8 @@
         { "trigger": "head", "scope": "text.xml -meta.tag.xml", "path": "view/base/layout/head", "pattern": "layout/.*\\.xml" },
         { "trigger": "referenceBlock", "scope": "text.xml -meta.tag.xml", "path": "view/base/layout/referenceBlock", "pattern": "layout/.*\\.xml" },
         { "trigger": "referenceContainer", "scope": "text.xml -meta.tag.xml", "path": "view/base/layout/referenceContainer", "pattern": "layout/.*\\.xml" },
+        { "trigger": "removeBlock", "scope": "text.xml -meta.tag.xml", "path": "view/base/layout/removeBlock", "pattern": "layout/.*\\.xml" },
+        { "trigger": "removeContainer", "scope": "text.xml -meta.tag.xml", "path": "view/base/layout/removeContainer", "pattern": "layout/.*\\.xml" },
         { "trigger": "update", "scope": "text.xml -meta.tag.xml", "path": "view/base/layout/update", "pattern": "layout/.*\\.xml" },
         { "trigger": "argument", "scope": "text.xml -meta.tag.xml", "path": "global/xml/argument", "pattern": "layout/.*\\.xml" },
         { "trigger": "arguments", "scope": "text.xml -meta.tag.xml", "path": "global/xml/arguments", "pattern": "layout/.*\\.xml" },

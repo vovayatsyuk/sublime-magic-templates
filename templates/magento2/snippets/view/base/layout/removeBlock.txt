@@ -1,0 +1,1 @@
+<referenceBlock name="${{1:content}}" remove="${{2:true}}"/>$0

@@ -1,0 +1,1 @@
+<referenceContainer name="${{1:before.body.end}}" remove="${{2:true}}"/>$0
