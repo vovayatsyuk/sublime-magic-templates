@@ -24,7 +24,7 @@ class {classname} extends \Magento\Backend\App\Action
 
     /**
      * @param Context \$context
-     * @param \Magento\Framework\Registry \$coreRegistry
+     * @param {folder}Factory \${folder|lower}Factory
      * @param DataPersistorInterface \$dataPersistor
      */
     public function __construct(
