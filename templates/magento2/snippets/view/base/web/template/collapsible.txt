@@ -1,0 +1,15 @@
+<div data-bind="
+    mageInit: {{
+        'collapsible': {{
+            'openedState': '_active'
+        }}
+    }}">
+    <div data-role="title">
+        <span class="action action-toggle" role="heading" aria-level="2">
+            <!-- ko i18n: ${{1:'Title'}}--><!-- /ko -->
+        </span>
+    </div>
+    <div data-role="content">
+        ${{2:<!-- ko i18n: 'Content'--><!-- /ko -->}}
+    </div>
+</div>
