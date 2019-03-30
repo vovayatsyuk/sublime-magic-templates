@@ -2,7 +2,7 @@ import sublime
 import re
 import os
 
-from .utils import load_resource
+from .utils import *
 from string import Formatter
 from .placeholders import Placeholders
 
@@ -81,7 +81,7 @@ class Template:
         if project_type is None:
             return None
 
-        rules = load_resource(project_type + '/snippets.json', True)
+        rules = load_snippets(project_type)
         if rules is None:
             return None
 
