@@ -1,9 +1,8 @@
 import sublime
-import re
-import os
 
 from string import Formatter
 from .filters import *
+
 
 class Placeholders:
     def __init__(self, app):
@@ -11,13 +10,14 @@ class Placeholders:
         self.memo = {}
 
     def extract(self, names):
-        result = {};
+        result = {}
         for name in names:
             if (name in self.memo):
                 result[name] = self.memo[name]
             else:
-                clean_name = name;
-                # placheolder inside placeholder. Eg: {filename|remove {vendor|lower}}
+                clean_name = name
+                # placheolder inside placeholder.
+                #   Eg: {filename|remove {vendor|lower}}
                 # @todo: wrap into loop
                 if '{' in name:
                     placeholders = [keys[1] for keys in Formatter().parse(name) if keys[1] is not None]

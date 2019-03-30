@@ -12,6 +12,7 @@ elif os.path.isdir(PACKAGE_PATH):
 else:
     raise ValueError('Package is no file and no directory!')
 
+
 def load_resource(path, convert_to_json=False):
     try:
         path = 'Packages/%s/templates/%s' % (PACKAGE, path.lstrip('/'))
@@ -20,4 +21,7 @@ def load_resource(path, convert_to_json=False):
         print('Not Found: ' + path)
         return None
 
-    return json.loads(content, object_pairs_hook=OrderedDict) if convert_to_json else content
+    if convert_to_json:
+        return json.loads(content, object_pairs_hook=OrderedDict)
+    else:
+        return content

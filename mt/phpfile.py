@@ -1,5 +1,5 @@
 import os
-import json
+
 
 class Phpfile:
     def __init__(self, app):
@@ -8,16 +8,17 @@ class Phpfile:
         self.composer = app.composer
 
     def classname(self):
-        path = os.path.splitext(self.filepath)[0] # remove file extension
+        # remove file extension
+        path = os.path.splitext(self.filepath)[0]
 
         path_parts = []
         appcode_dir = 'app' + os.sep + 'code' + os.sep
-        module_type = self.app.project.type()
 
         # Magento 1
         if self.app.project.type() != 'magento2' and appcode_dir in self.filepath:
             path_parts = path.split(appcode_dir)[1].split(os.sep)
-            path_parts.pop(0) # unset namespace part: local|core|community
+            # unset namespace part: local|core|community
+            path_parts.pop(0)
             if 'controllers' in path_parts:
                 path_parts.remove('controllers')
         else:
@@ -31,9 +32,10 @@ class Phpfile:
             return
 
         path_parts = self.app.file.autoload_path().split(os.sep)
-        del path_parts[-1] # remove file name
+        # remove file name
+        del path_parts[-1]
 
-        namespace = self.app.file.psr4key() or '';
+        namespace = self.app.file.psr4key() or ''
         if path_parts:
             namespace += '\\'.join(path_parts)
 

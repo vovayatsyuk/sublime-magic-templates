@@ -1,5 +1,6 @@
 import os
 
+
 class File:
     def __init__(self, app):
         self.app = app
@@ -56,6 +57,6 @@ class File:
         if self._psr4dir is not None:
             return self._psr4dir
 
-        self.psr4key();
+        self.psr4key()
 
         return self._psr4dir

@@ -3,6 +3,7 @@ import sublime
 
 from .filters import *
 
+
 class Project:
     def __init__(self, app):
         self.app = app

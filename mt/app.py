@@ -4,6 +4,7 @@ from .phpfile import Phpfile
 from .composer import Composer
 from .template import Template
 
+
 class App:
     def __init__(self, filepath):
         self.filepath = filepath

@@ -5,6 +5,7 @@ import sublime
 from .filters import *
 from collections import OrderedDict
 
+
 class Composer:
     def __init__(self, app):
         self.app = app
@@ -16,7 +17,8 @@ class Composer:
     def path(self):
         """
         Try to locate composer.json file.
-        1. If '/vendor/' in file_path, return path/to/vendor/xxx/xxx/composer.json
+        1. If '/vendor/' in file_path,
+            return path/to/vendor/xxx/xxx/composer.json
         2. Search for composer.json file in each of the folders beginning
             from the deepest path.
         """
@@ -40,7 +42,8 @@ class Composer:
             min_depth = root.count('/') + 1
 
         folders = self.app.filepath.split(os.sep)
-        folders.pop() # remove filename
+        # remove filename
+        folders.pop()
         folders.append('composer.json')
         while len(folders) > min_depth:
             composer = os.sep.join(folders)
@@ -48,7 +51,8 @@ class Composer:
                 self._path = composer
                 return composer
             else:
-                del folders[len(folders) - 2] # remove last folder
+                # remove last folder
+                del folders[len(folders) - 2]
 
         return None
 
@@ -56,7 +60,10 @@ class Composer:
         composer = self.path()
         try:
             with open(composer) as file:
-                self._data = json.loads(file.read(), object_pairs_hook=OrderedDict)
+                self._data = json.loads(
+                    file.read(),
+                    object_pairs_hook=OrderedDict
+                )
         except:
             self._data = {
                 'name': self._vendor_dir + '/' + self._module_dir,
@@ -82,15 +89,15 @@ class Composer:
     def psr4(self):
         return self.data('autoload.psr-4')
 
-    def data(self, key = ''):
+    def data(self, key=''):
         if self._data is None:
             self.load()
         if key == '':
             return self._data
         if '.' in key:
-            data = self.get_by_path(key);
+            data = self.get_by_path(key)
         else:
-            data = self.get_by_key(key);
+            data = self.get_by_key(key)
         return data
 
     def get_by_key(self, key):

@@ -1,12 +1,11 @@
 import sublime
-import json
 import re
 import os
 
 from .utils import load_resource
 from string import Formatter
-from collections import OrderedDict
 from .placeholders import Placeholders
+
 
 class Template:
     def __init__(self, app):
@@ -119,7 +118,7 @@ class Template:
                         path = os.sep.join([project_type, 'snippets', path])
 
                     contents = self.render(path)
-                    contents = slashesInPlaceholders.sub(r'\\\\', contents);
+                    contents = slashesInPlaceholders.sub(r'\\\\', contents)
                     snippets.append([trigger, contents])
 
         return snippets
