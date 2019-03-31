@@ -29,7 +29,7 @@ def load_resource(path, convert_to_json=False):
 
 def load_snippets(project):
     snippets = load_resource(project + '/snippets.json', True)
-    key = 'trigger'
+    key = ['trigger', 'scope']
 
     if snippets and '@extend' in snippets:
         for project, rules in snippets['@extend'].items():
@@ -52,7 +52,7 @@ def load_snippets(project):
 
 def load_files(project):
     files = load_resource(project + '/files.json', True)
-    key = 'pattern'
+    key = ['pattern']
 
     if files and '@extend' in files:
         for project, rules in files['@extend'].items():
@@ -73,8 +73,12 @@ def load_files(project):
     return files
 
 
-def exists(item, object, key):
+def exists(item, object, keys):
     for _item in object:
-        if _item[key] == item[key]:
+        matches = 0
+        for key in keys:
+            if _item[key] == item[key]:
+                matches += 1
+        if matches == len(keys):
             return True
     return False

@@ -1,0 +1,5 @@
+{
+    "/": [
+        { "trigger": ".log\tMagicTemplates", "scope": "source.js", "path": "console_log" }
+    ]
+}
