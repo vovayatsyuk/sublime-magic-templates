@@ -51,7 +51,7 @@ class Template:
         if project_type is None:
             return None
 
-        rules = load_resource(project_type + '/files.json', True)
+        rules = load_files(project_type)
         if rules is None:
             return None
 

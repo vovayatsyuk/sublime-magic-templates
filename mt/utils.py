@@ -33,7 +33,6 @@ def load_snippets(project):
 
     if snippets and '@extend' in snippets:
         for project, rules in snippets['@extend'].items():
-            # del snippets['@extend'][project]
             extend = load_snippets(project)
             if extend:
                 for path, new_snippets in extend.items():
@@ -48,8 +47,30 @@ def load_snippets(project):
 
                     snippets[path] += new_snippets
         del snippets['@extend']
-
     return snippets
+
+
+def load_files(project):
+    files = load_resource(project + '/files.json', True)
+    key = 'pattern'
+
+    if files and '@extend' in files:
+        for project, rules in files['@extend'].items():
+            extend = load_files(project)
+            if extend:
+                for path, new_files in extend.items():
+                    if path not in files:
+                        files[path] = []
+                    else:
+                        new_files = [item for item in new_files if not exists(item, files[path], key)]
+
+                    for file in new_files:
+                        if not file['path'].startswith('/'):
+                            file['path'] = '/' + project + '/files/' + file['path']
+
+                    files[path] += new_files
+        del files['@extend']
+    return files
 
 
 def exists(item, object, key):

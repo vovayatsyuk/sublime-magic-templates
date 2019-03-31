@@ -1,8 +1,5 @@
 {
     "/": [
         { "pattern": ".*\\.php", "path": "default.php.txt" }
-    ],
-    "@todo:@extend": {
-        "php/rules.json": "*"
-    }
+    ]
 }
