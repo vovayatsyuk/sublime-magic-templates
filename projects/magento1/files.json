@@ -1,5 +1,8 @@
 {
     "/": [
-        { "pattern": ".*\\.php", "path": "default.php.txt" }
-    ]
+        { "pattern": ".*\\.php", "path": "default.php" }
+    ],
+    "@extend": {
+        "php": ["*"]
+    }
 }
