@@ -68,6 +68,8 @@ class Template:
                 r = re.compile(pattern)
                 if r.search(filepath) is not None:
                     path = rule.get('path')
+                    if not path:
+                        continue
                     if not path.startswith('/'):
                         path = os.sep.join([project_type, 'files', path])
                     break
@@ -114,6 +116,9 @@ class Template:
                         continue
 
                     path = snippet.get('path')
+                    if not path:
+                        continue
+
                     if not path.startswith('/'):
                         path = os.sep.join([project_type, 'snippets', path])
 
