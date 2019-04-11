@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <uiComponent name="{basename|replace _edit,_form}"/>
+            <uiComponent name="{basename|replace_last _edit,_form}"/>
         </referenceContainer>
     </body>
 </page>

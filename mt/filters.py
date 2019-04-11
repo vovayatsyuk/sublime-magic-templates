@@ -41,5 +41,10 @@ def replace(string, old, new):
     return string.replace(old, new)
 
 
+def replace_last(string, old, new):
+    head, _sep, tail = string.rpartition(old)
+    return head + new + tail
+
+
 def escape_backslash(string):
     return string.replace('\\', '\\\\')
