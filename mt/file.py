@@ -20,6 +20,9 @@ class File:
             path = path.replace(subdir, '', 1)
         return path
 
+    def filename(self):
+        return os.path.basename(self.app.filepath)
+
     def basename(self):
         return os.path.splitext(os.path.basename(self.app.filepath))[0]
 

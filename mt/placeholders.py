@@ -53,6 +53,9 @@ class Placeholders:
     def psr4key(self):
         return self.app.file.psr4key()
 
+    def filename(self):
+        return self.app.file.filename()
+
     def basename(self):
         return self.app.file.basename()
 
