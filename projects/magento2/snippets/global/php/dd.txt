@@ -1,1 +1,4 @@
-echo '<pre>';var_dump(${{1:__METHOD__}});echo '</pre>';die;
+echo '<pre>';
+var_dump(${{1:__METHOD__}});
+echo '</pre>';
+die;
