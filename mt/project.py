@@ -15,7 +15,11 @@ class Project:
             return os.path.dirname(self.app.filepath)
 
     def code(self):
-        return self.app.file.psr4key().replace('\\', '_').strip('_')
+        psr4key = self.app.file.psr4key()
+        if psr4key:
+            return psr4key.replace('\\', '_').strip('_')
+        else:
+            return ''
 
     def vendor(self):
         psr4key = self.app.file.psr4key()
