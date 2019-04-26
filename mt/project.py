@@ -8,6 +8,7 @@ from .utils import load_resource
 class Project:
     def __init__(self, app):
         self.app = app
+        self._type = None
 
     def root(self):
         if self.app.composer.path():
@@ -51,18 +52,19 @@ class Project:
             return project
 
     def type(self):
-        result = None
+        if self._type is not None:
+            return self._type
 
         if self.app.composer.path():
-            result = self.guess_type_by_composer()
+            self._type = self.guess_type_by_composer()
 
-        if result is None:
-            result = self.guess_type_by_contents()
+        if self._type is None:
+            self._type = self.guess_type_by_contents()
 
-        if result is None:
-            result = 'php'
+        if self._type is None:
+            self._type = 'php'
 
-        return result
+        return self._type
 
     def guess_type_by_contents(self):
         view = sublime.active_window().active_view()
