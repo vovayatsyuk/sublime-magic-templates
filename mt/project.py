@@ -61,9 +61,6 @@ class Project:
         if self._type is None:
             self._type = self.guess_type_by_contents()
 
-        if self._type is None:
-            self._type = 'php'
-
         return self._type
 
     def guess_type_by_contents(self):
