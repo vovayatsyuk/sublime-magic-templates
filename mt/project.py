@@ -2,6 +2,7 @@ import os
 import sublime
 
 from .filters import *
+from .utils import load_resource
 
 
 class Project:
@@ -79,30 +80,17 @@ class Project:
         return None
 
     def guess_type_by_composer(self):
-        rules = [(
-            'type', [
-                ('magento2-', 'magento2'),
-                ('magento-', 'magento1'),
-            ]
-        ), (
-            'extra', [
-                ('magento-root-dir', 'magento1'),
-            ]
-        ), (
-            'vendor', [
-                ('magento', 'magento2'),
-            ]
-        )]
-
-        for key, _rules in rules:
-            try:
-                compare = getattr(self.app.composer, key)()
-            except:
-                compare = self.app.composer.data(key)
-
-            if compare is not None:
-                for fingerprint, _type in _rules:
-                    if fingerprint in compare:
-                        return _type
-
+        settings = sublime.load_settings('MagicTemplates.sublime-settings')
+        for project in settings.get('projects'):
+            manifest = load_resource(project + '/manifest.json', True)
+            for rules in manifest.get('composer.json', []):
+                match = True
+                for prop in rules:
+                    compare = self.app.composer.data(prop)
+                    if compare is None:
+                        match = False
+                    elif rules.get(prop) not in compare:
+                        match = False
+                if match is True:
+                    return project
         return None

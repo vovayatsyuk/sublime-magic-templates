@@ -1,0 +1,8 @@
+{
+    "composer.json": [{
+        "type": "magento2-"
+    }],
+    "view": [{
+        "contents": "Magento && !Mage[_:]"
+    }]
+}

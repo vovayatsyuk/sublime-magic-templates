@@ -1,0 +1,13 @@
+//
+// MagicTemplates default settings
+//
+{
+    // The list of projects to work with.
+    // Feel free to remove all except those you need.
+    "projects": [
+        "magento2",
+        "magento1",
+        "php",
+        "js",
+    ]
+}

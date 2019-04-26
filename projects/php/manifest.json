@@ -1,0 +1,8 @@
+{
+    "composer.json": [{
+        "name": "/"
+    }],
+    "view": [{
+        "scope": "source.php"
+    }]
+}
