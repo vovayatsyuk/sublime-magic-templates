@@ -3,6 +3,6 @@
         "name": "/"
     }],
     "view": [{
-        "scope": "source.php"
+        "scope": ".php"
     }]
 }

@@ -65,18 +65,37 @@ class Project:
         return result
 
     def guess_type_by_contents(self):
-        rules = [
-            ('Mage[_:]', 'magento1'),
-            ('Magento', 'magento2')
-        ]
-
         view = sublime.active_window().active_view()
-
-        for pattern, _type in rules:
-            region = view.find(pattern, sublime.IGNORECASE)
-            if region is not None and region.a != region.b:
-                return _type
-
+        settings = sublime.load_settings('MagicTemplates.sublime-settings')
+        for project in settings.get('projects'):
+            manifest = load_resource(project + '/manifest.json', True)
+            for rules in manifest.get('view', []):
+                match = True
+                for prop in rules:
+                    value = rules.get(prop)
+                    if prop == 'contents':
+                        values = value.split(' && ')
+                        for regex in values:
+                            inverted = False
+                            if regex.startswith('!'):
+                                inverted = True
+                                regex = regex[1:]
+                            region = view.find(regex, sublime.IGNORECASE)
+                            if (not inverted and
+                                    (region is None or
+                                        region.a == region.b)):
+                                match = False
+                            elif (inverted and
+                                    (region is not None and
+                                        region.a != region.b)):
+                                match = False
+                    elif prop == 'scope':
+                        if value not in view.scope_name(0):
+                            match = False
+                    else:
+                        match = False
+                if match is True:
+                    return project
         return None
 
     def guess_type_by_composer(self):
