@@ -1,0 +1,16 @@
+\$table = \$setup->getConnection()
+    ->newTable(\$setup->getTable('${{1:{module|lower}}}'))
+    ->addColumn(
+        '${{2:entity_id}}',
+        Table::TYPE_INTEGER,
+        null,
+        [
+            'nullable' => false,
+            'primary'  => true,
+            'unsigned' => true,
+            'identity' => true,
+        ],
+        'Entity ID'
+    )$0;
+
+\$setup->getConnection()->createTable(\$table);

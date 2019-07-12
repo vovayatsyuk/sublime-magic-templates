@@ -1,0 +1,4 @@
+\$setup->getConnection()->dropColumn(
+    \$setup->getTable('${{1:{module|lower}}}'),
+    '${{2:column_name}}'
+);

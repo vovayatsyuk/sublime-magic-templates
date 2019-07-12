@@ -1,0 +1,7 @@
+->addColumn(
+    '${{1:name}}',
+    Table::TYPE_TEXT,
+    ${{2:255}},
+    [],
+    '${{3:Comment}}'
+)

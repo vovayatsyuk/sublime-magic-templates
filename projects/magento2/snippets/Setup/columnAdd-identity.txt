@@ -1,0 +1,12 @@
+->addColumn(
+    '${{1:entity_id}}',
+    Table::TYPE_INTEGER,
+    null,
+    [
+        'nullable' => false,
+        'primary'  => true,
+        'unsigned' => true,
+        'identity' => true,
+    ],
+    'Entity ID'
+)

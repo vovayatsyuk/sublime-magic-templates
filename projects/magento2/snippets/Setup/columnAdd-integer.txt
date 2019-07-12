@@ -1,0 +1,11 @@
+->addColumn(
+    '${{1:name}}',
+    ${{2:Table::TYPE_INTEGER|Table::TYPE_SMALLINT}},
+    null,
+    [
+        'nullable' => ${{3:true}},
+        'unsigned' => ${{4:true}},
+        'default' => ${{5:0}},
+    ],
+    '${{6:Comment}}'
+)

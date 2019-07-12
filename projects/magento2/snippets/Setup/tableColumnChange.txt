@@ -1,0 +1,11 @@
+\$setup->getConnection()->changeColumn(
+    \$setup->getTable('${{1:{module|lower}}}'),
+    '${{2:old_name}}',
+    '${{3:new_name}}',
+    [
+        'type' => Table::TYPE_SMALLINT,
+        'nullable' => true,
+        'default'  => 0,
+        'comment' => 'Comment'
+    ]
+);

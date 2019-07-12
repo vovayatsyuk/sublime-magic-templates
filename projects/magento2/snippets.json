@@ -4,6 +4,16 @@
         { "trigger": "around", "scope": "meta.block.php -meta.function.php", "path": "Plugin/around" },
         { "trigger": "before", "scope": "meta.block.php -meta.function.php", "path": "Plugin/before" }
     ],
+    "/Setup/": [
+        { "trigger": "table:column:add", "scope": "meta.function.php", "path": "Setup/tableColumnAdd" },
+        { "trigger": "table:column:rename", "scope": "meta.function.php", "path": "Setup/tableColumnChange" },
+        { "trigger": "table:column:drop", "scope": "meta.function.php", "path": "Setup/tableColumnDrop" },
+        { "trigger": "table:column:modify", "scope": "meta.function.php", "path": "Setup/tableColumnModify" },
+        { "trigger": "table:create", "scope": "meta.function.php", "path": "Setup/tableCreate" },
+        { "trigger": "column:add:identity", "scope": "meta.function.php", "path": "Setup/columnAdd-identity" },
+        { "trigger": "column:add:integer", "scope": "meta.function.php", "path": "Setup/columnAdd-integer" },
+        { "trigger": "column:add:text", "scope": "meta.function.php", "path": "Setup/columnAdd-text" }
+    ],
     "/Model/Config/Backend/": [
         { "trigger": "afterSave", "scope": "meta.block.php -meta.function.php", "path": "Model/Config/Backend/afterSave" },
         { "trigger": "beforeSave", "scope": "meta.block.php -meta.function.php", "path": "Model/Config/Backend/beforeSave" }
