@@ -10,5 +10,6 @@
         "magento1",
         "php",
         "js",
+        "jekyll",
     ]
 }

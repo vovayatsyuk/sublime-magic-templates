@@ -1,8 +1,10 @@
 {
-    "composer.json": [{
-        "type": "magento-"
-    }, {
-        "extra": "magento-root-dir"
+    "files": [{
+        "composer.json": [{
+            "type": "magento-"
+        }, {
+            "extra": "magento-root-dir"
+        }]
     }],
     "view": [{
         "contents": "Mage[_:]"

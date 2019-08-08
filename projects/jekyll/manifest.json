@@ -1,0 +1,10 @@
+{
+    "files": [{
+        "_config.yml": [{
+            "title": ""
+        }]
+    }],
+    "view": [{
+        "scope": "text.html.markdown"
+    }]
+}

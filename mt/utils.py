@@ -1,5 +1,6 @@
 import sublime
 import json
+import yaml
 import os
 
 from collections import OrderedDict
@@ -82,3 +83,47 @@ def exists(item, object, keys):
         if matches == len(keys):
             return True
     return False
+
+
+def closest_file(name, path, directory=False, max_depth=20):
+    """Search for the closest file
+    """
+
+    if not path:
+        return None
+
+    path = path.rstrip(os.sep)
+    folders = path.split(os.sep)
+    if os.path.isfile(path):
+        folders.pop()
+    folders.append(name)
+
+    while max_depth > 0 and len(folders) > 2:
+        max_depth -= 1
+        file = os.sep.join(folders)
+        if os.path.isfile(file):
+            if directory is True:
+                return file.replace(name, '')
+            else:
+                return file
+        else:
+            del folders[-2]
+
+
+def load_file(path, convert_to_json=False):
+    content = None
+
+    if path is not None:
+        with open(path, 'r') as stream:
+            try:
+                if path.endswith('json'):
+                    content = json.loads(
+                        stream.read(),
+                        object_pairs_hook=OrderedDict
+                    )
+                elif path.endswith(('yml', 'yaml')):
+                    content = yaml.safe_load(stream)
+            except OSError:
+                print('Load file error')
+
+    return content

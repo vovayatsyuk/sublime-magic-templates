@@ -3,6 +3,8 @@ import sublime
 
 from .filters import *
 from .utils import load_resource
+from .utils import closest_file
+from .utils import load_file
 
 
 class Project:
@@ -55,13 +57,37 @@ class Project:
         if self._type is not None:
             return self._type
 
-        if self.app.composer.path():
+        self._type = self.guess_type_by_file()
+
+        if self._type is None and self.app.composer.path():
             self._type = self.guess_type_by_composer()
 
         if self._type is None:
             self._type = self.guess_type_by_contents()
 
         return self._type
+
+    def guess_type_by_file(self):
+        settings = sublime.load_settings('MagicTemplates.sublime-settings')
+        for project in settings.get('projects'):
+            manifest = load_resource(project + '/manifest.json', True)
+            for file in manifest.get('files', []):
+                for filename in file:
+                    path = closest_file(filename, self.app.filepath)
+                    contents = load_file(path)
+                    if contents:
+                        rules = file.get(filename)
+                        for rule in rules:
+                            match = True
+                            for prop in rule:
+                                compare = contents.get(prop, None)
+                                if compare is None:
+                                    match = False
+                                elif rule[prop] not in compare:
+                                    match = False
+                            if match is True:
+                                return project
+        return None
 
     def guess_type_by_contents(self):
         view = sublime.active_window().active_view()
@@ -101,14 +127,16 @@ class Project:
         settings = sublime.load_settings('MagicTemplates.sublime-settings')
         for project in settings.get('projects'):
             manifest = load_resource(project + '/manifest.json', True)
-            for rules in manifest.get('composer.json', []):
-                match = True
-                for prop in rules:
-                    compare = self.app.composer.data(prop)
-                    if compare is None:
-                        match = False
-                    elif rules.get(prop) not in compare:
-                        match = False
-                if match is True:
-                    return project
+            fileset = manifest.get('files', [])
+            for file in fileset:
+                for rules in file.get('composer.json', []):
+                    match = True
+                    for prop in rules:
+                        compare = self.app.composer.data(prop)
+                        if compare is None:
+                            match = False
+                        elif rules.get(prop) not in compare:
+                            match = False
+                    if match is True:
+                        return project
         return None

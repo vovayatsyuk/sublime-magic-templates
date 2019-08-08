@@ -1,6 +1,8 @@
 {
-    "composer.json": [{
-        "name": "/"
+    "files": [{
+        "composer.json": [{
+            "name": "/"
+        }]
     }],
     "view": [{
         "scope": ".php"

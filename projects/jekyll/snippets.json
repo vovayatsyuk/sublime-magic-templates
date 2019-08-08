@@ -1,0 +1,9 @@
+{
+    "/": [
+        { "trigger": "toc", "scope": "text.html.markdown", "path": "toc" },
+        { "trigger": "notoc", "scope": "text.html.markdown", "path": "toc-notoc" },
+        { "trigger": "raw", "scope": "text.html.markdown", "path": "raw" },
+        { "trigger": "rawstart", "scope": "text.html.markdown", "path": "raw-start" },
+        { "trigger": "rawend", "scope": "text.html.markdown", "path": "raw-end" }
+    ]
+}
