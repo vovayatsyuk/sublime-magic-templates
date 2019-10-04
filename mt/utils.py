@@ -117,10 +117,12 @@ def load_file(path, convert_to_json=False):
         with open(path, 'r') as stream:
             try:
                 if path.endswith('json'):
-                    content = json.loads(
-                        stream.read(),
-                        object_pairs_hook=OrderedDict
-                    )
+                    string = stream.read()
+                    if string:
+                        content = json.loads(
+                            string,
+                            object_pairs_hook=OrderedDict
+                        )
                 elif path.endswith(('yml', 'yaml')):
                     content = yaml.safe_load(stream)
             except OSError:
