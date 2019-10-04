@@ -2,16 +2,19 @@ import sublime_plugin
 
 from .mt.app import App
 
+
 def insert_snippet(view, contents):
     if contents is None:
-        return;
+        return
     view.run_command('insert_snippet', {
         'contents': contents
     })
 
+
 class GenerateContentCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         insert_snippet(self.view, App(self.view.file_name()).render_template())
+
 
 class GenerateContentOnFileCreation(sublime_plugin.EventListener):
     def on_load(self, view):
@@ -20,9 +23,14 @@ class GenerateContentOnFileCreation(sublime_plugin.EventListener):
         if view.file_name() is not None and view.size() == 0:
             insert_snippet(view, App(view.file_name()).render_template())
 
+
 class InsertIfIpCommand(sublime_plugin.TextCommand):
     def run(self, edit):
-        insert_snippet(self.view, App(self.view.file_name()).render_snippet('ifip'))
+        insert_snippet(
+            self.view,
+            App(self.view.file_name()).render_snippet('ifip')
+        )
+
 
 class MagicSnippets(sublime_plugin.EventListener):
     def on_query_completions(self, view, prefix, locations):
