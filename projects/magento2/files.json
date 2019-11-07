@@ -69,7 +69,7 @@
         { "pattern": "layout/.*_edit\\.xml", "path": "view/adminhtml/layout/edit.xml" },
         { "pattern": "layout/.*_new\\.xml", "path": "view/adminhtml/layout/new.xml" },
         { "pattern": "ui_component/.*list(ing)?\\.xml", "path": "view/adminhtml/ui_component/listing.xml" },
-        { "pattern": "ui_component/.*(form|new|edit)\\.xml", "path": "view/adminhtml/ui_component/form.xml" }
+        { "pattern": "ui_component/.*(form|new|edit|settings|config)\\.xml", "path": "view/adminhtml/ui_component/form.xml" }
     ],
     "/view/": [
         { "pattern": "layout/.*\\.xml", "path": "view/base/layout/layout.xml" },
