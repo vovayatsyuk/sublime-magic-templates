@@ -2,7 +2,7 @@
 
 namespace {namespace};
 
-class {classname} implements \Magento\Framework\Option\ArrayInterface
+class {classname} implements \Magento\Framework\Data\OptionSourceInterface
 {{
     /**
      * Options getter
