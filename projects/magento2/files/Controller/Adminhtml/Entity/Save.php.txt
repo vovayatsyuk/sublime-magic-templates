@@ -5,7 +5,6 @@ namespace {namespace};
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Framework\Exception\LocalizedException;
-use Magento\Framework\Controller\ResultFactory;
 use {psr4key}Model\{folder}Factory;
 
 class {classname} extends \Magento\Backend\App\Action
