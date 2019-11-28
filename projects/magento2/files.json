@@ -29,6 +29,7 @@
         { "pattern": "frontend/sections\\.xml", "path": "etc/frontend/sections.xml" },
         { "pattern": "acl\\.xml", "path": "etc/acl.xml" },
         { "pattern": "config\\.xml", "path": "etc/config.xml" },
+        { "pattern": "crontab\\.xml", "path": "etc/crontab.xml" },
         { "pattern": "di\\.xml", "path": "etc/di.xml" },
         { "pattern": "events\\.xml", "path": "etc/events.xml" },
         { "pattern": "extension_attributes\\.xml", "path": "etc/extension_attributes.xml" },
