@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
-    <widget id="navigationpro_menu" class="{psr4key}Block\Widget\\${{1:Item}}"
+    <widget id="{module|lower}" class="{psr4key}Block\Widget\\${{1:Item}}"
             is_email_compatible="false"
             placeholder_image="Magento_Widget::placeholder.gif"
             ttl="86400">
