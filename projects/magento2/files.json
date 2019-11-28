@@ -31,6 +31,7 @@
         { "pattern": "config\\.xml", "path": "etc/config.xml" },
         { "pattern": "crontab\\.xml", "path": "etc/crontab.xml" },
         { "pattern": "di\\.xml", "path": "etc/di.xml" },
+        { "pattern": "email_templates\\.xml", "path": "etc/email_templates.xml" },
         { "pattern": "events\\.xml", "path": "etc/events.xml" },
         { "pattern": "extension_attributes\\.xml", "path": "etc/extension_attributes.xml" },
         { "pattern": "module\\.xml", "path": "etc/module.xml" },
