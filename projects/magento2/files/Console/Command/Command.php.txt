@@ -23,6 +23,17 @@ class {classname} extends Command
      */
     protected function execute(InputInterface \$input, OutputInterface \$output)
     {{
-        ${{3:\$output->writeln('<info>Done!</info>');}}
+        try {{
+            ${{3:\$output->writeln('<info>Done!</info>');}}
+
+            return \Magento\Framework\Console\Cli::RETURN_SUCCESS;
+        }} catch (\Exception \$e) {{
+            \$output->writeln('<error>' . \$e->getMessage() . '</error>');
+            if (\$output->getVerbosity() >= OutputInterface::VERBOSITY_VERBOSE) {{
+                \$output->writeln(\$e->getTraceAsString());
+            }}
+
+            return \Magento\Framework\Console\Cli::RETURN_FAILURE;
+        }}
     }}
 }}
