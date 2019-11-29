@@ -1,0 +1,28 @@
+<?php
+
+namespace {namespace};
+
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+
+class {classname} extends Command
+{{
+    /**
+     * {{@inheritdoc}}
+     */
+    protected function configure()
+    {{
+        \$this->setName('${{1:{project}:{classname|remove Command|coloncase}}}')
+            ->setDescription('${{2:Description}}');
+        parent::configure();
+    }}
+
+    /**
+     * {{@inheritdoc}}
+     */
+    protected function execute(InputInterface \$input, OutputInterface \$output)
+    {{
+        ${{3:\$output->writeln('<info>Done!</info>');}}
+    }}
+}}

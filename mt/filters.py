@@ -25,6 +25,10 @@ def camelcase(string):
     return string.title().replace(' ', '').replace('-', '').replace('_', '')
 
 
+def coloncase(string):
+    return snakecase(string).replace('_', ':')
+
+
 def snakecase(string):
     return re.sub('([A-Z])', '_\\1', string).lower().replace('-', '_').lstrip('_')
 
