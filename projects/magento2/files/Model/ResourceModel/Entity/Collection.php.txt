@@ -7,6 +7,11 @@ use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 class {classname} extends AbstractCollection
 {{
     /**
+     * @var string
+     */
+    protected \$_idFieldName = '{folder|lower}_id';
+
+    /**
      * Define resource model
      *
      * @return void
