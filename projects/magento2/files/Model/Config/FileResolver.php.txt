@@ -1,0 +1,20 @@
+<?php
+
+namespace {namespace};
+
+use Magento\Framework\Module\Dir;
+
+class {classname} implements \Magento\Framework\Config\FileResolverInterface
+{{
+    /**
+     * Retrieve the list of configuration files with given name that relate to specified scope
+     *
+     * @param string \$filename
+     * @param string \$scope
+     * @return array
+     */
+    public function get(\$filename, \$scope)
+    {{
+        $0
+    }}
+}}

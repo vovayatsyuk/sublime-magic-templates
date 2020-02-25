@@ -50,6 +50,8 @@
     ],
     "/Model/": [
         { "pattern": ".*Repository\\.php", "path": "Model/EntityRepository.php" },
+        { "pattern": ".*SchemaLocator\\.php", "path": "Model/Config/SchemaLocator.php" },
+        { "pattern": ".*FileResolver\\.php", "path": "Model/Config/FileResolver.php" },
         { "pattern": "/Source/.*", "path": "Model/Config/Source/Entity.php" },
         { "pattern": "/Backend/.*", "path": "Model/Config/Backend/Entity.php" },
         { "pattern": ".*\\.php", "path": "Model/Entity.php" }
