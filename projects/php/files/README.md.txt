@@ -2,7 +2,7 @@
 
 ${{0:{project|camelcase} - is a}}
 
-### Installation
+## Installation
 
 ```bash
 composer require {package}
