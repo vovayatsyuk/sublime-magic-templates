@@ -3,7 +3,7 @@
 namespace {namespace};
 
 use Magento\Backend\App\Action\Context;
-use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\Registry;
 use {psr4key}Model\{folder}Factory;
 
@@ -17,11 +17,6 @@ class {classname} extends \Magento\Backend\App\Action
     protected \${folder|lower}Factory;
 
     /**
-     * @var PageFactory
-     */
-    protected \$resultPageFactory;
-
-    /**
      * @var Registry
      */
     protected \$registry;
@@ -29,18 +24,15 @@ class {classname} extends \Magento\Backend\App\Action
     /**
      * @param Context \$context
      * @param {folder}Factory \${folder|lower}Factory
-     * @param PageFactory \$resultPageFactory
      * @param Registry \$registry
      */
     public function __construct(
         Context \$context,
         {folder}Factory \${folder|lower}Factory,
-        PageFactory \$resultPageFactory,
         Registry \$registry
     ) {{
         parent::__construct(\$context);
         \$this->{folder|lower}Factory = \${folder|lower}Factory;
-        \$this->resultPageFactory = \$resultPageFactory;
         \$this->registry = \$registry;
     }}
 
@@ -67,7 +59,7 @@ class {classname} extends \Magento\Backend\App\Action
         \$this->registry->register('{project}_{folder|lower}', \${folder|lower});
 
         /** @var \Magento\Backend\Model\View\Result\Page \$resultPage */
-        \$resultPage = \$this->resultPageFactory->create();
+        \$resultPage = \$this->resultFactory->create(ResultFactory::TYPE_PAGE);
         \$resultPage->setActiveMenu('{module}::{folder|lower}_index')
             ->addBreadcrumb(__('{project|camelcase}'), __('{project|camelcase}'))
             ->addBreadcrumb(

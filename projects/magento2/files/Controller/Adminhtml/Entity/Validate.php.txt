@@ -2,26 +2,11 @@
 
 namespace {namespace};
 
+use Magento\Framework\Controller\ResultFactory;
+
 class {classname} extends \Magento\Backend\App\Action
 {{
     const ADMIN_RESOURCE = '{module}::{folder|lower}_save';
-
-    /**
-     * @var \Magento\Framework\Controller\Result\JsonFactory
-     */
-    protected \$resultJsonFactory;
-
-    /**
-     * @param \Magento\Backend\App\Action\Context \$context
-     * @param \Magento\Framework\Controller\Result\JsonFactory \$resultJsonFactory
-     */
-    public function __construct(
-        \Magento\Backend\App\Action\Context \$context,
-        \Magento\Framework\Controller\Result\JsonFactory \$resultJsonFactory
-    ) {{
-        \$this->resultJsonFactory = \$resultJsonFactory;
-        parent::__construct(\$context);
-    }}
 
     /**
      * @return \Magento\Framework\Controller\Result\Json
@@ -31,7 +16,7 @@ class {classname} extends \Magento\Backend\App\Action
         \$response = new \Magento\Framework\DataObject();
         \$response->setError(0);
 
-        \$resultJson = \$this->resultJsonFactory->create();
+        \$resultJson = \$this->resultFactory->create(ResultFactory::TYPE_JSON);
         \$resultJson->setData(\$response);
 
         return \$resultJson;
