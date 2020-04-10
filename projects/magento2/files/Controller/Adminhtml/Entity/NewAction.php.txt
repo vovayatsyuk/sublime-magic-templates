@@ -2,39 +2,19 @@
 
 namespace {namespace};
 
-use Magento\Backend\App\Action\Context;
-use Magento\Backend\Model\View\Result\ForwardFactory;
+use Magento\Framework\Controller\ResultFactory;
 
 class {classname} extends \Magento\Backend\App\Action
 {{
     const ADMIN_RESOURCE = '{module}::{folder|lower}_edit';
 
     /**
-     * @var ForwardFactory
-     */
-    protected \$resultForwardFactory;
-
-    /**
-     * @param Context \$context
-     * @param ForwardFactory \$resultForwardFactory
-     */
-    public function __construct(
-        Context \$context,
-        ForwardFactory \$resultForwardFactory
-    ) {{
-        \$this->resultForwardFactory = \$resultForwardFactory;
-        parent::__construct(\$context);
-    }}
-
-    /**
-     * Create new item
-     *
-     * @return \Magento\Framework\Controller\ResultInterface
+     * @return \Magento\Framework\Controller\Result\Forward
      */
     public function execute()
     {{
         /** @var \Magento\Framework\Controller\Result\Forward \$resultForward */
-        \$resultForward = \$this->resultForwardFactory->create();
+        \$resultForward = \$this->resultFactory->create(ResultFactory::TYPE_FORWARD);
         return \$resultForward->forward('edit');
     }}
 }}
