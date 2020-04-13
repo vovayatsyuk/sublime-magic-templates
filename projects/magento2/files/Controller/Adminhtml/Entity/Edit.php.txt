@@ -4,7 +4,6 @@ namespace {namespace};
 
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\Controller\ResultFactory;
-use Magento\Framework\Registry;
 use {psr4key}Model\{folder}Factory;
 
 class {classname} extends \Magento\Backend\App\Action
@@ -17,23 +16,15 @@ class {classname} extends \Magento\Backend\App\Action
     protected \${folder|lower}Factory;
 
     /**
-     * @var Registry
-     */
-    protected \$registry;
-
-    /**
      * @param Context \$context
      * @param {folder}Factory \${folder|lower}Factory
-     * @param Registry \$registry
      */
     public function __construct(
         Context \$context,
-        {folder}Factory \${folder|lower}Factory,
-        Registry \$registry
+        {folder}Factory \${folder|lower}Factory
     ) {{
         parent::__construct(\$context);
         \$this->{folder|lower}Factory = \${folder|lower}Factory;
-        \$this->registry = \$registry;
     }}
 
     /**
@@ -55,8 +46,6 @@ class {classname} extends \Magento\Backend\App\Action
                 return \$resultRedirect->setPath('*/*/');
             }}
         }}
-
-        \$this->registry->register('{project}_{folder|lower}', \${folder|lower});
 
         /** @var \Magento\Backend\Model\View\Result\Page \$resultPage */
         \$resultPage = \$this->resultFactory->create(ResultFactory::TYPE_PAGE);
