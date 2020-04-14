@@ -52,7 +52,9 @@ class {classname} extends \Magento\Ui\DataProvider\AbstractDataProvider
         if (isset(\$this->loadedData)) {{
             return \$this->loadedData;
         }}
+
         \$items = \$this->collection->getItems();
+
         /** @var \{psr4key}Model\{basename|remove DataProvider|remove Provider} \$item */
         foreach (\$items as \$item) {{
             \$this->loadedData[\$item->getId()] = \$item->getData();
@@ -63,7 +65,7 @@ class {classname} extends \Magento\Ui\DataProvider\AbstractDataProvider
             \$item = \$this->collection->getNewEmptyItem();
             \$item->setData(\$data);
             \$this->loadedData[\$item->getId()] = \$item->getData();
-            \$this->dataPersistor->clear('{project|snakecase}_{folder|remove DataProvider|remove Provider|lower}');
+            \$this->dataPersistor->clear('{project|snakecase}_{basename|remove DataProvider|remove Provider|lower}');
         }}
 
         return \$this->loadedData;
