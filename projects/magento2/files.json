@@ -33,6 +33,7 @@
         { "pattern": "acl\\.xml", "path": "etc/acl.xml" },
         { "pattern": "config\\.xml", "path": "etc/config.xml" },
         { "pattern": "crontab\\.xml", "path": "etc/crontab.xml" },
+        { "pattern": "csp_whitelist\\.xml", "path": "etc/csp_whitelist.xml" },
         { "pattern": "di\\.xml", "path": "etc/di.xml" },
         { "pattern": "email_templates\\.xml", "path": "etc/email_templates.xml" },
         { "pattern": "events\\.xml", "path": "etc/events.xml" },
