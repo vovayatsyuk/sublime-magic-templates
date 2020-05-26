@@ -92,7 +92,15 @@
         { "pattern": "js/view/.*\\.js", "path": "view/base/web/js/view.js" },
         { "pattern": "js/.*\\.js", "path": "view/base/web/js/default.js" }
     ],
+    "/web/": [
+        { "pattern": "js/mixin/.*\\.js", "path": "view/base/web/js/mixin/model-mixin.js" },
+        { "pattern": "js/action/.*\\.js", "path": "view/base/web/js/action.js" },
+        { "pattern": "js/model/.*\\.js", "path": "view/base/web/js/model.js" },
+        { "pattern": "js/view/.*\\.js", "path": "view/base/web/js/view.js" },
+        { "pattern": "js/.*\\.js", "path": "view/base/web/js/default.js" }
+    ],
     "/": [
+        { "pattern": "requirejs\\-config\\.js", "path": "view/base/requirejs-config.js" },
         { "pattern": "layout/.*\\.xml", "path": "view/base/layout/layout-theme.xml" },
         { "pattern": "composer\\.json", "path": "composer.json" },
         { "pattern": "README\\.md", "path": "README.md" },
