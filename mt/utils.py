@@ -101,7 +101,7 @@ def closest_file(name, path, directory=False, max_depth=20):
     while max_depth > 0 and len(folders) > 2:
         max_depth -= 1
         file = os.sep.join(folders)
-        if os.path.isfile(file):
+        if os.path.isfile(file) and os.path.getsize(file) > 0:
             if directory is True:
                 return file.replace(name, '')
             else:
