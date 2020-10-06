@@ -1,4 +1,8 @@
 {
+    "/tests/": [
+        { "pattern": "/Feature/.*\\.php", "path": "tests/FeatureTest.php" },
+        { "pattern": "/Unit/.*\\.php", "path": "tests/UnitTest.php" }
+    ],
     "@extend": {
         "php": ["*"]
     }

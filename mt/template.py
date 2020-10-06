@@ -57,6 +57,9 @@ class Template:
 
         filepath = '/' + self.app.file.autoload_path()
 
+        if self.app.file.psr4dir().endswith('tests/'):
+            filepath = '/tests' + filepath
+
         path = None
         for group in rules:
             if not filepath.startswith(group):
