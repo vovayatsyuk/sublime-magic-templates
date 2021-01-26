@@ -57,7 +57,8 @@ class Template:
 
         filepath = '/' + self.app.file.autoload_path()
 
-        if self.app.file.psr4dir().endswith('tests/'):
+        psr4dir = self.app.file.psr4dir()
+        if psr4dir is not None and psr4dir.endswith('tests/'):
             filepath = '/tests' + filepath
 
         path = None
