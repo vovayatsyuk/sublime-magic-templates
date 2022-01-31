@@ -1,3 +1,3 @@
 (new \Monolog\Logger('custom'))
-    ->pushHandler(new \Monolog\Handler\StreamHandler(BP . '/var/log/custom.log'))
-    ->debug(${{1:__METHOD__}});
+    ->pushHandler((new \Monolog\Handler\StreamHandler(BP . '/var/log/custom.log'))->setFormatter(new \Monolog\Formatter\LineFormatter(null, null, true, true)))
+    ->debug(print_r(${{1:__METHOD__}}, true));
