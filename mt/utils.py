@@ -114,7 +114,7 @@ def load_file(path, convert_to_json=False):
     content = None
 
     if path is not None:
-        with open(path, 'r') as stream:
+        with open(path, 'r', encoding="utf-8") as stream:
             try:
                 if path.endswith('json'):
                     string = stream.read()
