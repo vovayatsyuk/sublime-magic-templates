@@ -2,6 +2,7 @@
     "/": [
         { "pattern": "composer\\.json", "path": "composer.json" },
         { "pattern": "README\\.md", "path": "README.md" },
+        { "pattern": ".*\\.blade\\.php", "path": "blade.php" }
         { "pattern": ".*\\.php", "path": "default.php" }
     ]
 }
