@@ -1,7 +1,9 @@
 {
     "/": [
         { "trigger": ".dd\tMagicTemplates", "scope": "source.php", "path": "dd" },
-        { "trigger": ".dump\tMagicTemplates", "scope": "source.php", "path": "dump" }
+        { "trigger": ".dump\tMagicTemplates", "scope": "source.php", "path": "dump" },
+        { "trigger": ".log\tMagicTemplates", "scope": "source.php", "path": "log" },
+        { "trigger": "log\tMagicTemplates", "scope": "text.html.blade", "path": "log-blade" }
     ],
     "@extend": {
         "php": ["*"],
