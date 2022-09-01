@@ -1,7 +1,7 @@
 {
     "files": [{
         "composer.json": [{
-            "type": "magento2-"
+            "type": "magento2-module"
         }, {
             "name": "magento"
         }]

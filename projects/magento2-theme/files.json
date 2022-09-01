@@ -1,0 +1,8 @@
+{
+    "/": [
+        { "pattern": "registration\\.php", "path": "registration.php" }
+    ],
+    "@extend": {
+        "magento2": ["*"]
+    }
+}

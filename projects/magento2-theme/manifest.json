@@ -1,0 +1,7 @@
+{
+    "files": [{
+        "composer.json": [{
+            "type": "magento2-theme"
+        }]
+    }]
+}

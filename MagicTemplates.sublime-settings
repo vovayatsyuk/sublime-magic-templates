@@ -6,6 +6,7 @@
     // Feel free to remove all except those you need.
     "projects": [
         "laravel",
+        "magento2-theme",
         "magento2",
         "magento1",
         "php",

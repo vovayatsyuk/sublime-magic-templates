@@ -1,0 +1,5 @@
+<?php
+
+use Magento\Framework\Component\ComponentRegistrar;
+
+ComponentRegistrar::register(ComponentRegistrar::THEME, 'frontend/{vendor|camelcase}/{project|remove theme-frontend-}', __DIR__);
