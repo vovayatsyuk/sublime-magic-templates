@@ -97,7 +97,8 @@
         { "trigger": ".dd\tMagicTemplates", "scope": "source.php", "path": "global/php/dd" },
         { "trigger": ".ddc\tMagicTemplates", "scope": "source.php", "path": "global/php/ddc" },
         { "trigger": ".dump\tMagicTemplates", "scope": "source.php", "path": "global/php/dump" },
-        { "trigger": ".log\tMagicTemplates", "scope": "source.php", "path": "global/php/log" }
+        { "trigger": ".log\tMagicTemplates", "scope": "source.php", "path": "global/php/log" },
+        { "trigger": ".logclass\tMagicTemplates", "scope": "source.php", "path": "global/php/logclass" }
     ],
     "@extend": {
         "php": ["*"]
