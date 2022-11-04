@@ -6,5 +6,5 @@ ${{0:{project|camelcase} - is a Magento2 module that}}
 
 ```bash
 composer require {package}
-bin/magento setup:upgrade
+bin/magento setup:upgrade --safe-mode=1
 ```
