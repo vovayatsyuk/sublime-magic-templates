@@ -36,10 +36,8 @@ class File:
         if self._psr4key is not None:
             return self._psr4key
 
-        psr4 = self.app.composer.psr4()
-        psr4dev = self.app.composer.data('autoload-dev.psr-4')
-        if psr4 is None and psr4dev is None:
-            return None
+        psr4 = (self.app.composer.psr4(), [])[self.app.composer.psr4() is None]
+        psr4dev = (self.app.composer.data('autoload-dev.psr-4'), [])[self.app.composer.data('autoload-dev.psr-4') is None]
 
         relative_path = self.relative_path()
         for psr4 in [psr4, psr4dev]:
