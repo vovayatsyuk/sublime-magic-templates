@@ -1,5 +1,5 @@
 {{
-    "name": "{parent_folder}/{folder}",
+    "name": "{parent_folder|lower}/{folder|lower}",
     "description": "${{1:N/A}}",
     "keywords": [
         "${{2:{project}}}"
