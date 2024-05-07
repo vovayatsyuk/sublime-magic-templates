@@ -16,6 +16,7 @@
         { "pattern": ".*\\.php", "path": "Controller/Adminhtml/Entity/Index.php" }
     ],
     "/Controller/": [
+        { "pattern": "Router\\.php", "path": "Controller/Router.php" },
         { "pattern": "(Save|Post)\\.php", "path": "Controller/Entity/Save.php" },
         { "pattern": ".*\\.php", "path": "Controller/Entity/Index.php" }
     ],

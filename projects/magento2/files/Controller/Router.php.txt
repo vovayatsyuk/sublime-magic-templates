@@ -1,0 +1,35 @@
+<?php
+
+namespace {namespace};
+
+use Magento\Framework\App\ActionFactory;
+use Magento\Framework\App\Action\Forward;
+use Magento\Framework\App\RequestInterface;
+use Magento\Framework\Url;
+
+class {classname} implements \Magento\Framework\App\RouterInterface
+{{
+    protected ActionFactory \$actionFactory;
+
+    public function __construct(
+        ActionFactory \$actionFactory
+    ) {{
+        \$this->actionFactory = \$actionFactory;
+    }}
+
+    public function match(RequestInterface \$request)
+    {{
+        \$identifier = trim(\$request->getPathInfo(), '/');
+
+        if (\$identifier !== 'test') {{
+            return false;
+        }}
+
+        \$request->setRouteName('{project}')
+            ->setControllerName('item')
+            ->setActionName('view');
+        \$request->setAlias(Url::REWRITE_REQUEST_PATH_ALIAS, \$identifier);
+
+        return \$this->actionFactory->create(Forward::class);
+    }}
+}}
