@@ -22,7 +22,7 @@ def upper(string):
 
 
 def camelcase(string):
-    return string.title().replace(' ', '').replace('-', '').replace('_', '')
+    return re.sub('([A-Z])', '_\\1', string).title().replace(' ', '').replace('-', '').replace('_', '')
 
 
 def coloncase(string):

@@ -1,5 +1,5 @@
 {{
-    "name": "{parent_folder|lower}/{folder|lower}",
+    "name": "{parent_folder|kebabcase}/{folder|kebabcase}",
     "description": "${{1:N/A}}",
     "type": "magento2-module",
     "version": "1.0.0",
