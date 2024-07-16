@@ -1,4 +1,7 @@
 {
+    "/app/Http/": [
+        { "pattern": "/Controllers/.*\\.php", "path": "Controller.php" }
+    ],
     "/tests/": [
         { "pattern": "/Feature/.*\\.php", "path": "tests/FeatureTest.php" },
         { "pattern": "/Unit/.*\\.php", "path": "tests/UnitTest.php" }
