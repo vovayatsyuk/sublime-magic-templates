@@ -30,7 +30,7 @@ def coloncase(string):
 
 
 def snakecase(string):
-    return re.sub('([A-Z])', '_\\1', string).lower().replace('-', '_').lstrip('_')
+    return re.sub('([A-Z])', '_\\1', string).lower().replace('-', '_').replace('__', '_').lstrip('_')
 
 
 def kebabcase(string):
