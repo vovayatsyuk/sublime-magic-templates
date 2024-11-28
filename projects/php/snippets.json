@@ -4,7 +4,8 @@
         { "trigger": "namespace", "scope": "source.php", "path": "namespace" },
         { "trigger": ".dd\tMagicTemplates", "scope": "source.php", "path": "dd" },
         { "trigger": ".dump\tMagicTemplates", "scope": "source.php", "path": "dump" },
-        { "trigger": ".deb\tMagicTemplates", "scope": "source.php", "path": "debug_backtrace" }
+        { "trigger": ".deb\tMagicTemplates", "scope": "source.php", "path": "debug_backtrace" },
+        { "trigger": ".time\tMagicTemplates", "scope": "source.php", "path": "execution_time" }
     ],
     "@extend": {
         "js": ["*"]

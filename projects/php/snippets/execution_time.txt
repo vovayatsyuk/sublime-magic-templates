@@ -1,0 +1,5 @@
+\$timeStart = microtime(true);
+// put your code here
+\$timeEnd = microtime(true) - \$timeStart;
+echo '<pre>' . \$timeEnd . '</pre>';
+die;
