@@ -45,6 +45,9 @@
     "/Helper/": [
         { "pattern": ".*\\.php", "path": "Helper/Data.php" }
     ],
+    "/Magewire/": [
+        { "pattern": ".*\\.php", "path": "Magewire/Component.php" }
+    ],
     "/Model/ResourceModel/": [
         { "pattern": "/Grid/Collection\\.php", "path": "Model/ResourceModel/Entity/Grid/Collection.php" },
         { "pattern": "/Collection\\.php", "path": "Model/ResourceModel/Entity/Collection.php" },
