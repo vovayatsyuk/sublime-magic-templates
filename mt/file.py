@@ -43,10 +43,13 @@ class File:
         for psr4 in [psr4, psr4dev]:
             for key in psr4:
                 if psr4[key]:
-                    if relative_path.startswith(psr4[key]):
-                        self._psr4key = key
-                        self._psr4dir = psr4[key]
-                        return key
+                    paths = psr4[key] if isinstance(psr4[key], (list, tuple)) else [psr4[key]]
+
+                    for prefix in paths:
+                        if relative_path.startswith(prefix):
+                            self._psr4key = key
+                            self._psr4dir = prefix
+                            return key
                 else:
                     self._psr4key = key
                     self._psr4dir = psr4[key]
